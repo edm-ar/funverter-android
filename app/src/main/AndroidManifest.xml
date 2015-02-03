@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="basic.converters.apps.basicunitconverter" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.TemperatureConverterActivity"
+            android:label="@string/title_activity_temperature_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.WeightConverterActivity"
+            android:label="@string/title_activity_weight_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.DistanceConverterActivity"
+            android:label="@string/title_activity_distance_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.VolumeConverterActivity"
+            android:label="@string/title_activity_volume_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.SpeedConverterActivity"
+            android:label="@string/title_activity_speed_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="basic.converters.apps.basicunitconverter.TimeConverterActivity"
+            android:label="@string/title_activity_time_converter"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+    </application>
+
+</manifest>

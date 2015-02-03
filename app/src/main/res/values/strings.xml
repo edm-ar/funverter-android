@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Basic Unit Converter</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Converter Text -->
+    <string name="converter_temperature">Temperature</string>
+    <string name="converter_weight">Weight</string>
+    <string name="converter_distance">Distance</string>
+    <string name="converter_volume">Volume</string>
+    <string name="converter_speed">Speed</string>
+    <string name="converter_time">Time</string>
+
+    <!-- Background Colors -->
+    <color name="greenBackground">#27ae60</color>
+    <color name="blueBackground">#3498DB</color>
+    <color name="purpleBackground">#9b59b6</color>
+    <color name="redBackground">#e74c3c</color>
+    <color name="pumpkinBackground">#d35400</color>
+    <color name="greenSeaBackground">#16a085</color>
+
+    <!-- Activity Titles -->
+    <string name="title_activity_temperature_converter">Temperature Converter</string>
+    <string name="title_activity_weight_converter">Weight Converter</string>
+    <string name="title_activity_distance_converter">Distance Converter</string>
+    <string name="title_activity_volume_converter">Volume Converter</string>
+    <string name="title_activity_speed_converter">Speed Converter</string>
+    <string name="title_activity_time_converter">Time Converter</string>
+
+    <!-- Time Converter Units List -->
+    <string name="convert">Convert</string>
+    <string name="from_prompt">Convert from...</string>
+    <string name="to_prompt">Convert to...</string>
+    <string-array name="time_units">
+        <item>Convert from...</item>
+        <item>Hours</item>
+        <item>Seconds</item>
+        <item>Minutes</item>
+        <item>Days</item>
+        <item>Weeks</item>
+        <item>Months</item>
+        <item>Years</item>
+    </string-array>
+
+    <!-- Ids -->
+    <item name="toSpinner" type="id"/>
+</resources>
