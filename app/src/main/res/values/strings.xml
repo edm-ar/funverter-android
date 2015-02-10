@@ -32,6 +32,7 @@
     <string name="convert">Convert</string>
     <string name="from_prompt">Convert from...</string>
     <string name="to_prompt">Convert to...</string>
+    <!-- Consider adding Microseconds and Nanoseconds to the list -->
     <string-array name="time_units">
         <item>Convert from...</item>
         <item>Hours</item>

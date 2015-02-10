@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class BasicUnitConverterActivity extends Activity {
 
     private static final String TAG = BasicUnitConverterActivity.class.getSimpleName(); // tag to be used when logging
-    private static final String ACTIVITYSUFFIX = "ConverterActivity"; //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hardcoding
+    private static final String ACTIVITYSUFFIX = "ConverterActivity"; //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
     private static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter."; //TODO find better way of getting package path to support refactoring
 
     @Override
