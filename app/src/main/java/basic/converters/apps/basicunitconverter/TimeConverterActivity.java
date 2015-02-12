@@ -149,9 +149,9 @@ public class TimeConverterActivity extends Activity {
             } else if(!EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
                 result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert(Long.parseLong(inputText),TimeUnitExtension.valueOf(fromUnit)));
             } else if(EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert(Long.parseLong(inputText)));
+                result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert((long)(Double.parseDouble(inputText) * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
             } else {
-                long d = Long.parseLong(inputText) * TimeUnitExtension.valueOf(fromUnit).getMillis();
+                long d = (long)(Double.parseDouble(inputText) * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
                 result = String.valueOf(TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS)); // use milliseconds since anything can be converted from milliseconds
             }
         }
