@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * Created by edmar on 1/31/15.
  */
 public enum TimeUnitExtension {
+    //TODO add Centuries and Milleniums
     WEEKS {
         public long toMonths(long d, TimeUnitExtension s) {
             return s.toMonths(d * s.getMillis());
