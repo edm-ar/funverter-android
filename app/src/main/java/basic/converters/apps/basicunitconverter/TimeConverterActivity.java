@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.EnumUtils;
 
+import basic.converters.utilities.ConversionEntriesDataSource;
 import basic.converters.utilities.TimeUnitExtension;
 
 public class TimeConverterActivity extends Activity {
@@ -35,10 +36,15 @@ public class TimeConverterActivity extends Activity {
     private boolean isFirstSelection = true;
     private Resources res;
 
+    private ConversionEntriesDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_converter);
+
+        dataSource = new ConversionEntriesDataSource(this);
+        dataSource.open();
 
         res = getResources();
 
@@ -160,7 +166,10 @@ public class TimeConverterActivity extends Activity {
             return;
         }
 
-        textOutput.setText(result);
+        if(!result.isEmpty()) {
+            dataSource.createConversionEntry(result, "time");
+            textOutput.setText(result);
+        }
     }
 
     private void showToast(String msg) {

@@ -15,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.converters.utilities.ConversionEntriesDataSource;
+
 
 public class WeightConverterActivity extends Activity {
 
@@ -26,10 +28,15 @@ public class WeightConverterActivity extends Activity {
     private Button calculateBtn;
     private TextView textOutput;
 
+    private ConversionEntriesDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_converter);
+
+        dataSource = new ConversionEntriesDataSource(this);
+        dataSource.open();
 
         textInput = (EditText) findViewById(R.id.textInput);
         poundsRadioBtn = (RadioButton) findViewById(R.id.poundsRadioBtn);
@@ -81,24 +88,27 @@ public class WeightConverterActivity extends Activity {
         }
 
         Float input = Float.parseFloat(inputText);
-        Float temp;
+        Float x;
         String result = "";
 
         if(kilogramsRadioBtn.isChecked()) {
             Log.i(TAG,"Converting" + input + " to Kilograms");
-            temp = input/2.2046F;
-            result = temp + " Kilograms";
+            x = input/2.2046F;
+            result = x + " Kilograms";
         }
         else if(poundsRadioBtn.isChecked()) {
             Log.i(TAG,"Converting" + input + " to Pounds");
-            temp = input * 2.2046F;
-            result = temp + " Pounds";
+            x = input * 2.2046F;
+            result = x + " Pounds";
         } else {
             showToast("Please pick a unit to convert to");
             return;
         }
 
-        textOutput.setText(result);
+        if(!result.isEmpty()) {
+            dataSource.createConversionEntry(String.valueOf(x), "weight");
+            textOutput.setText(result);
+        }
     }
 
     private void showToast(String msg) {

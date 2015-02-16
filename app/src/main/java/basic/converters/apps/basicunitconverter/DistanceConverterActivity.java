@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.converters.utilities.ConversionEntriesDataSource;
+
 
 public class DistanceConverterActivity extends Activity {
 
@@ -25,10 +27,15 @@ public class DistanceConverterActivity extends Activity {
     private Button calculateBtn;
     private TextView textOutput;
 
+    private ConversionEntriesDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distance_converter);
+
+        dataSource = new ConversionEntriesDataSource(this);
+        dataSource.open();
 
         textInput = (EditText) findViewById(R.id.textInput);
         kilometersRadioBtn = (RadioButton) findViewById(R.id.kilometersRadioBtn);
@@ -101,7 +108,10 @@ public class DistanceConverterActivity extends Activity {
             return;
         }
 
-        textOutput.setText(result);
+        if(!result.isEmpty()) {
+            dataSource.createConversionEntry(String.valueOf(x), "distance");
+            textOutput.setText(result);
+        }
     }
 
     private void showToast(String msg) {

@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.converters.utilities.ConversionEntriesDataSource;
+
 
 public class TemperatureConverterActivity extends Activity {
 
@@ -25,10 +27,15 @@ public class TemperatureConverterActivity extends Activity {
     private Button calculateBtn;
     private TextView textOutput;
 
+    private ConversionEntriesDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature_converter);
+
+        dataSource = new ConversionEntriesDataSource(this);
+        dataSource.open();
 
         textInput = (EditText) findViewById(R.id.textInput);
         celsiusRadioBtn = (RadioButton) findViewById(R.id.celsiusRadioBtn);
@@ -97,7 +104,22 @@ public class TemperatureConverterActivity extends Activity {
             return;
         }
 
-        textOutput.setText(result);
+        if(!result.isEmpty()) {
+            dataSource.createConversionEntry(String.valueOf(x), "temperature");
+            textOutput.setText(result);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        dataSource.open();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        dataSource.close();
+        super.onPause();
     }
 
     private void showToast(String msg) {

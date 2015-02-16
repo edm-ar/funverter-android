@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.converters.utilities.ConversionEntriesDataSource;
+
 
 public class VolumeConverterActivity extends Activity {
 
@@ -25,10 +27,15 @@ public class VolumeConverterActivity extends Activity {
     private Button calculateBtn;
     private TextView textOutput;
 
+    private ConversionEntriesDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volume_converter);
+
+        dataSource = new ConversionEntriesDataSource(this);
+        dataSource.open();
 
         textInput = (EditText) findViewById(R.id.textInput);
         litersRadioBtn = (RadioButton) findViewById(R.id.litersRadioBtn);
@@ -101,7 +108,10 @@ public class VolumeConverterActivity extends Activity {
             return;
         }
 
-        textOutput.setText(result);
+        if(!result.isEmpty()) {
+            dataSource.createConversionEntry(String.valueOf(x), "volume");
+            textOutput.setText(result);
+        }
     }
 
     private void showToast(String msg) {
