@@ -109,7 +109,7 @@ public class DistanceConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(x), "distance");
+            dataSource.createConversionEntry(String.valueOf(input), "distance");
             textOutput.setText(result);
         }
     }

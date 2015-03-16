@@ -105,7 +105,7 @@ public class TemperatureConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(x), "temperature");
+            dataSource.createConversionEntry(String.valueOf(input), "temperature");
             textOutput.setText(result);
         }
     }

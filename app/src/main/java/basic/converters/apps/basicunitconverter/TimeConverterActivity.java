@@ -167,7 +167,7 @@ public class TimeConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(result, "time");
+            dataSource.createConversionEntry(String.valueOf(input), "time");
             textOutput.setText(result);
         }
     }

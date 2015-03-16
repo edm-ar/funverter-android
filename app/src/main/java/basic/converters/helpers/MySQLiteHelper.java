@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class MySQLiteHelper extends SQLiteOpenHelper{
 
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_VALUES = "conversion_values";
+    public static final String COLUMN_VALUES = "conversion_entries";
 
     private static final String DATABASE_NAME = "conversionentries.db";
     private static final int DATABASE_VERSION = 1;

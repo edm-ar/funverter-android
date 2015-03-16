@@ -109,7 +109,7 @@ public class SpeedConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(x), "speed");
+            dataSource.createConversionEntry(String.valueOf(input), "speed");
             textOutput.setText(result);
         }
     }

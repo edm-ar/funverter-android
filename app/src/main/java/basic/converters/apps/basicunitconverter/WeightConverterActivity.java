@@ -106,7 +106,7 @@ public class WeightConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(x), "weight");
+            dataSource.createConversionEntry(String.valueOf(input), "weight");
             textOutput.setText(result);
         }
     }

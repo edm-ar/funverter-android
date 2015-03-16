@@ -109,7 +109,7 @@ public class VolumeConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(x), "volume");
+            dataSource.createConversionEntry(String.valueOf(input), "volume");
             textOutput.setText(result);
         }
     }
