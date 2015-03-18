@@ -85,12 +85,12 @@ public class ConversionEntriesDataSource {
         List<ConversionEntry> conversionEntries = new ArrayList<ConversionEntry>();
 
         Cursor cursor = database.query(null,
-                allColumns, null, null, null, null, null);
+                new String[] {MySQLiteHelper.COLUMN_VALUES}, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            ConversionEntry comment = cursorToConversionEntry(cursor);
-            conversionEntries.add(comment);
+            ConversionEntry entry = cursorToConversionEntry(cursor);
+            conversionEntries.add(entry);
             cursor.moveToNext();
         }
         // make sure to close the cursor

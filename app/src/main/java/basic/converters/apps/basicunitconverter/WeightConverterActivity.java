@@ -2,12 +2,15 @@ package basic.converters.apps.basicunitconverter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.audiofx.AutomaticGainControl;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,20 +18,25 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import basic.converters.utilities.ConversionEntriesDataSource;
+import basic.converters.utilities.ConversionEntry;
 
 
 public class WeightConverterActivity extends Activity {
 
     private static final String TAG = TemperatureConverterActivity.class.getSimpleName(); // tag to be used when logging
 
-    private EditText textInput;
+    private AutoCompleteTextView textInput;
     private RadioButton poundsRadioBtn;
     private RadioButton kilogramsRadioBtn;
     private Button calculateBtn;
     private TextView textOutput;
 
     private ConversionEntriesDataSource dataSource;
+
+    private static final String TABLE_NAME = "weight";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +46,17 @@ public class WeightConverterActivity extends Activity {
         dataSource = new ConversionEntriesDataSource(this);
         dataSource.open();
 
-        textInput = (EditText) findViewById(R.id.textInput);
+        textInput = (AutoCompleteTextView) findViewById(R.id.textInput);
         poundsRadioBtn = (RadioButton) findViewById(R.id.poundsRadioBtn);
         kilogramsRadioBtn = (RadioButton) findViewById(R.id.kilogramsRadioBtn);
         calculateBtn = (Button) findViewById(R.id.calculateBtn);
         textOutput = (TextView) findViewById(R.id.textOutput);
+
+        Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
+        // set adapter for autocomplete
+        List<ConversionEntry> entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
+        textInput.setAdapter(adapter);
 
         // create button listener
         View.OnClickListener listener = new ButtonListener();
@@ -106,7 +120,7 @@ public class WeightConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(input), "weight");
+            dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
             textOutput.setText(result);
         }
     }

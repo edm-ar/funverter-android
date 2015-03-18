@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -19,16 +20,18 @@ import android.widget.Toast;
 import android.content.res.Resources;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.EnumUtils;
 
 import basic.converters.utilities.ConversionEntriesDataSource;
+import basic.converters.utilities.ConversionEntry;
 import basic.converters.utilities.TimeUnitExtension;
 
 public class TimeConverterActivity extends Activity {
     private static final String TAG = TimeConverterActivity.class.getSimpleName(); // tag to be used when logging
 
-    private EditText textInput;
+    private AutoCompleteTextView textInput;
     private Spinner toSpinner;
     private Spinner fromSpinner;
     private Button calculateBtn;
@@ -37,6 +40,8 @@ public class TimeConverterActivity extends Activity {
     private Resources res;
 
     private ConversionEntriesDataSource dataSource;
+
+    private static final String TABLE_NAME = "time";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +53,16 @@ public class TimeConverterActivity extends Activity {
 
         res = getResources();
 
-        textInput = (EditText)findViewById(R.id.textInput);
+        textInput = (AutoCompleteTextView)findViewById(R.id.textInput);
         fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
         calculateBtn = (Button) findViewById(R.id.calculateBtn);
         textOutput = (TextView) findViewById(R.id.textOutput);
+
+        Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
+        // set adapter for autocomplete
+        List<ConversionEntry> entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
+        textInput.setAdapter(adapter);
 
         // add item click listener to spinner
         Spinner.OnItemSelectedListener spinListener = new ItemListener();
@@ -167,7 +178,7 @@ public class TimeConverterActivity extends Activity {
         }
 
         if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(input), "time");
+            dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
             textOutput.setText(result);
         }
     }
