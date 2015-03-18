@@ -43,6 +43,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase database) {
         for(String tableName : tableNames) {
             // Database creation sql statement
+            // TODO create table to only accept unique values
             database.execSQL(String.format(DATABASE_CREATE, tableName, COLUMN_ID, COLUMN_VALUES, COLUMN_ID));
         }
     }
