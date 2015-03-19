@@ -31,7 +31,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 
     private String DATABASE_CREATE = "CREATE TABLE `%s` (\n" +
             "\t`%s`\tINTEGER,\n" +
-            "\t`%s`\tREAL NOT NULL,\n" +
+            "\t`%s`\tREAL NOT NULL unique,\n" +
             "\tPRIMARY KEY(%s)\n" +
             ");";
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import basic.converters.helpers.MySQLiteHelper;
 
@@ -37,13 +38,22 @@ public class ConversionEntriesDataSource {
     public ConversionEntry createConversionEntry(String conversionEntry, String tableName) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_VALUES, conversionEntry);
-        long insertId = database.insert(MySQLiteHelper.tables.get(tableName), null, values);
-        Cursor cursor = database.query(MySQLiteHelper.tables.get(tableName),
-                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
-        cursor.moveToFirst();
-        ConversionEntry entry = cursorToConversionEntry(cursor);
-        cursor.close();
+        long insertId;
+        Cursor cursor;
+        ConversionEntry entry = null;
+
+        try{
+            insertId = database.insert(MySQLiteHelper.tables.get(tableName), null, values);
+            cursor = database.query(MySQLiteHelper.tables.get(tableName),
+                    allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
+                    null, null, null);
+            cursor.moveToFirst();
+            entry = cursorToConversionEntry(cursor);
+            cursor.close();
+        } catch(Exception e) {
+            Log.w(this.getClass().getName(), "Error inserting " + values + " into " + tableName + ". Probably because the value is not unique.", e);
+        }
+
         return entry;
     }
 
