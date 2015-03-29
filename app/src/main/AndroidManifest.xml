@@ -19,32 +19,62 @@
         <activity
             android:name="basic.converters.apps.basicunitconverter.TemperatureConverterActivity"
             android:label="@string/title_activity_temperature_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
             android:name="basic.converters.apps.basicunitconverter.WeightConverterActivity"
             android:label="@string/title_activity_weight_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
             android:name="basic.converters.apps.basicunitconverter.DistanceConverterActivity"
             android:label="@string/title_activity_distance_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
             android:name="basic.converters.apps.basicunitconverter.VolumeConverterActivity"
             android:label="@string/title_activity_volume_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
             android:name="basic.converters.apps.basicunitconverter.SpeedConverterActivity"
             android:label="@string/title_activity_speed_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
             android:name="basic.converters.apps.basicunitconverter.TimeConverterActivity"
             android:label="@string/title_activity_time_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
     </application>
 

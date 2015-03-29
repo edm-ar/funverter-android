@@ -1,5 +1,6 @@
 package basic.converters.apps.basicunitconverter;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class TemperatureConverterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature_converter);
 
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         dataSource = new ConversionEntriesDataSource(this);
         dataSource.open();
 
@@ -57,13 +61,6 @@ public class TemperatureConverterActivity extends Activity {
         // create button listener
         View.OnClickListener listener = new ButtonListener();
         calculateBtn.setOnClickListener(listener);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.temperature_converter, menu);
-        return true;
     }
 
     @Override
