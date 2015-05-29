@@ -2,10 +2,12 @@ package basic.converters.apps.basicunitconverter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -25,12 +27,23 @@ public class BasicUnitConverterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_unit_converter);
 
-        // create click handler
-        View.OnClickListener handler = new View.OnClickListener() {
-            //TODO add click animation on linear layouts
-            public void onClick(View v) {
+        // create touch handler
+        View.OnTouchListener touchHandler = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
                 View childView = ((ViewGroup)v).getChildAt(0); // get first item since there's only one
                 Intent intent;
+
+                // TODO create background color resources to replace hardcoded colors
+                switch(event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        v.setBackgroundColor(Color.parseColor("#55E6E6E6"));
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.setBackgroundColor(Color.parseColor("#55FFFFFF"));
+                        break;
+                }
 
                 String activityName = ((TextView)childView).getText().toString().concat(ACTIVITYSUFFIX);
                 String activityFullPath = ACTIVITYPACKAGE.concat(activityName);
@@ -43,6 +56,8 @@ public class BasicUnitConverterActivity extends Activity {
                     Log.e(TAG, e.getMessage(), e);
                     showToast("Oops...there has been an error :(");
                 }
+
+                return true;
             }
         };
 
@@ -50,7 +65,7 @@ public class BasicUnitConverterActivity extends Activity {
         RelativeLayout parentLayout = (RelativeLayout)findViewById(R.id.parentLayout);
         for(int i = 0; i < parentLayout.getChildCount(); i++) {
             View child = parentLayout.getChildAt(i);
-            child.setOnClickListener(handler);
+            child.setOnTouchListener(touchHandler);
         }
     }
 
