@@ -2,6 +2,7 @@ package basic.converters.apps.basicunitconverter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class BasicUnitConverterActivity extends Activity {
     private static final String TAG = BasicUnitConverterActivity.class.getSimpleName(); // tag to be used when logging
     private static final String ACTIVITYSUFFIX = "ConverterActivity"; //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
     private static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter."; //TODO find better way of getting package path to support refactoring
+    private Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +36,15 @@ public class BasicUnitConverterActivity extends Activity {
 
                 View childView = ((ViewGroup)v).getChildAt(0); // get first item since there's only one
                 Intent intent;
+                res = getResources();
 
                 // TODO create background color resources to replace hardcoded colors
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        v.setBackgroundColor(Color.parseColor("#55E6E6E6"));
+                        v.setBackgroundColor(res.getColor(R.color.btnClickColor));
                         break;
                     case MotionEvent.ACTION_UP:
-                        v.setBackgroundColor(Color.parseColor("#55FFFFFF"));
+                        v.setBackgroundColor(res.getColor(R.color.btnColor));
                         break;
                 }
 
