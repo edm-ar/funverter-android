@@ -17,6 +17,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="basic.converters.preferences.SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
+        </activity>
+        <activity
             android:name="basic.converters.apps.basicunitconverter.TemperatureConverterActivity"
             android:label="@string/title_activity_temperature_converter"
             android:windowSoftInputMode="stateVisible|adjustResize"

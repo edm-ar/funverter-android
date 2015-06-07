@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<Preference android:title="web page title" >-->
+        <!--<intent android:action="android.intent.action.VIEW"-->
+            <!--android:data="http://www.google.com" />-->
+    <!--</Preference>-->
+    <PreferenceCategory
+        android:title="Storage"
+        android:key="pref_key_storage_settings">
+        <!--<Preference-->
+            <!--android:id="@+id/clear_conversion_entry_preference"-->
+            <!--android:title="Clear conversion history"-->
+            <!--android:key="conversion_history_key"-->
+            <!--android:summary="Clears all autocomplete conversion entries">-->
+            <!-- -->
+        <!--</Preference>-->
+        <basic.converters.dialog.ConversionHistory
+            android:title="Clear conversion history"
+            android:dialogTitle="Clear conversion history?"
+            android:key="conversion_history_key_dialog"
+            android:summary="Clears all autocomplete conversion entries."
+            android:negativeButtonText="Cancel"
+            android:positiveButtonText="Yes"></basic.converters.dialog.ConversionHistory>
+    </PreferenceCategory>
+</PreferenceScreen>

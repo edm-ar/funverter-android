@@ -3,7 +3,6 @@ package basic.converters.apps.basicunitconverter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.ActionBar;
 
 
 public class BasicUnitConverterActivity extends Activity {
@@ -81,11 +79,18 @@ public class BasicUnitConverterActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            try {
+                intent = new Intent(BasicUnitConverterActivity.this, Class.forName("basic.converters.preferences.SettingsActivity"));
+                startActivity(intent);
+            } catch(ClassNotFoundException e) {
+                Log.e(TAG,e.getMessage(),e);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
