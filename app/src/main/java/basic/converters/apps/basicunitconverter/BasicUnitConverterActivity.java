@@ -2,7 +2,7 @@ package basic.converters.apps.basicunitconverter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.ActionBar;
 
 
 public class BasicUnitConverterActivity extends Activity {
@@ -21,6 +20,7 @@ public class BasicUnitConverterActivity extends Activity {
     private static final String TAG = BasicUnitConverterActivity.class.getSimpleName(); // tag to be used when logging
     private static final String ACTIVITYSUFFIX = "ConverterActivity"; //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
     private static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter."; //TODO find better way of getting package path to support refactoring
+    private Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,15 @@ public class BasicUnitConverterActivity extends Activity {
 
                 View childView = ((ViewGroup)v).getChildAt(0); // get first item since there's only one
                 Intent intent;
+                res = getResources();
 
                 // TODO create background color resources to replace hardcoded colors
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        v.setBackgroundColor(Color.parseColor("#55E6E6E6"));
+                        v.setBackgroundColor(res.getColor(R.color.btnClickColor));
                         break;
                     case MotionEvent.ACTION_UP:
-                        v.setBackgroundColor(Color.parseColor("#55FFFFFF"));
+                        v.setBackgroundColor(res.getColor(R.color.btnColor));
                         break;
                 }
 
@@ -78,11 +79,18 @@ public class BasicUnitConverterActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            try {
+                intent = new Intent(BasicUnitConverterActivity.this, Class.forName("basic.converters.preferences.SettingsActivity"));
+                startActivity(intent);
+            } catch(ClassNotFoundException e) {
+                Log.e(TAG,e.getMessage(),e);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -59,19 +59,22 @@ public class ConversionEntriesDataSource {
 
     public void deleteTableConversionEntry(ConversionEntry conversionEntry, String tableName) {
         long id = conversionEntry.getId();
-        System.out.println("Value deleted with id: " + id);
         database.delete(MySQLiteHelper.tables.get(tableName), MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);
+        System.out.println("Value deleted with id: " + id);
     }
 
     public void deleteAllTableConversionEntries(String tableName) {
-        System.out.println("Deleted all values from table: " + tableName);
         database.delete(MySQLiteHelper.tables.get(tableName), null, null);
+        System.out.println("Deleted all values from table: " + tableName);
     }
 
-    public void deleteAllConversonEntries() {
+    public void deleteAllConversionEntries() {
+        System.out.println("Deleting all conversion values from all tables...");
+        for(String tableName : MySQLiteHelper.tableNames) {
+            database.delete(MySQLiteHelper.tables.get(tableName), null, null);
+        }
         System.out.println("Deleted all conversion values from all tables");
-        database.delete(null, null, null);
     }
 
     public List<ConversionEntry> getAllTableConversionEntries(String tableName) {

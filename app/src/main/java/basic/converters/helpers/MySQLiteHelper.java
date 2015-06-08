@@ -20,7 +20,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "conversionentries.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String[] tableNames = {"distance","speed","temperature","time","volume","weight"};
+    // TODO should probably figure out a better way of accessing this String array
+    public static final String[] tableNames = {"distance","speed","temperature","time","volume","weight"};
     public static HashMap<String, String> tables = new HashMap<String, String>();
 
     {
