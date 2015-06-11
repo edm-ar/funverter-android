@@ -142,15 +142,20 @@ public class TimeConverterActivity extends Activity {
             String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase();
             String toUnit = toSpinner.getSelectedItem().toString().toUpperCase();
 
-            if(EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && EnumUtils.isValidEnum(TimeUnit.class, toUnit)) { // handles conversions between days, hours, seconds and minutes
-                result = String.valueOf(TimeUnit.valueOf(toUnit).convert(Long.parseLong(inputText),TimeUnit.valueOf(fromUnit)));
-            } else if(!EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert(Long.parseLong(inputText),TimeUnitExtension.valueOf(fromUnit)));
-            } else if(EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert((long)(Double.parseDouble(inputText) * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
-            } else {
-                long d = (long)(Double.parseDouble(inputText) * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
-                result = String.valueOf(TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS)); // use milliseconds since anything can be converted from milliseconds
+            try {
+                if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && EnumUtils.isValidEnum(TimeUnit.class, toUnit)) { // handles conversions between days, hours, seconds and minutes
+                    result = String.valueOf(TimeUnit.valueOf(toUnit).convert(Long.parseLong(inputText), TimeUnit.valueOf(fromUnit)));
+                } else if (!EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
+                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert(Long.parseLong(inputText), TimeUnitExtension.valueOf(fromUnit)));
+                } else if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
+                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert((long) (Double.parseDouble(inputText) * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
+                } else {
+                    long d = (long) (Double.parseDouble(inputText) * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
+                    result = String.valueOf(TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS)); // use milliseconds since anything can be converted from milliseconds
+                }
+            } catch (NumberFormatException nfe) {
+                Log.e(TAG, nfe.getMessage(), nfe);
+                showToast("Decimal numbers not supported for this conversion");
             }
         }
         else {
