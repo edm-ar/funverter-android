@@ -1,8 +1,62 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <!-- application themes -->
+    <style name="ConverterHomeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
     </style>
 
+    <style name="TemperatureTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
+    </style>
+
+    <style name="WeightTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/WeightActionBar</item>
+    </style>
+
+    <style name="DistanceTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/DistanceActionBar</item>
+    </style>
+
+    <style name="VolumeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/VolumeActionBar</item>
+    </style>
+
+    <style name="SpeedTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/SpeedActionBar</item>
+    </style>
+
+    <style name="TimeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/TimeActionBar</item>
+    </style>
+
+    <!-- styles -->
+
+    <style name="HomeScreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkGreenBackground</item>
+    </style>
+
+    <style name="TemperatureActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkBlueBackground</item>
+    </style>
+
+    <style name="WeightActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkPurpleBackground</item>
+    </style>
+
+    <style name="DistanceActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkRedBackground</item>
+    </style>
+
+    <style name="VolumeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkGreenSeaBackground</item>
+    </style>
+
+    <style name="SpeedActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkPumpkinBackground</item>
+    </style>
+
+    <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkRedBackground</item>
+    </style>
 </resources>
