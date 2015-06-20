@@ -9,7 +9,7 @@
     <string name="converter_weight">Weight</string>
     <string name="converter_distance">Distance</string>
     <string name="converter_volume">Volume</string>
-    <string name="converter_speed">Speed</string>
+    <string name="converter_currency">Currency</string>
     <string name="converter_time">Time</string>
 
     <!-- Background Colors -->
@@ -33,7 +33,7 @@
     <string name="title_activity_weight_converter">Weight Converter</string>
     <string name="title_activity_distance_converter">Distance Converter</string>
     <string name="title_activity_volume_converter">Volume Converter</string>
-    <string name="title_activity_speed_converter">Speed Converter</string>
+    <string name="title_activity_currency_converter">Currency Converter</string>
     <string name="title_activity_time_converter">Time Converter</string>
 
     <!-- Time Converter Units List -->
@@ -54,4 +54,6 @@
 
     <!-- Ids -->
     <item name="toSpinner" type="id"/>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

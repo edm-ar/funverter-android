@@ -36,7 +36,6 @@ public class BasicUnitConverterActivity extends Activity {
                 Intent intent;
                 res = getResources();
 
-                // TODO create background color resources to replace hardcoded colors
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         v.setBackgroundColor(res.getColor(R.color.btnClickColor));

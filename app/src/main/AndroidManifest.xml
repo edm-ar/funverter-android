@@ -5,9 +5,9 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
+        android:label="@string/app_name" >
         <activity
-            android:name="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
+            android:name=".BasicUnitConverterActivity"
             android:label="@string/app_name"
             android:theme="@style/ConverterHomeTheme" >
             <intent-filter>
@@ -19,77 +19,83 @@
         <activity
             android:name="basic.converters.preferences.SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" >
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name="basic.converters.apps.basicunitconverter.TemperatureConverterActivity"
+            android:name=".TemperatureConverterActivity"
             android:label="@string/title_activity_temperature_converter"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/TemperatureTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/TemperatureTheme">
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name="basic.converters.apps.basicunitconverter.WeightConverterActivity"
+            android:name=".WeightConverterActivity"
             android:label="@string/title_activity_weight_converter"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/WeightTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/WeightTheme">
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name="basic.converters.apps.basicunitconverter.DistanceConverterActivity"
+            android:name=".DistanceConverterActivity"
             android:label="@string/title_activity_distance_converter"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/DistanceTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/DistanceTheme">
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name="basic.converters.apps.basicunitconverter.VolumeConverterActivity"
+            android:name=".VolumeConverterActivity"
             android:label="@string/title_activity_volume_converter"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/VolumeTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/VolumeTheme">
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name="basic.converters.apps.basicunitconverter.SpeedConverterActivity"
-            android:label="@string/title_activity_speed_converter"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/SpeedTheme">
-            <!-- Parent activity meta-data to support API level 7+ -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
-        </activity>
-        <activity
-            android:name="basic.converters.apps.basicunitconverter.TimeConverterActivity"
+            android:name=".TimeConverterActivity"
             android:label="@string/title_activity_time_converter"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/TimeTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:parentActivityName="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity"
-            android:theme="@style/TimeTheme">
+            android:launchMode="singleInstance">
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
+        </activity>
+        <activity
+            android:name=".CurrencyConverterActivity"
+            android:label="@string/title_activity_currency_converter"
+            android:launchMode="singleInstance">
         </activity>
     </application>
 
