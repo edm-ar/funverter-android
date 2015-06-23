@@ -5,15 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,9 +22,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.EnumUtils;
 
-import basic.converters.utilities.ConversionEntriesDataSource;
-import basic.converters.utilities.ConversionEntry;
-import basic.converters.utilities.TimeUnitExtension;
+import basic.converters.util.ConversionEntriesDataSource;
+import basic.converters.util.ConversionEntry;
+import basic.converters.util.TimeUnitExtension;
 
 public class TimeConverterActivity extends Activity {
     private static final String TAG = TimeConverterActivity.class.getSimpleName(); // tag to be used when logging
@@ -104,7 +101,8 @@ public class TimeConverterActivity extends Activity {
         units.add(res.getString(R.string.to_prompt));
 
         for(String unit : res.getStringArray(R.array.time_units)) {
-            if(!unit.equals(parent.getSelectedItem().toString()) && !unit.contains(res.getString(R.string.convert))) { //TODO find a better way of avoiding the addition of non-unit values
+            //TODO find a better way of avoiding the addition of non-unit values
+            if(!unit.equals(parent.getSelectedItem().toString()) && !unit.contains(res.getString(R.string.convert))) {
                 units.add(unit);
             }
         }
@@ -113,6 +111,7 @@ public class TimeConverterActivity extends Activity {
         if(spinnersContainer.findViewById(R.id.toSpinner) != null) {
             spinnersContainer.removeView(findViewById(R.id.toSpinner));
         }
+
         toSpinner = new Spinner(this);
         toSpinner.setId(R.id.toSpinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, units);
@@ -143,14 +142,22 @@ public class TimeConverterActivity extends Activity {
             String toUnit = toSpinner.getSelectedItem().toString().toUpperCase();
 
             try {
-                if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && EnumUtils.isValidEnum(TimeUnit.class, toUnit)) { // handles conversions between days, hours, seconds and minutes
-                    result = String.valueOf(TimeUnit.valueOf(toUnit).convert(Long.parseLong(inputText), TimeUnit.valueOf(fromUnit)));
-                } else if (!EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert(Long.parseLong(inputText), TimeUnitExtension.valueOf(fromUnit)));
-                } else if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit) && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit).convert((long) (Double.parseDouble(inputText) * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
+                if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
+                        && EnumUtils.isValidEnum(TimeUnit.class, toUnit)) { // handles conversions between days, hours, seconds and minutes
+                    result = String.valueOf(TimeUnit.valueOf(toUnit)
+                            .convert(Long.parseLong(inputText), TimeUnit.valueOf(fromUnit)));
+                } else if (!EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
+                        && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
+                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit)
+                            .convert(Long.parseLong(inputText), TimeUnitExtension.valueOf(fromUnit)));
+                } else if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
+                        && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
+                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit)
+                            .convert((long) (Double.parseDouble(inputText)
+                                    * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
                 } else {
-                    long d = (long) (Double.parseDouble(inputText) * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
+                    long d = (long) (Double.parseDouble(inputText)
+                            * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
                     result = String.valueOf(TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS)); // use milliseconds since anything can be converted from milliseconds
                 }
             } catch (NumberFormatException nfe) {

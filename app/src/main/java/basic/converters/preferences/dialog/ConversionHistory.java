@@ -1,11 +1,11 @@
-package basic.converters.dialog;
+package basic.converters.preferences.dialog;
 
 import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.widget.Toast;
 
-import basic.converters.utilities.ConversionEntriesDataSource;
+import basic.converters.util.ConversionEntriesDataSource;
 
 /**
  * Created by Edmar on 6/7/2015.
@@ -22,7 +22,6 @@ public class ConversionHistory extends DialogPreference {
     public void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
         if(positiveResult) {
-            // TODO clear database table
             showToast("Clearing...");
             ConversionEntriesDataSource ds = new ConversionEntriesDataSource(context);
             ds.open();

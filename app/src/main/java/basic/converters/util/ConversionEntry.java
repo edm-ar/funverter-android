@@ -1,4 +1,4 @@
-package basic.converters.utilities;
+package basic.converters.util;
 
 /**
  * Created by edmar on 2/15/15.

@@ -1,4 +1,4 @@
-package basic.converters.utilities;
+package basic.converters.util;
 
 import android.content.ContentValues;
 import android.content.Context;

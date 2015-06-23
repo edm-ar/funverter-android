@@ -1,6 +1,4 @@
-package basic.converters.utilities;
-
-import java.util.concurrent.TimeUnit;
+package basic.converters.util;
 
 /**
  * Created by edmar on 1/31/15.

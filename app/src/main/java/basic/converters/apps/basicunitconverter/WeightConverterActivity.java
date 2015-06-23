@@ -3,26 +3,21 @@ package basic.converters.apps.basicunitconverter;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
-import android.media.audiofx.AutomaticGainControl;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import basic.converters.utilities.ConversionEntriesDataSource;
-import basic.converters.utilities.ConversionEntry;
+import basic.converters.util.ConversionEntriesDataSource;
+import basic.converters.util.ConversionEntry;
 
 
 public class WeightConverterActivity extends Activity {
