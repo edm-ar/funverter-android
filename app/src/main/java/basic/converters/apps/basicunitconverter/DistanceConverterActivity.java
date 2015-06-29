@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,14 +99,6 @@ public class DistanceConverterActivity extends Activity {
         }
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        if(isFirstSelection) {
-            isFirstSelection = false;
-        } else {
-            itemSelectedHandler(parent, view, position, id);
-        }
-    }
-
     private void itemSelectedHandler(AdapterView<?> parent, View view, int position, long id) {
         Log.d(TAG, "Select from: " + parent.getSelectedItem());
         ArrayList<String> units = new ArrayList<String>();
@@ -115,7 +106,8 @@ public class DistanceConverterActivity extends Activity {
 
         for(String unit : res.getStringArray(R.array.distance_units)) {
             //TODO find a better way of avoiding the addition of non-unit values
-            if(!unit.equals(parent.getSelectedItem().toString()) && !unit.contains(res.getString(R.string.convert))) {
+            if(!unit.equals(parent.getSelectedItem().toString())
+                    && !unit.contains(res.getString(R.string.convert))) {
                 units.add(unit);
             }
         }
@@ -126,13 +118,13 @@ public class DistanceConverterActivity extends Activity {
         }
         toSpinner = new Spinner(this);
         toSpinner.setId(R.id.toSpinner);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, units);
+        ArrayAdapter<String> spinnerArrayAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, units);
         toSpinner.setAdapter(spinnerArrayAdapter);
         spinnersContainer.addView(toSpinner);
     }
 
     private void buttonClickHandler() {
-
         InputMethodManager imm = (InputMethodManager)getSystemService(
                 Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0); // hide keyboard once calculation is executed
@@ -144,7 +136,6 @@ public class DistanceConverterActivity extends Activity {
         }
 
         Float input = Float.parseFloat(inputText);
-        Float x = null;
         String result = null;
 
        if(!String.valueOf(fromSpinner.getSelectedItem()).contains(res.getString(R.string.convert))
@@ -155,9 +146,7 @@ public class DistanceConverterActivity extends Activity {
            String toUnit = toSpinner.getSelectedItem().toString().toUpperCase();
 
            try {
-               //Class enumClazz = Class.forName("app.basic.converters.util.DistanceUnit");
                Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
-               //Method mth = enumClazz.getDeclaredMethod("to".concat(StringUtils.capitalize(toUnit.toLowerCase())), double.class);
                Method mth = DistanceUnit.valueOf(fromUnit).getDeclaringClass()
                        .getDeclaredMethod("to".concat(StringUtils
                                .capitalize(toUnit.toLowerCase())), double.class);
@@ -177,6 +166,7 @@ public class DistanceConverterActivity extends Activity {
        }
 
         if(StringUtils.isNotBlank(result)) {
+            //TODO handle UNIQUE constraint exception
             dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
             textOutput.setText(result);
         } else {

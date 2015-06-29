@@ -14,7 +14,7 @@ public enum DistanceUnit {
         public double toKilometers(double i) { return i * (2.54 * Math.pow(10, -5)); };
         public double toMiles(double i) { return i * (1.57828 * Math.pow(10, -5)); };
     },
-    CENTIMETERES {
+    CENTIMETERS {
         public double toInches(double i){ return i * 0.393701; };
         public double toMillimeters(double i){ return i * 10; };
         public double toFeet(double i){ return i * 0.0328084; };
