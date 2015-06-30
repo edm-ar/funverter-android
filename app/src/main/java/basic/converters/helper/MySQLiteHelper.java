@@ -1,4 +1,4 @@
-package basic.converters.helpers;
+package basic.converters.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

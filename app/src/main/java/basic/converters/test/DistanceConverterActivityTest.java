@@ -70,7 +70,7 @@ public class DistanceConverterActivityTest extends ActivityInstrumentationTestCa
         assertNotNull(fromSpinner);
         assertNotNull(inputText);
         assertNotNull(calculateBtn);
-        assertNotNull(units != null);
+        assertNotNull(units);
         assertTrue(units.length > 0);
         assertNotNull(toSpinner);
     }

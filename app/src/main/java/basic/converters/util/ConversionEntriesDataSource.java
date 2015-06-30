@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import basic.converters.helpers.MySQLiteHelper;
+import basic.converters.helper.MySQLiteHelper;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -1,9 +1,11 @@
 package basic.converters.util;
 
+import basic.converters.helper.Unit;
+
 /**
  * Created by Edmar on 6/20/2015.
  */
-public enum DistanceUnit {
+public enum DistanceUnit implements Unit {
 
     INCHES {
         public double toCentimeters(double i){ return i * 2.54; };
