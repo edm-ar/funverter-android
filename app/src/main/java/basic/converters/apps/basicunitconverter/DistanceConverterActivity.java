@@ -9,6 +9,8 @@ public class DistanceConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-                "distance", R.layout.activity_distance_converter, this.getClass(), DistanceUnit.class);
+                "distance", R.array.distance_units,
+                R.layout.activity_distance_converter,
+                this.getClass(), DistanceUnit.class);
     }
 }

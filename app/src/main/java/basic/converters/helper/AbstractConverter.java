@@ -22,13 +22,14 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import basic.converters.apps.basicunitconverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
-import basic.converters.util.*;
 
 /**
  * Created by Edmar on 6/29/2015.
@@ -46,21 +47,21 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private TextView textOutput;
     private Resources res;
     private Context context;
-    private Class activityClazz;
     private Class unitClazz;
+    private int unitsArrayId;
 
     private ConversionEntriesDataSource dataSource;
 
     protected void onCreate(Bundle savedInstanceState, Context ctx,
-                            String tableName, int layout, Class activityClass, Class unitClass) {
+                            String converterName, int unitsArray, int layout, Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
         setContentView(layout);
 
         context = ctx;
-        TABLE_NAME = tableName;
-        activityClazz = activityClass;
+        TABLE_NAME = converterName;
         unitClazz = unitClass;
         TAG = activityClass.getName();
+        unitsArrayId = unitsArray;
 
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -116,7 +117,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
         ArrayList<String> units = new ArrayList<String>();
         units.add(res.getString(R.string.to_prompt));
 
-        for(String unit : res.getStringArray(R.array.distance_units)) {
+        for(String unit : res.getStringArray(unitsArrayId)) {
             //TODO find a better way of avoiding the addition of non-unit values
             if(!unit.equals(parent.getSelectedItem().toString())
                     && !unit.contains(res.getString(R.string.convert))) {
@@ -171,8 +172,11 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
                 Method mth = constant.getClass().getDeclaredMethod("to".concat(StringUtils
                         .capitalize(toUnit.toLowerCase())), double.class);
-                Object returnValue = mth.invoke(constant, (Object)(Double.parseDouble(inputText)));
-                result = String.valueOf(((Number)returnValue).doubleValue());
+                Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
+                double out = ((Number)returnValue).doubleValue();
+                DecimalFormat df = new DecimalFormat("#.##");
+                df.setRoundingMode(RoundingMode.FLOOR);
+                result = df.format(out);
             } catch(NoSuchMethodException e) {
                 Log.e(TAG, e.getMessage(), e);
             } catch(IllegalAccessException e) {

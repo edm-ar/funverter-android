@@ -15,121 +15,21 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.converters.helper.AbstractConverter;
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
+import basic.converters.util.DistanceUnit;
+import basic.converters.util.TemperatureUnit;
 
 import java.util.List;
 
-public class TemperatureConverterActivity extends Activity {
-
-    private static final String TAG = TemperatureConverterActivity.class.getSimpleName(); // tag to be used when logging
-
-    private AutoCompleteTextView textInput;
-    private RadioButton celsiusRadioBtn;
-    private RadioButton fahrenheitRadioBtn;
-    private Button calculateBtn;
-    private TextView textOutput;
-    private static final String TABLE_NAME = "temperature";
-
-    private ConversionEntriesDataSource dataSource;
+public class TemperatureConverterActivity extends AbstractConverter {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperature_converter);
-
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        dataSource = new ConversionEntriesDataSource(this);
-        dataSource.open();
-
-        textInput = (AutoCompleteTextView) findViewById(R.id.textInput);
-        celsiusRadioBtn = (RadioButton) findViewById(R.id.celsiusRadioBtn);
-        fahrenheitRadioBtn = (RadioButton) findViewById(R.id.farenheitRadioBtn);
-        calculateBtn = (Button) findViewById(R.id.calculateBtn);
-        textOutput = (TextView) findViewById(R.id.textOutput);
-
-        Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
-        // set adapter for autocomplete
-        List<ConversionEntry> entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
-        textInput.setAdapter(adapter);
-
-        // create button listener
-        View.OnClickListener listener = new ButtonListener();
-        calculateBtn.setOnClickListener(listener);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private class ButtonListener implements View.OnClickListener {
-        public void onClick(View v) {
-            buttonClickHandler();
-        }
-    }
-
-    private void buttonClickHandler() {
-
-        InputMethodManager imm = (InputMethodManager)getSystemService(
-                Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0); // hide keyboard once calculation is executed
-
-        String inputText = textInput.getText().toString();
-        if(inputText.isEmpty()) {
-            showToast("Please enter a valid number");
-            return;
-        }
-
-        Float input = Float.parseFloat(inputText);
-        Float x;
-        String result;
-
-        if(celsiusRadioBtn.isChecked()) {
-            Log.i(TAG, "Converting" + input + " to Celsius");
-            x = ((input - 32) * 5 / 9);
-            result = x + " Celsius";
-        }
-        else if(fahrenheitRadioBtn.isChecked()) {
-            Log.i(TAG, "Converting" + input + " to Fahrenheit");
-            x = ((input * 9) / 5) + 32;
-            result = x + " Fahrenheit";
-        }
-        else {
-            showToast("Please pick unit to convert to");
-            return;
-        }
-
-        if(!result.isEmpty()) {
-            dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
-            textOutput.setText(result);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        dataSource.open();
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        dataSource.close();
-        super.onPause();
-    }
-
-    private void showToast(String msg) {
-        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
-        toast.show();
+        super.onCreate(savedInstanceState, this,
+            "distance", R.array.temperature_units,
+                R.layout.activity_temperature_converter,
+                this.getClass(), TemperatureUnit.class);
     }
 }

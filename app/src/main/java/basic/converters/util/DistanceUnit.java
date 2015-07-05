@@ -6,7 +6,7 @@ import basic.converters.helper.Unit;
  * Created by Edmar on 6/20/2015.
  */
 public enum DistanceUnit implements Unit {
-
+    //TODO create constant variables
     INCHES {
         public double toCentimeters(double i){ return i * 2.54; };
         public double toMillimeters(double i){ return i * 25.4; };
