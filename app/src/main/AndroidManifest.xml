@@ -19,8 +19,8 @@
         <activity
             android:name="basic.converters.preferences.SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".BasicUnitConverterActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:parentActivityName=".BasicUnitConverterActivity" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -30,10 +30,10 @@
         <activity
             android:name=".TemperatureConverterActivity"
             android:label="@string/title_activity_temperature_converter"
+            android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/TemperatureTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleInstance">
+            android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -43,10 +43,10 @@
         <activity
             android:name=".WeightConverterActivity"
             android:label="@string/title_activity_weight_converter"
+            android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/WeightTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleInstance">
+            android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -56,10 +56,10 @@
         <activity
             android:name=".DistanceConverterActivity"
             android:label="@string/title_activity_distance_converter"
+            android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/DistanceTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleInstance">
+            android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -69,10 +69,10 @@
         <activity
             android:name=".VolumeConverterActivity"
             android:label="@string/title_activity_volume_converter"
+            android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/VolumeTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleInstance">
+            android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -82,10 +82,10 @@
         <activity
             android:name=".TimeConverterActivity"
             android:label="@string/title_activity_time_converter"
+            android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/TimeTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:launchMode="singleInstance">
+            android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -95,7 +95,7 @@
         <activity
             android:name=".CurrencyConverterActivity"
             android:label="@string/title_activity_currency_converter"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
         </activity>
     </application>
 

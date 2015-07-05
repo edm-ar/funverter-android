@@ -65,6 +65,15 @@
         <item>Miles</item>
         <item>Kilometers</item>
     </string-array>
+    <!-- temperature unit list -->
+    <string-array name="temperature_units">
+        <item>Convert from...</item>
+        <item>Fahrenheit</item>
+        <item>Celsius</item>
+        <item>Kelvin</item>
+        <item>Rankine</item>
+        <item>Reaumur</item>
+    </string-array>
 
     <!-- Ids -->
     <item name="toSpinner" type="id"/>
