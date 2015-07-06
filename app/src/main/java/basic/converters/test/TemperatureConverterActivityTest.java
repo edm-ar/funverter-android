@@ -12,7 +12,8 @@ import basic.converters.apps.basicunitconverter.TemperatureConverterActivity;
 /**
  * Created by Edmar on 6/28/2015.
  */
-public class TemperatureConverterActivityTest extends ActivityInstrumentationTestCase2<TemperatureConverterActivity> {
+public class TemperatureConverterActivityTest
+        extends ActivityInstrumentationTestCase2<TemperatureConverterActivity> {
 
     private TemperatureConverterActivity mActivity;
     private Spinner fromSpinner;

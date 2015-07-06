@@ -12,7 +12,8 @@ import basic.converters.apps.basicunitconverter.R;
 /**
  * Created by Edmar on 6/28/2015.
  */
-public class DistanceConverterActivityTest extends ActivityInstrumentationTestCase2<DistanceConverterActivity> {
+public class DistanceConverterActivityTest
+        extends ActivityInstrumentationTestCase2<DistanceConverterActivity> {
 
     private DistanceConverterActivity mActivity;
     private Spinner fromSpinner;
