@@ -42,7 +42,6 @@
     <string name="to_prompt">Convert to...</string>
 
     <!-- time unit list -->
-    <!-- Consider adding Microseconds and Nanoseconds to the list -->
     <string-array name="time_units">
         <item>Convert from...</item>
         <item>Hours</item>
@@ -73,6 +72,17 @@
         <item>Kelvin</item>
         <item>Rankine</item>
         <item>Reaumur</item>
+    </string-array>
+    <!-- volume unit list -->
+    <string-array name="volume_units">
+        <item>Cubic Meter</item>
+        <item>Cubic Inch</item>
+        <item>Cubic Yard</item>
+        <item>Liter</item>
+        <item>Gallon</item>
+        <item>US Fluid Ounce</item>
+        <item>Cubic Foot</item>
+        <item>US Pint</item>
     </string-array>
 
     <!-- Ids -->
