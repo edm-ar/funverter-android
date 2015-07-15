@@ -75,6 +75,7 @@
     </string-array>
     <!-- volume unit list -->
     <string-array name="volume_units">
+        <item>Convert from...</item>
         <item>Cubic Meter</item>
         <item>Cubic Inch</item>
         <item>Cubic Yard</item>

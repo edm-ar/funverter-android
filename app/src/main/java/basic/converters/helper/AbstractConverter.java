@@ -153,9 +153,9 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
         if(!String.valueOf(fromSpinner.getSelectedItem()).contains(res.getString(R.string.convert))
                 && !String.valueOf(toSpinner.getSelectedItem()).contains(res.getString(R.string.convert))) {
-            // convert all to upper case so that TimeUnit can find them in enum
-            String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase();
-            String toUnit = toSpinner.getSelectedItem().toString().toUpperCase();
+            // convert all to upper case so that the unit class can find them in enum
+            String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
+            String toUnit = toSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
 
             try {
                 Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
