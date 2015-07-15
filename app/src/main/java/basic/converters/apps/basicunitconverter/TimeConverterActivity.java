@@ -26,6 +26,7 @@ import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
 import basic.converters.util.TimeUnitExtension;
 
+//TODO update timeunit converter
 public class TimeConverterActivity extends Activity {
     private static final String TAG = TimeConverterActivity.class.getSimpleName(); // tag to be used when logging
 

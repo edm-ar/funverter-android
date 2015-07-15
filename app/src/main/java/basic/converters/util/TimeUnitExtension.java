@@ -3,6 +3,8 @@ package basic.converters.util;
 /**
  * Created by edmar on 1/31/15.
  */
+
+//TODO override TimeUnit's implementation so that it is easier to manage at AbstractConverter
 public enum TimeUnitExtension {
     //TODO add Centuries and Milleniums
     WEEKS {
