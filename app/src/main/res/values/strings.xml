@@ -9,7 +9,7 @@
     <string name="converter_weight">Weight</string>
     <string name="converter_distance">Distance</string>
     <string name="converter_volume">Volume</string>
-    <string name="converter_currency">Currency</string>
+    <string name="converter_area">Area</string>
     <string name="converter_time">Time</string>
 
     <!-- Background Colors -->
@@ -33,7 +33,7 @@
     <string name="title_activity_weight_converter">Weight Converter</string>
     <string name="title_activity_distance_converter">Distance Converter</string>
     <string name="title_activity_volume_converter">Volume Converter</string>
-    <string name="title_activity_currency_converter">Currency Converter</string>
+    <string name="title_activity_area_converter">Area Converter</string>
     <string name="title_activity_time_converter">Time Converter</string>
 
     <!-- Time Converter Units List -->
@@ -84,6 +84,22 @@
         <item>US Fluid Ounce</item>
         <item>Cubic Foot</item>
         <item>US Pint</item>
+    </string-array>
+    <!-- are unit list -->
+    <string-array name="area_units">
+        <item>Convert from...</item>
+        <item>Acre</item>
+        <item>Are</item>
+        <item>Barn</item>
+        <item>Hectare</item>
+        <item>Rood</item>
+        <item>Square Centimeter</item>
+        <item>Square Foot</item>
+        <item>Square Inch</item>
+        <item>Square Kilometer</item>
+        <item>Square Meter</item>
+        <item>Square Rod</item>
+        <item>Sqaure Yard</item>
     </string-array>
 
     <!-- Ids -->

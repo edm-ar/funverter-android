@@ -93,9 +93,17 @@
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name=".CurrencyConverterActivity"
-            android:label="@string/title_activity_currency_converter"
-            android:launchMode="singleInstance" >
+            android:name=".AreaConverterActivity"
+            android:label="@string/title_activity_area_converter"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/AreaTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
     </application>
 

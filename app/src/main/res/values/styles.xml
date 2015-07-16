@@ -30,6 +30,10 @@
         <item name="android:actionBarStyle">@style/TimeActionBar</item>
     </style>
 
+    <style name="AreaTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/AreaActionBar</item>
+    </style>
+
     <!-- styles -->
 
     <style name="HomeScreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
@@ -58,5 +62,9 @@
 
     <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/darkRedBackground</item>
+    </style>
+
+    <style name="AreaActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/darkBlueBackground</item>
     </style>
 </resources>
