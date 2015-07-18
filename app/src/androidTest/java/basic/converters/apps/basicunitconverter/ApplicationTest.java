@@ -8,6 +8,7 @@ import android.test.ApplicationTestCase;
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     //TODO run all activity tests from here
+    //TODO run test for large numbers
     public ApplicationTest() {
         super(Application.class);
     }
