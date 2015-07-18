@@ -93,13 +93,12 @@
         <item>Barn</item>
         <item>Hectare</item>
         <item>Rood</item>
-        <item>Square Centimeter</item>
         <item>Square Foot</item>
         <item>Square Inch</item>
-        <item>Square Kilometer</item>
         <item>Square Meter</item>
+        <item>Square Mile</item>
         <item>Square Rod</item>
-        <item>Sqaure Yard</item>
+        <item>Square Yard</item>
     </string-array>
 
     <!-- Ids -->
