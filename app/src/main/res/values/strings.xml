@@ -85,7 +85,7 @@
         <item>Cubic Foot</item>
         <item>US Pint</item>
     </string-array>
-    <!-- are unit list -->
+    <!-- area unit list -->
     <string-array name="area_units">
         <item>Convert from...</item>
         <item>Acre</item>
@@ -99,6 +99,19 @@
         <item>Square Mile</item>
         <item>Square Rod</item>
         <item>Square Yard</item>
+    </string-array>
+    <!-- weight unit list -->
+    <string-array name="weight_units">
+        <item>Convert from...</item>
+        <item>Kilogram</item>
+        <item>Carat</item>
+        <item>Grain</item>
+        <item>Newton</item>
+        <item>Ounce</item>
+        <item>Penny Weight</item>
+        <item>Pound</item>
+        <item>Quarter</item>
+        <item>Ton</item>
     </string-array>
 
     <!-- Ids -->

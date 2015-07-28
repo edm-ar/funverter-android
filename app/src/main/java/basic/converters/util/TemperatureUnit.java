@@ -1,11 +1,9 @@
 package basic.converters.util;
 
-import basic.converters.helper.Unit;
-
 /**
  * Created by Edmar on 7/4/2015.
  */
-public enum TemperatureUnit implements Unit {
+public enum TemperatureUnit {
 
     FAHRENHEIT {
         public double toCelsius(double i) { return (i -  C1) / C2; };
