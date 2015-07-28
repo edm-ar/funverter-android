@@ -155,7 +155,13 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 && !String.valueOf(toSpinner.getSelectedItem()).contains(res.getString(R.string.convert))) {
             // convert all to upper case so that the unit class can find them in enum
             String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
-            String toUnit = toSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
+            // split on space so that enum type methods are matched accurately
+            String[] temp = toSpinner.getSelectedItem().toString().split(" ");
+            StringBuilder toUnitSb = new StringBuilder();
+            for(String u : temp) {
+                toUnitSb.append(StringUtils.capitalize(u));
+            }
+            String toUnit = toUnitSb.toString();
 
             try {
                 Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
@@ -171,7 +177,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 }
 
                 Method mth = constant.getClass().getDeclaredMethod("to".concat(StringUtils
-                        .capitalize(toUnit.toLowerCase())), double.class);
+                        .capitalize(toUnit)), double.class);
                 Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
                 double out = ((Number)returnValue).doubleValue();
                 DecimalFormat df = new DecimalFormat("#.##");
