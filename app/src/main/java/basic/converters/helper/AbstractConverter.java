@@ -53,7 +53,8 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private ConversionEntriesDataSource dataSource;
 
     protected void onCreate(Bundle savedInstanceState, Context ctx,
-                            String converterName, int unitsArray, int layout, Class activityClass, Class unitClass) {
+                            String converterName, int unitsArray, int layout,
+                            Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
         setContentView(layout);
 
@@ -159,7 +160,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
             String[] temp = toSpinner.getSelectedItem().toString().split(" ");
             StringBuilder toUnitSb = new StringBuilder();
             for(String u : temp) {
-                toUnitSb.append(StringUtils.capitalize(u));
+                toUnitSb.append(StringUtils.capitalize(u.toLowerCase()));
             }
             String toUnit = toUnitSb.toString();
 
@@ -180,7 +181,13 @@ public abstract class AbstractConverter extends Activity implements Converter {
                         .capitalize(toUnit)), double.class);
                 Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
                 double out = ((Number)returnValue).doubleValue();
-                DecimalFormat df = new DecimalFormat("#.##");
+
+                DecimalFormat df;
+                if(String.valueOf(out).length() > 10) {
+                    df = new DecimalFormat("0000000.###E0");
+                } else {
+                    df = new DecimalFormat("#.##");
+                }
                 df.setRoundingMode(RoundingMode.FLOOR);
                 result = df.format(out);
             } catch(NoSuchMethodException e) {
