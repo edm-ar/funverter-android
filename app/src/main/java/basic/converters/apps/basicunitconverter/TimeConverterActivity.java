@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -40,6 +41,8 @@ public class TimeConverterActivity extends Activity {
 
     private ConversionEntriesDataSource dataSource;
 
+    private InputMethodManager imm;
+
     private static final String TABLE_NAME = "time";
 
     @Override
@@ -52,6 +55,9 @@ public class TimeConverterActivity extends Activity {
 
         dataSource = new ConversionEntriesDataSource(this);
         dataSource.open();
+
+        imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
 
         res = getResources();
 
@@ -73,6 +79,14 @@ public class TimeConverterActivity extends Activity {
         // create button listener
         View.OnClickListener listener = new ButtonListener();
         calculateBtn.setOnClickListener(listener);
+
+        textInput.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                imm.showSoftInput(v, 0); // show keyboard when input field is tapped
+                return true;
+            }
+        });
     }
 
     private class ButtonListener implements View.OnClickListener {
@@ -121,9 +135,6 @@ public class TimeConverterActivity extends Activity {
     }
 
     private void buttonClickHandler() {
-
-        InputMethodManager imm = (InputMethodManager)getSystemService(
-                Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0); // hide keyboard once calculation is executed
 
         String inputText = textInput.getText().toString();
@@ -175,6 +186,24 @@ public class TimeConverterActivity extends Activity {
             dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
             textOutput.setText(result);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        dataSource.open();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        dataSource.close();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        dataSource.close();
     }
 
     private void showToast(String msg) {

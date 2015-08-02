@@ -11,7 +11,7 @@ public class AreaConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-                "distance", R.array.area_units,
+                "area", R.array.area_units,
                 R.layout.activity_area_converter,
                 this.getClass(), AreaUnit.class);
     }

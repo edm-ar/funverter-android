@@ -9,7 +9,8 @@ import java.util.HashMap;
 
 /**
  * Created by edmar on 2/15/15.
- * This class is responsible for creating the database. The onUpgrade() method will simply delete all existing data and re-create the table.
+ * This class is responsible for creating the database. The onUpgrade() method will
+ * simply delete all existing data and re-create the table.
  * It also defines a list of table names and the table columns.
  */
 public class MySQLiteHelper extends SQLiteOpenHelper{
@@ -20,8 +21,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "conversionentries.db";
     private static final int DATABASE_VERSION = 1;
 
-    // TODO should probably figure out a better way of accessing this String array
-    public static final String[] tableNames = {"distance","speed","temperature","time","volume","weight"};
+    // TODO read table names from strings.xml
+    public static final String[] tableNames = {"distance","time","temperature","area",
+            "volume","weight"};
     public static HashMap<String, String> tables = new HashMap<String, String>();
 
     {
@@ -44,12 +46,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase database) {
         for(String tableName : tableNames) {
             // Database creation sql statement
-            // TODO create table to only accept unique values
-            database.execSQL(String.format(DATABASE_CREATE, tableName, COLUMN_ID, COLUMN_VALUES, COLUMN_ID));
+            database.execSQL(String.format(DATABASE_CREATE, tableName, COLUMN_ID,
+                    COLUMN_VALUES, COLUMN_ID));
         }
     }
 
     @Override
+    //TODO figure out how to keep old data even after upgrade
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(MySQLiteHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "

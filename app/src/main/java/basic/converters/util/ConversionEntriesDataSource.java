@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 
 /**
  * Created by edmar on 2/15/15.
- * This class is our DAO. It maintains the database connection and supports adding new values and fetching all values.
+ * This class is our DAO. It maintains the database connection and supports adding new values
+ * and fetching all values.
  */
 public class ConversionEntriesDataSource {
 
@@ -43,15 +45,16 @@ public class ConversionEntriesDataSource {
         ConversionEntry entry = null;
 
         try{
-            insertId = database.insert(MySQLiteHelper.tables.get(tableName), null, values);
+            insertId = database.insertOrThrow(MySQLiteHelper.tables.get(tableName), null, values);
             cursor = database.query(MySQLiteHelper.tables.get(tableName),
                     allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
                     null, null, null);
             cursor.moveToFirst();
             entry = cursorToConversionEntry(cursor);
             cursor.close();
-        } catch(Exception e) {
-            Log.w(this.getClass().getName(), "Error inserting " + values + " into " + tableName + ". Probably because the value is not unique.", e);
+        } catch(SQLiteConstraintException e) {
+            Log.w(this.getClass().getName(), "Error inserting " + values + " into " +
+                    tableName + ". Probably because the value is not unique.", e);
         }
 
         return entry;

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -52,11 +53,16 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
     private ConversionEntriesDataSource dataSource;
 
+    private InputMethodManager imm;
+
     protected void onCreate(Bundle savedInstanceState, Context ctx,
                             String converterName, int unitsArray, int layout,
                             Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
         setContentView(layout);
+
+        imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
 
         context = ctx;
         TABLE_NAME = converterName;
@@ -90,6 +96,14 @@ public abstract class AbstractConverter extends Activity implements Converter {
         // create button listener
         View.OnClickListener listener = new ButtonListener();
         calculateBtn.setOnClickListener(listener);
+
+        textInput.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                imm.showSoftInput(v, 0); // show keyboard when input field is tapped
+                return true;
+            }
+        });
     }
 
     private class ItemListener implements Spinner.OnItemSelectedListener {
@@ -139,8 +153,6 @@ public abstract class AbstractConverter extends Activity implements Converter {
     }
 
     public void buttonClickHandler() {
-        InputMethodManager imm = (InputMethodManager)getSystemService(
-                Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0); // hide keyboard once calculation is executed
 
         String inputText = textInput.getText().toString();
@@ -184,9 +196,11 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
                 DecimalFormat df;
                 if(String.valueOf(out).length() > 10) {
-                    df = new DecimalFormat("0000000.###E0");
+                    df = new DecimalFormat("0000000.####E0");
+                    df.setGroupingUsed(true);
+                    df.setGroupingSize(3);
                 } else {
-                    df = new DecimalFormat("#.##");
+                    df = new DecimalFormat("####.##");
                 }
                 df.setRoundingMode(RoundingMode.FLOOR);
                 result = df.format(out);
@@ -214,6 +228,24 @@ public abstract class AbstractConverter extends Activity implements Converter {
         } else {
             showToast("Oops...something went wrong :(");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        dataSource.open();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        dataSource.close();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        dataSource.close();
     }
 
     public void showToast(String msg) {
