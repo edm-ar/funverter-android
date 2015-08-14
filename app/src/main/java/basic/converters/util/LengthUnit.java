@@ -3,7 +3,7 @@ package basic.converters.util;
 /**
  * Created by Edmar on 6/20/2015.
  */
-public enum DistanceUnit {
+public enum LengthUnit {
     //TODO create constant variables
     INCHES {
         public double toCentimeters(double i){ return i * 2.54; };

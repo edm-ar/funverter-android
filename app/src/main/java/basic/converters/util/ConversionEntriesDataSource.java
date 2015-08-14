@@ -45,8 +45,8 @@ public class ConversionEntriesDataSource {
         ConversionEntry entry = null;
 
         try{
-            insertId = database.insertOrThrow(MySQLiteHelper.tables.get(tableName), null, values);
-            cursor = database.query(MySQLiteHelper.tables.get(tableName),
+            insertId = database.insertOrThrow(tableName, null, values);
+            cursor = database.query(tableName,
                     allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
                     null, null, null);
             cursor.moveToFirst();
@@ -62,20 +62,20 @@ public class ConversionEntriesDataSource {
 
     public void deleteTableConversionEntry(ConversionEntry conversionEntry, String tableName) {
         long id = conversionEntry.getId();
-        database.delete(MySQLiteHelper.tables.get(tableName), MySQLiteHelper.COLUMN_ID
+        database.delete(tableName, MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);
         System.out.println("Value deleted with id: " + id);
     }
 
     public void deleteAllTableConversionEntries(String tableName) {
-        database.delete(MySQLiteHelper.tables.get(tableName), null, null);
+        database.delete(tableName, null, null);
         System.out.println("Deleted all values from table: " + tableName);
     }
 
     public void deleteAllConversionEntries() {
         System.out.println("Deleting all conversion values from all tables...");
         for(String tableName : MySQLiteHelper.tableNames) {
-            database.delete(MySQLiteHelper.tables.get(tableName), null, null);
+            database.delete(tableName, null, null);
         }
         System.out.println("Deleted all conversion values from all tables");
     }
@@ -83,8 +83,7 @@ public class ConversionEntriesDataSource {
     public List<ConversionEntry> getAllTableConversionEntries(String tableName) {
         List<ConversionEntry> conversionEntries = new ArrayList<ConversionEntry>();
 
-        Cursor cursor = database.query(MySQLiteHelper.tables.get(tableName),
-                allColumns, null, null, null, null, null);
+        Cursor cursor = getCursor(tableName);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -101,7 +100,7 @@ public class ConversionEntriesDataSource {
         List<ConversionEntry> conversionEntries = new ArrayList<ConversionEntry>();
 
         Cursor cursor = database.query(null,
-                new String[] {MySQLiteHelper.COLUMN_VALUES}, null, null, null, null, null);
+                new String[]{MySQLiteHelper.COLUMN_VALUES}, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -119,5 +118,11 @@ public class ConversionEntriesDataSource {
         conversionEntry.setId(cursor.getLong(0));
         conversionEntry.setValue(Double.parseDouble(cursor.getString(1)));
         return conversionEntry;
+    }
+
+    public Cursor getCursor(String tableName) {
+        dbHelper.createTable(database, tableName);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
+        return cursor;
     }
 }

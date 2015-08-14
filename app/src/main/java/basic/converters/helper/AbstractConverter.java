@@ -73,7 +73,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
 
-        dataSource = new ConversionEntriesDataSource(this);
+        dataSource = new ConversionEntriesDataSource(ctx);
         dataSource.open();
 
         res = getResources();

@@ -14,8 +14,8 @@
         <item name="android:actionBarStyle">@style/WeightActionBar</item>
     </style>
 
-    <style name="DistanceTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/DistanceActionBar</item>
+    <style name="LengthTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/LengthActionBar</item>
     </style>
 
     <style name="VolumeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
@@ -48,7 +48,7 @@
         <item name="android:background">@color/darkPurpleBackground</item>
     </style>
 
-    <style name="DistanceActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="LengthActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/darkRedBackground</item>
     </style>
 

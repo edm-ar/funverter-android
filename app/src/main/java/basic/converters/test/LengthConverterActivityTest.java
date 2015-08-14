@@ -6,16 +6,16 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import basic.converters.apps.basicunitconverter.DistanceConverterActivity;
+import basic.converters.apps.basicunitconverter.LengthConverterActivity;
 import basic.converters.apps.basicunitconverter.R;
 
 /**
  * Created by Edmar on 6/28/2015.
  */
-public class DistanceConverterActivityTest
-        extends ActivityInstrumentationTestCase2<DistanceConverterActivity> {
+public class LengthConverterActivityTest
+        extends ActivityInstrumentationTestCase2<LengthConverterActivity> {
 
-    private DistanceConverterActivity mActivity;
+    private LengthConverterActivity mActivity;
     private Spinner fromSpinner;
     private Spinner toSpinner;
     private AutoCompleteTextView inputText;
@@ -23,8 +23,8 @@ public class DistanceConverterActivityTest
     private TextView outputText;
     private String[] units;
 
-    public DistanceConverterActivityTest() {
-        super(DistanceConverterActivity.class);
+    public LengthConverterActivityTest() {
+        super(LengthConverterActivity.class);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class DistanceConverterActivityTest
         setActivityInitialTouchMode(true);
 
         mActivity = getActivity();
-        units = mActivity.getResources().getStringArray(R.array.distance_units);
+        units = mActivity.getResources().getStringArray(R.array.length_units);
         fromSpinner = (Spinner)mActivity.findViewById(R.id.fromSpinner);
         inputText = (AutoCompleteTextView)mActivity.findViewById(R.id.textInput);
         calculateBtn = (Button)mActivity.findViewById(R.id.calculateBtn);

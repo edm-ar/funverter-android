@@ -7,7 +7,7 @@
     <!-- Converter Text -->
     <string name="converter_temperature">Temperature</string>
     <string name="converter_weight">Weight</string>
-    <string name="converter_distance">Distance</string>
+    <string name="converter_length">Length</string>
     <string name="converter_volume">Volume</string>
     <string name="converter_area">Area</string>
     <string name="converter_time">Time</string>
@@ -31,7 +31,7 @@
     <!-- Activity Titles -->
     <string name="title_activity_temperature_converter">Temperature Converter</string>
     <string name="title_activity_weight_converter">Weight Converter</string>
-    <string name="title_activity_distance_converter">Distance Converter</string>
+    <string name="title_activity_length_converter">Length Converter</string>
     <string name="title_activity_volume_converter">Volume Converter</string>
     <string name="title_activity_area_converter">Area Converter</string>
     <string name="title_activity_time_converter">Time Converter</string>
@@ -52,8 +52,8 @@
         <item>Months</item>
         <item>Years</item>
     </string-array>
-    <!-- distance unit list -->
-    <string-array name="distance_units">
+    <!-- length unit list -->
+    <string-array name="length_units">
         <item>Convert from...</item>
         <item>Inches</item>
         <item>Centimeters</item>

@@ -24,15 +24,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     // TODO read table names from strings.xml
     public static final String[] tableNames = {"distance","time","temperature","area",
             "volume","weight"};
-    public static HashMap<String, String> tables = new HashMap<String, String>();
 
-    {
-        for(String tableName : tableNames) {
-            tables.put(tableName, tableName);
-        }
-    }
-
-    private String DATABASE_CREATE = "CREATE TABLE `%s` (\n" +
+    private String DATABASE_CREATE = "CREATE TABLE IF NOT EXISTS `%s` (\n" +
             "\t`%s`\tINTEGER,\n" +
             "\t`%s`\tREAL NOT NULL unique,\n" +
             "\tPRIMARY KEY(%s)\n" +
@@ -49,6 +42,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
             database.execSQL(String.format(DATABASE_CREATE, tableName, COLUMN_ID,
                     COLUMN_VALUES, COLUMN_ID));
         }
+    }
+
+    public void createTable(SQLiteDatabase database, String tableName) {
+        database.execSQL(String.format(DATABASE_CREATE, tableName, COLUMN_ID,
+                COLUMN_VALUES, COLUMN_ID));
     }
 
     @Override

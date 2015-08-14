@@ -54,11 +54,11 @@
                 android:value="basic.converters.apps.basicunitconverter.BasicUnitConverterActivity" />
         </activity>
         <activity
-            android:name=".DistanceConverterActivity"
-            android:label="@string/title_activity_distance_converter"
+            android:name=".LengthConverterActivity"
+            android:label="@string/title_activity_length_converter"
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
-            android:theme="@style/DistanceTheme"
+            android:theme="@style/LengthTheme"
             android:windowSoftInputMode="stateVisible|adjustResize" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
