@@ -32,7 +32,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/TemperatureTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_thermometer">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -45,7 +46,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/WeightTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_weight">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -58,7 +60,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/LengthTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_length">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -71,7 +74,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/VolumeTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_volume">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -84,7 +88,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/TimeTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_time">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
@@ -97,7 +102,8 @@
             android:launchMode="singleInstance"
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/AreaTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize">
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:icon="@drawable/ic_area">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data

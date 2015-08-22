@@ -1,39 +1,53 @@
 <resources>
 
-    <!-- application themes -->
-    <style name="ConverterHomeTheme" parent="@android:style/Theme.Material">
-        <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
-        <item name="android:colorPrimary">@color/greenBackground</item>
-        <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
-        <item name="android:colorAccent">@color/colorAccent</item>
+        <!-- application themes -->
+        <style name="ConverterHomeTheme" parent="@android:style/Theme.Material">
+            <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
+            <item name="android:colorPrimary">@color/greenBackground</item>
+            <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
+            <item name="android:navigationBarColor">@color/darkGreenBackground</item>
+        </style>
+
+        <style name="TemperatureTheme" parent="@android:style/Theme.Material">
+            <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
+            <item name="android:colorPrimary">@color/blueBackground</item>
+            <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
+            <item name="android:navigationBarColor">@color/darkBlueBackground</item>
+        </style>
+
+        <style name="WeightTheme" parent="@android:style/Theme.Material">
+            <item name="android:actionBarStyle">@style/WeightActionBar</item>
+            <item name="android:colorPrimary">@color/purpleBackground</item>
+            <item name="android:colorPrimaryDark">@color/darkPurpleBackground</item>
+            <item name="android:navigationBarColor">@color/darkPurpleBackground</item>
+        </style>
+
+        <style name="LengthTheme" parent="@android:style/Theme.Material">
+            <item name="android:actionBarStyle">@style/LengthActionBar</item>
+            <item name="android:colorPrimary">@color/redBackground</item>
+            <item name="android:colorPrimaryDark">@color/darkRedBackground</item>
+            <item name="android:navigationBarColor">@color/darkRedBackground</item>
     </style>
 
-    <style name="TemperatureTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
-    </style>
-
-    <style name="WeightTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/WeightActionBar</item>
-    </style>
-
-    <style name="LengthTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/LengthActionBar</item>
-    </style>
-
-    <style name="VolumeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="VolumeTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/VolumeActionBar</item>
+        <item name="android:colorPrimary">@color/greenSeaBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkGreenSeaBackground</item>
+        <item name="android:navigationBarColor">@color/darkGreenSeaBackground</item>
     </style>
 
-    <style name="SpeedTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/SpeedActionBar</item>
-    </style>
-
-    <style name="TimeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="TimeTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/TimeActionBar</item>
+        <item name="android:colorPrimary">@color/redBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkRedBackground</item>
+        <item name="android:navigationBarColor">@color/darkRedBackground</item>
     </style>
 
-    <style name="AreaTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="AreaTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/AreaActionBar</item>
+        <item name="android:colorPrimary">@color/blueBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
+        <item name="android:navigationBarColor">@color/darkBlueBackground</item>
     </style>
 
     <!-- styles -->
@@ -44,30 +58,37 @@
     </style>
 
     <style name="TemperatureActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkBlueBackground</item>
+        <item name="android:background">@color/blueBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="WeightActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkPurpleBackground</item>
+        <item name="android:background">@color/purpleBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="LengthActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkRedBackground</item>
+        <item name="android:background">@color/redBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="VolumeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkGreenSeaBackground</item>
+        <item name="android:background">@color/greenSeaBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="SpeedActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkPumpkinBackground</item>
+        <item name="android:background">@color/pumpkinBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkRedBackground</item>
+        <item name="android:background">@color/redBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="AreaActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkBlueBackground</item>
+        <item name="android:background">@color/blueBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 </resources>

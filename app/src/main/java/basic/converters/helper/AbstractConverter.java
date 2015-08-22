@@ -129,7 +129,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
     public void itemSelectedHandler(AdapterView<?> parent, View view, int position, long id) {
         Log.d(TAG, "Select from: " + parent.getSelectedItem());
-        ArrayList<String> units = new ArrayList<String>();
+        ArrayList<String> units = new ArrayList<>();
         units.add(res.getString(R.string.to_prompt));
 
         for(String unit : res.getStringArray(unitsArrayId)) {
@@ -147,7 +147,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
         toSpinner = new Spinner(this);
         toSpinner.setId(R.id.toSpinner);
         ArrayAdapter<String> spinnerArrayAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, units);
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, units);
         toSpinner.setAdapter(spinnerArrayAdapter);
         spinnersContainer.addView(toSpinner);
     }
