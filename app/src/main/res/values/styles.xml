@@ -1,9 +1,11 @@
 <resources>
 
     <!-- application themes -->
-    <style name="ConverterHomeTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="ConverterHomeTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
+        <item name="android:colorPrimary">@color/greenBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="TemperatureTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
@@ -37,7 +39,8 @@
     <!-- styles -->
 
     <style name="HomeScreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/darkGreenBackground</item>
+        <item name="android:background">@color/greenBackground</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="TemperatureActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">

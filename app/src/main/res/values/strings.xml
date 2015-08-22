@@ -12,22 +12,6 @@
     <string name="converter_area">Area</string>
     <string name="converter_time">Time</string>
 
-    <!-- Background Colors -->
-    <color name="greenBackground">#27ae60</color>
-    <color name="darkGreenBackground">#4aae74</color>
-    <color name="blueBackground">#3498DB</color>
-    <color name="darkBlueBackground">#287bb2</color>
-    <color name="purpleBackground">#9b59b6</color>
-    <color name="darkPurpleBackground">#7c4792</color>
-    <color name="redBackground">#e74c3c</color>
-    <color name="darkRedBackground">#b83e32</color>
-    <color name="pumpkinBackground">#d35400</color>
-    <color name="darkPumpkinBackground">#b64900</color>
-    <color name="greenSeaBackground">#16a085</color>
-    <color name="darkGreenSeaBackground">#118770</color>
-    <color name="btnColor">#55FFFFFF</color>
-    <color name="btnClickColor">#55E6E6E6</color>
-
     <!-- Activity Titles -->
     <string name="title_activity_temperature_converter">Temperature Converter</string>
     <string name="title_activity_weight_converter">Weight Converter</string>
