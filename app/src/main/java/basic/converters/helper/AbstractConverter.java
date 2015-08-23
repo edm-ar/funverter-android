@@ -52,7 +52,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private int unitsArrayId;
 
     private ConversionEntriesDataSource dataSource;
-
+    private List<ConversionEntry> entries;
     private InputMethodManager imm;
 
     protected void onCreate(Bundle savedInstanceState, Context ctx,
@@ -85,9 +85,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
         Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
         // set adapter for autocomplete
-        List<ConversionEntry> entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
-        textInput.setAdapter(adapter);
+        setAutocompleteAdapter();
 
         // add item click listener to spinner
         Spinner.OnItemSelectedListener spinListener = new ItemListener();
@@ -221,6 +219,8 @@ public abstract class AbstractConverter extends Activity implements Converter {
         if(StringUtils.isNotBlank(result)) {
             try {
                 dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
+                // get updated list of entries
+                setAutocompleteAdapter();
             } catch(SQLiteConstraintException e) {
                 Log.e(TAG, e.getMessage(), e);
             }
@@ -251,5 +251,11 @@ public abstract class AbstractConverter extends Activity implements Converter {
     public void showToast(String msg) {
         Toast toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    public void setAutocompleteAdapter() {
+        entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
+        textInput.setAdapter(adapter);
     }
 }
