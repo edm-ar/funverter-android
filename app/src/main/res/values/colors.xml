@@ -17,5 +17,6 @@
     <color name="btnColor">#00dd5c</color>
     <color name="btnClickColor">#55E6E6E6</color>
     <color name="colorAccent">#EF6C00</color>
+    <color name="darkColorAccent">#d86200</color>
     <color name="textColorPrimary">#FFFFFF</color>
 </resources>

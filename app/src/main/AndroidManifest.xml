@@ -33,7 +33,7 @@
             android:parentActivityName=".BasicUnitConverterActivity"
             android:theme="@style/TemperatureTheme"
             android:windowSoftInputMode="stateVisible|adjustResize"
-            android:icon="@drawable/ic_thermometer">
+            android:icon="@drawable/ic_temperature">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data

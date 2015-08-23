@@ -22,4 +22,10 @@
             android:negativeButtonText="Cancel"
             android:positiveButtonText="Yes"></basic.converters.preferences.dialog.ConversionHistory>
     </PreferenceCategory>
+    <Preference android:title="Feedback">
+
+    </Preference>
+    <Preference android:title="About">
+
+    </Preference>
 </PreferenceScreen>

@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private AutoCompleteTextView textInput;
     private Spinner toSpinner;
     private Spinner fromSpinner;
-    private Button calculateBtn;
+    private ImageButton calculateBtn;
     private boolean isFirstSelection = true;
     private TextView textOutput;
     private Resources res;
@@ -80,7 +81,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
         textInput = (AutoCompleteTextView) findViewById(R.id.textInput);
         fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
-        calculateBtn = (Button) findViewById(R.id.calculateBtn);
+        calculateBtn = (ImageButton) findViewById(R.id.calculateBtn);
         textOutput = (TextView) findViewById(R.id.textOutput);
 
         Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
