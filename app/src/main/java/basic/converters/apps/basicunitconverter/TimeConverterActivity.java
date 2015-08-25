@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -49,6 +50,7 @@ public class TimeConverterActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_time_converter);
 
         ActionBar actionBar = getActionBar();
@@ -210,5 +212,18 @@ public class TimeConverterActivity extends Activity {
     private void showToast(String msg) {
         Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                //NavUtils.navigateUpFromSameTask(this);
+                finish();
+                overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

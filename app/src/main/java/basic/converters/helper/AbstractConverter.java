@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -60,6 +62,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
                             String converterName, int unitsArray, int layout,
                             Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
 
         imm = (InputMethodManager)getSystemService(
@@ -258,5 +261,24 @@ public abstract class AbstractConverter extends Activity implements Converter {
         entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
         textInput.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                //NavUtils.navigateUpFromSameTask(this);
+                finish();
+                overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
