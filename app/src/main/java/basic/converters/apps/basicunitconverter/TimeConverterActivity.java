@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ public class TimeConverterActivity extends Activity {
     private AutoCompleteTextView textInput;
     private Spinner toSpinner;
     private Spinner fromSpinner;
-    private Button calculateBtn;
+    private ImageButton calculateBtn;
     private TextView textOutput;
     private boolean isFirstSelection = true;
     private Resources res;
@@ -63,7 +64,7 @@ public class TimeConverterActivity extends Activity {
 
         textInput = (AutoCompleteTextView)findViewById(R.id.textInput);
         fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
-        calculateBtn = (Button) findViewById(R.id.calculateBtn);
+        calculateBtn = (ImageButton) findViewById(R.id.calculateBtn);
         textOutput = (TextView) findViewById(R.id.textOutput);
 
         Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
