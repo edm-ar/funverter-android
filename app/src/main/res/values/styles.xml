@@ -38,16 +38,16 @@
 
     <style name="TimeTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/TimeActionBar</item>
-        <item name="android:colorPrimary">@color/redBackground</item>
-        <item name="android:colorPrimaryDark">@color/darkRedBackground</item>
-        <item name="android:navigationBarColor">@color/darkRedBackground</item>
+        <item name="android:colorPrimary">@color/pumpkinBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkPumpkinBackground</item>
+        <item name="android:navigationBarColor">@color/darkPumpkinBackground</item>
     </style>
 
     <style name="AreaTheme" parent="@android:style/Theme.Material">
         <item name="android:actionBarStyle">@style/AreaActionBar</item>
-        <item name="android:colorPrimary">@color/blueBackground</item>
-        <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
-        <item name="android:navigationBarColor">@color/darkBlueBackground</item>
+        <item name="android:colorPrimary">@color/cyanBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkCyanBackground</item>
+        <item name="android:navigationBarColor">@color/darkCyanBackground</item>
     </style>
 
     <!-- styles -->
@@ -83,12 +83,12 @@
     </style>
 
     <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/redBackground</item>
+        <item name="android:background">@color/pumpkinBackground</item>
         <item name="android:elevation">4dp</item>
     </style>
 
     <style name="AreaActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/blueBackground</item>
+        <item name="android:background">@color/cyanBackground</item>
         <item name="android:elevation">4dp</item>
     </style>
 </resources>

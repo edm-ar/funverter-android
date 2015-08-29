@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -28,8 +26,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import basic.converters.apps.basicunitconverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
@@ -196,14 +197,18 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
                 double out = ((Number)returnValue).doubleValue();
 
-                DecimalFormat df;
-                if(String.valueOf(out).length() > 10) {
-                    df = new DecimalFormat("0000000.####E0");
-                    df.setGroupingUsed(true);
-                    df.setGroupingSize(3);
-                } else {
-                    df = new DecimalFormat("####.##");
-                }
+                DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+                DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+                symbols.setGroupingSeparator(',');
+                symbols.setDecimalSeparator('.');
+                df.setDecimalFormatSymbols(symbols);
+//                if(String.valueOf(out).length() > 10) {
+//                    df = new DecimalFormat("000000000.##E0");
+//                    df.setGroupingUsed(true);
+//                    df.setGroupingSize(3);
+//                } else {
+//                    df = new DecimalFormat("####.##");
+//                }
                 df.setRoundingMode(RoundingMode.FLOOR);
                 result = df.format(out);
             } catch(NoSuchMethodException e) {

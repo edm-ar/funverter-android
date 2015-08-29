@@ -28,7 +28,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:inputType="number|numberDecimal"
-            android:hint="Input temperature"
+            android:hint="input temperature"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textIsSelectable="true"
@@ -53,26 +53,8 @@
                 android:prompt="@string/from_prompt" />
         </LinearLayout>
 
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="Calculate"
-            android:id="@+id/calculateBtn"
-            android:textColor="#FFFFFF"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/ic_calculator"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/circularbutton"
-            android:elevation="4dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textOutput"
-            android:textSize="30sp"
-            android:textColor="#FFFFFF"/>
+        <include layout="@layout/calcbutton"/>
+        <include layout="@layout/outputtext"/>
 
     </LinearLayout>
 </RelativeLayout>
