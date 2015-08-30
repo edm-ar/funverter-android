@@ -64,7 +64,7 @@ public enum AreaUnit {
         public double toSquareRod (double i) { return i * 40; }
         public double toSquareYard (double i) { return i * 1210; }
     },
-    Squarefoot {
+    SQUAREFOOT {
         public double toAcre (double i) { return i * 0.00002295684113866; }
         public double toAre (double i) { return i * 0.0009290304; }
         public double toBarn (double i) { return i * 9.290304 * Math.pow(10, 26); }

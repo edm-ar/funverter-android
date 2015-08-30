@@ -27,7 +27,7 @@
 
     <!-- time unit list -->
     <string-array name="time_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Hours</item>
         <item>Seconds</item>
         <item>Minutes</item>
@@ -38,7 +38,7 @@
     </string-array>
     <!-- length unit list -->
     <string-array name="length_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Inches</item>
         <item>Centimeters</item>
         <item>Millimeters</item>
@@ -50,7 +50,7 @@
     </string-array>
     <!-- temperature unit list -->
     <string-array name="temperature_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Fahrenheit</item>
         <item>Celsius</item>
         <item>Kelvin</item>
@@ -59,7 +59,7 @@
     </string-array>
     <!-- volume unit list -->
     <string-array name="volume_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Cubic Meter</item>
         <item>Cubic Inch</item>
         <item>Cubic Yard</item>
@@ -71,7 +71,7 @@
     </string-array>
     <!-- area unit list -->
     <string-array name="area_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Acre</item>
         <item>Are</item>
         <item>Barn</item>
@@ -86,7 +86,7 @@
     </string-array>
     <!-- weight unit list -->
     <string-array name="weight_units">
-        <item>Convert from...</item>
+        <item>@string/from_prompt</item>
         <item>Kilogram</item>
         <item>Carat</item>
         <item>Grain</item>

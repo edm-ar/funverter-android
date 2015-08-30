@@ -35,6 +35,7 @@ import java.util.Locale;
 import basic.converters.apps.basicunitconverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
+import basic.converters.util.UnitSymbols;
 
 /**
  * Created by Edmar on 6/29/2015.
@@ -202,15 +203,11 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 symbols.setGroupingSeparator(',');
                 symbols.setDecimalSeparator('.');
                 df.setDecimalFormatSymbols(symbols);
-//                if(String.valueOf(out).length() > 10) {
-//                    df = new DecimalFormat("000000000.##E0");
-//                    df.setGroupingUsed(true);
-//                    df.setGroupingSize(3);
-//                } else {
-//                    df = new DecimalFormat("####.##");
-//                }
-                df.setRoundingMode(RoundingMode.FLOOR);
-                result = df.format(out);
+                result = df.format(out).concat(" ");
+
+                if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
+                    result.concat(UnitSymbols.symbols.get(toUnit.toLowerCase()));
+                }
             } catch(NoSuchMethodException e) {
                 Log.e(TAG, e.getMessage(), e);
             } catch(IllegalAccessException e) {
