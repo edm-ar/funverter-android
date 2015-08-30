@@ -166,7 +166,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
         }
 
         Float input = Float.parseFloat(inputText);
-        String result = null;
+        StringBuilder result = new StringBuilder();
 
         if(!String.valueOf(fromSpinner.getSelectedItem()).contains(res.getString(R.string.convert))
                 && !String.valueOf(toSpinner.getSelectedItem()).contains(res.getString(R.string.convert))) {
@@ -193,8 +193,9 @@ public abstract class AbstractConverter extends Activity implements Converter {
                     }
                 }
 
-                Method mth = constant.getClass().getDeclaredMethod("to".concat(StringUtils
-                        .capitalize(toUnit)), double.class);
+                Method mth = constant.getClass()
+                        .getDeclaredMethod("to"
+                                .concat(StringUtils.capitalize(toUnit)), double.class);
                 Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
                 double out = ((Number)returnValue).doubleValue();
 
@@ -203,10 +204,10 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 symbols.setGroupingSeparator(',');
                 symbols.setDecimalSeparator('.');
                 df.setDecimalFormatSymbols(symbols);
-                result = df.format(out).concat(" ");
+                result.append(df.format(out));
 
                 if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
-                    result.concat(UnitSymbols.symbols.get(toUnit.toLowerCase()));
+                    result.append(" ").append(UnitSymbols.symbols.get(toUnit.toLowerCase()));
                 }
             } catch(NoSuchMethodException e) {
                 Log.e(TAG, e.getMessage(), e);
@@ -230,7 +231,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
             } catch(SQLiteConstraintException e) {
                 Log.e(TAG, e.getMessage(), e);
             }
-            textOutput.setText(result);
+            textOutput.setText(result.toString());
         } else {
             showToast("Oops...something went wrong :(");
         }

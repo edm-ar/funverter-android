@@ -32,7 +32,7 @@ public abstract class UnitSymbols {
         symbols.put("cubicyard", "yds³");
         symbols.put("liter", "l");
         symbols.put("gallon", "gal");
-        symbols.put("us fluid ounce", "fl oz");
+        symbols.put("usfluidounce", "fl oz");
         symbols.put("cubicfoot", "ft³");
         symbols.put("uspint", "pts");
         symbols.put("acre", "acre");
