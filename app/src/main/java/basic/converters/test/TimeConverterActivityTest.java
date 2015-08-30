@@ -2,22 +2,21 @@ package basic.converters.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import basic.converters.apps.basicunitconverter.AreaConverterActivity;
 import basic.converters.apps.basicunitconverter.R;
+import basic.converters.apps.basicunitconverter.TimeConverterActivity;
 import basic.converters.util.UnitSymbols;
 
 /**
- * Created by Edmar on 6/28/2015.
+ * Created by Edmar on 8/30/2015.
  */
-public class AreaConverterActivityTest
-        extends ActivityInstrumentationTestCase2<AreaConverterActivity> {
+public class TimeConverterActivityTest
+        extends ActivityInstrumentationTestCase2<TimeConverterActivity> {
 
-    private AreaConverterActivity mActivity;
+    private TimeConverterActivity mActivity;
     private Spinner fromSpinner;
     private Spinner toSpinner;
     private AutoCompleteTextView inputText;
@@ -25,8 +24,8 @@ public class AreaConverterActivityTest
     private TextView outputText;
     private String[] units;
 
-    public AreaConverterActivityTest() {
-        super(AreaConverterActivity.class);
+    public TimeConverterActivityTest() {
+        super(TimeConverterActivity.class);
     }
 
     @Override
@@ -35,7 +34,7 @@ public class AreaConverterActivityTest
         setActivityInitialTouchMode(true);
 
         mActivity = getActivity();
-        units = mActivity.getResources().getStringArray(R.array.area_units);
+        units = mActivity.getResources().getStringArray(R.array.time_units);
         fromSpinner = (Spinner)mActivity.findViewById(R.id.fromSpinner);
         inputText = (AutoCompleteTextView)mActivity.findViewById(R.id.textInput);
         calculateBtn = (ImageButton)mActivity.findViewById(R.id.calculateBtn);
@@ -46,10 +45,10 @@ public class AreaConverterActivityTest
                     @Override
                     public void run() {
                         inputText.requestFocus();
-                        inputText.setText("5");
+                        inputText.setText("1");
 
                         fromSpinner.requestFocus();
-                        fromSpinner.setSelection(1); // selects inches
+                        fromSpinner.setSelection(1); // selects hours
                     }
                 }
         );
@@ -62,7 +61,7 @@ public class AreaConverterActivityTest
                     public void run() {
                         toSpinner = (Spinner) mActivity.findViewById(R.id.toSpinner);
                         toSpinner.requestFocus();
-                        toSpinner.setSelection(1); // selects are from the generated list
+                        toSpinner.setSelection(1); // selects seconds from the generated list
                     }
                 }
         );
@@ -92,6 +91,6 @@ public class AreaConverterActivityTest
                 .get(toSpinner.getSelectedItem().toString().toLowerCase());
         outputText = (TextView) mActivity.findViewById(R.id.textOutput);
         assertNotNull(outputText);
-        assertEquals("202.343".concat(" " + unitSymbol), outputText.getText().toString());
+        assertEquals("3,600".concat(" " + unitSymbol), outputText.getText().toString());
     }
 }

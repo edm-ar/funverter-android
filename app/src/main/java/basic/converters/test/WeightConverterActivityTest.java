@@ -3,11 +3,13 @@ package basic.converters.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import basic.converters.apps.basicunitconverter.WeightConverterActivity;
 import basic.converters.apps.basicunitconverter.R;
+import basic.converters.util.UnitSymbols;
 
 /**
  * Created by Edmar on 6/28/2015.
@@ -19,7 +21,7 @@ public class WeightConverterActivityTest
     private Spinner fromSpinner;
     private Spinner toSpinner;
     private AutoCompleteTextView inputText;
-    private Button calculateBtn;
+    private ImageButton calculateBtn;
     private TextView outputText;
     private String[] units;
 
@@ -36,7 +38,7 @@ public class WeightConverterActivityTest
         units = mActivity.getResources().getStringArray(R.array.weight_units);
         fromSpinner = (Spinner)mActivity.findViewById(R.id.fromSpinner);
         inputText = (AutoCompleteTextView)mActivity.findViewById(R.id.textInput);
-        calculateBtn = (Button)mActivity.findViewById(R.id.calculateBtn);
+        calculateBtn = (ImageButton)mActivity.findViewById(R.id.calculateBtn);
 
         // run on main sync to wait for UI interactions to complete
         getInstrumentation().runOnMainSync(
@@ -86,8 +88,10 @@ public class WeightConverterActivityTest
                 }
         );
 
+        String unitSymbol = UnitSymbols.symbols
+                .get(toSpinner.getSelectedItem().toString().toLowerCase());
         outputText = (TextView) mActivity.findViewById(R.id.textOutput);
         assertNotNull(outputText);
-        assertEquals("275000", outputText.getText().toString());
+        assertEquals("275,000".concat(" " + unitSymbol), outputText.getText().toString());
     }
 }
