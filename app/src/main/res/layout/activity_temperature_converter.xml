@@ -43,14 +43,55 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <Spinner
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fromSpinner"
-                android:layout_gravity="center_horizontal"
-                android:spinnerMode="dialog"
-                android:entries="@array/temperature_units"
-                android:prompt="@string/from_prompt" />
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from_prompt"
+                    android:layout_gravity="center_vertical" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fromSpinner"
+                    android:layout_gravity="center_horizontal"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/temperature_units"
+                    android:prompt="@string/from_prompt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_prompt"
+                    android:layout_gravity="center_vertical" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toSpinner"
+                    android:layout_gravity="center_horizontal"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/temperature_units"
+                    android:prompt="@string/to_prompt" />
+            </LinearLayout>
         </LinearLayout>
 
         <include layout="@layout/calcbutton"/>

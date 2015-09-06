@@ -11,11 +11,9 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,13 +22,12 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import basic.converters.apps.basicunitconverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
@@ -43,38 +40,43 @@ import basic.converters.util.UnitSymbols;
 public abstract class AbstractConverter extends Activity implements Converter {
 
     private String TAG;
-    private String TABLE_NAME;
+    private String tableName;
 
     private AutoCompleteTextView textInput;
     private Spinner toSpinner;
     private Spinner fromSpinner;
     private ImageButton calculateBtn;
-    private boolean isFirstSelection = true;
     private TextView textOutput;
     private Resources res;
     private Context context;
     private Class unitClazz;
-    private int unitsArrayId;
 
     private ConversionEntriesDataSource dataSource;
     private List<ConversionEntry> entries;
     private InputMethodManager imm;
 
     protected void onCreate(Bundle savedInstanceState, Context ctx,
-                            String converterName, int unitsArray, int layout,
+                            String converterName, int layout,
                             Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
 
+        res = getResources();
         imm = (InputMethodManager)getSystemService(
                 Context.INPUT_METHOD_SERVICE);
 
+        textInput = (AutoCompleteTextView) findViewById(R.id.textInput);
+        fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
+        toSpinner = (Spinner)findViewById(R.id.toSpinner);
+        toSpinner.setSelection(1);
+        calculateBtn = (ImageButton) findViewById(R.id.calculateBtn);
+        textOutput = (TextView) findViewById(R.id.textOutput);
+
         context = ctx;
-        TABLE_NAME = converterName;
+        tableName = converterName;
         unitClazz = unitClass;
         TAG = activityClass.getName();
-        unitsArrayId = unitsArray;
 
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -82,20 +84,15 @@ public abstract class AbstractConverter extends Activity implements Converter {
         dataSource = new ConversionEntriesDataSource(ctx);
         dataSource.open();
 
-        res = getResources();
+        // restore saved instance if such exists
+        if(savedInstanceState != null) {
+            textInput.setText(savedInstanceState.getString("inputText"));
+            fromSpinner.setSelection(savedInstanceState.getInt("convertFrom"));
+            toSpinner.setSelection(savedInstanceState.getInt("convertTo"));
+            textOutput.setText(savedInstanceState.getString("textOutput"));
+        }
 
-        textInput = (AutoCompleteTextView) findViewById(R.id.textInput);
-        fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
-        calculateBtn = (ImageButton) findViewById(R.id.calculateBtn);
-        textOutput = (TextView) findViewById(R.id.textOutput);
-
-        Log.i(TAG, "Adding " + TABLE_NAME + " to autocomplete view");
-        // set adapter for autocomplete
-        setAutocompleteAdapter();
-
-        // add item click listener to spinner
-        Spinner.OnItemSelectedListener spinListener = new ItemListener();
-        fromSpinner.setOnItemSelectedListener(spinListener);
+        Log.i(TAG, "Adding " + tableName + " to autocomplete view");
 
         // create button listener
         View.OnClickListener listener = new ButtonListener();
@@ -105,55 +102,17 @@ public abstract class AbstractConverter extends Activity implements Converter {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 imm.showSoftInput(v, 0); // show keyboard when input field is tapped
+                // set adapter for autocomplete
+                setAutocompleteAdapter();
                 return true;
             }
         });
-    }
-
-    private class ItemListener implements Spinner.OnItemSelectedListener {
-
-        public void onNothingSelected(AdapterView<?> parent) {
-            // do nothing
-        }
-
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-            if(isFirstSelection) {
-                isFirstSelection = false;
-            } else {
-                itemSelectedHandler(parent, view, position, id);
-            }
-        }
     }
 
     private class ButtonListener implements View.OnClickListener {
         public void onClick(View v) {
             buttonClickHandler();
         }
-    }
-
-    public void itemSelectedHandler(AdapterView<?> parent, View view, int position, long id) {
-        Log.d(TAG, "Select from: " + parent.getSelectedItem());
-        ArrayList<String> units = new ArrayList<>();
-        units.add(res.getString(R.string.to_prompt));
-
-        for(String unit : res.getStringArray(unitsArrayId)) {
-            //TODO find a better way of avoiding the addition of non-unit values
-            if(!unit.equals(parent.getSelectedItem().toString())
-                    && !unit.contains(res.getString(R.string.convert))) {
-                units.add(unit);
-            }
-        }
-
-        LinearLayout spinnersContainer = (LinearLayout)findViewById(R.id.spinnersContainer);
-        if(spinnersContainer.findViewById(R.id.toSpinner) != null) {
-            spinnersContainer.removeView(findViewById(R.id.toSpinner));
-        }
-        toSpinner = new Spinner(this);
-        toSpinner.setId(R.id.toSpinner);
-        ArrayAdapter<String> spinnerArrayAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, units);
-        toSpinner.setAdapter(spinnerArrayAdapter);
-        spinnersContainer.addView(toSpinner);
     }
 
     public void buttonClickHandler() {
@@ -168,64 +127,58 @@ public abstract class AbstractConverter extends Activity implements Converter {
         Float input = Float.parseFloat(inputText);
         StringBuilder result = new StringBuilder();
 
-        if(!String.valueOf(fromSpinner.getSelectedItem()).contains(res.getString(R.string.convert))
-                && !String.valueOf(toSpinner.getSelectedItem()).contains(res.getString(R.string.convert))) {
-            // convert all to upper case so that the unit class can find them in enum
-            String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
-            // split on space so that enum type methods are matched accurately
-            String[] temp = toSpinner.getSelectedItem().toString().split(" ");
-            StringBuilder toUnitSb = new StringBuilder();
-            for(String u : temp) {
-                toUnitSb.append(StringUtils.capitalize(u.toLowerCase()));
-            }
-            String toUnit = toUnitSb.toString();
+        // convert all to upper case so that the unit class can find them in enum
+        String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
+        // split on space so that enum type methods are matched accurately
+        String[] temp = toSpinner.getSelectedItem().toString().split(" ");
+        StringBuilder toUnitSb = new StringBuilder();
+        for(String u : temp) {
+            toUnitSb.append(StringUtils.capitalize(u.toLowerCase()));
+        }
+        String toUnit = toUnitSb.toString();
 
-            try {
-                Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
-                Object[] constants = unitClazz.getEnumConstants();
-                Object constant = null;
+        try {
+            Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
+            Object[] constants = unitClazz.getEnumConstants();
+            Object constant = null;
 
-                //TODO try to use a valueOf type of solution instead of iterating over constants
-                for(int i = 0; i < constants.length; i++) {
-                    if(fromUnit.equals(constants[i].toString())) {
-                        constant = constants[i];
-                        break;
-                    }
+            //TODO try to use a valueOf type of solution instead of iterating over constants
+            for(int i = 0; i < constants.length; i++) {
+                if(fromUnit.equals(constants[i].toString())) {
+                    constant = constants[i];
+                    break;
                 }
-
-                Method mth = constant.getClass()
-                        .getDeclaredMethod("to"
-                                .concat(StringUtils.capitalize(toUnit)), double.class);
-                Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
-                double out = ((Number)returnValue).doubleValue();
-
-                DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
-                DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-                symbols.setGroupingSeparator(',');
-                symbols.setDecimalSeparator('.');
-                df.setDecimalFormatSymbols(symbols);
-                result.append(df.format(out));
-
-                if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
-                    result.append(" ").append(UnitSymbols.symbols.get(toUnit.toLowerCase()));
-                }
-            } catch(NoSuchMethodException e) {
-                Log.e(TAG, e.getMessage(), e);
-            } catch(IllegalAccessException e) {
-                Log.e(TAG, e.getMessage());
-            } catch(InvocationTargetException e) {
-                Log.e(TAG, e.getMessage());
-            } catch(NullPointerException e) {
-                Log.e(TAG, e.getMessage());
             }
-        } else {
-            showToast("Please pick units to convert from and to");
-            return;
+
+            Method mth = constant.getClass()
+                    .getDeclaredMethod("to"
+                            .concat(StringUtils.capitalize(toUnit)), double.class);
+            Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
+            double out = ((Number)returnValue).doubleValue();
+
+            DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+            DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+            symbols.setGroupingSeparator(',');
+            symbols.setDecimalSeparator('.');
+            df.setDecimalFormatSymbols(symbols);
+            result.append(df.format(out));
+
+            if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
+                result.append(" ").append(UnitSymbols.symbols.get(toUnit.toLowerCase()));
+            }
+        } catch(NoSuchMethodException e) {
+            Log.e(TAG, e.getMessage(), e);
+        } catch(IllegalAccessException e) {
+            Log.e(TAG, e.getMessage());
+        } catch(InvocationTargetException e) {
+            Log.e(TAG, e.getMessage());
+        } catch(NullPointerException e) {
+            Log.e(TAG, e.getMessage());
         }
 
         if(StringUtils.isNotBlank(result)) {
             try {
-                dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
+                dataSource.createConversionEntry(String.valueOf(input), tableName);
                 // get updated list of entries
                 setAutocompleteAdapter();
             } catch(SQLiteConstraintException e) {
@@ -261,7 +214,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
     }
 
     public void setAutocompleteAdapter() {
-        entries = dataSource.getAllTableConversionEntries(TABLE_NAME);
+        entries = dataSource.getAllTableConversionEntries(tableName);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
         textInput.setAdapter(adapter);
     }
@@ -283,5 +236,20 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        if(textInput != null)
+            savedInstanceState.putString("inputText", textInput.getText().toString());
+        if(fromSpinner != null)
+            savedInstanceState.putInt("convertFrom", fromSpinner.getSelectedItemPosition());
+        if(toSpinner != null)
+            savedInstanceState.putInt("convertTo", toSpinner.getSelectedItemPosition());
+        if(textOutput != null)
+            savedInstanceState.putString("textOutput", textOutput.getText().toString());
+        savedInstanceState.putBoolean("setAdapter", false);
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 }

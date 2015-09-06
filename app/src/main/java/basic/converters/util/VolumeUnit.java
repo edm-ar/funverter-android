@@ -5,6 +5,7 @@ package basic.converters.util;
  */
 public enum VolumeUnit {
     CUBICMETER {
+        public double toCubicMeter(double i) { return i; }
         public double toCubicInch(double i) { return i * 61023.7; }
         public double toCubicYard(double i) { return i * 1.30795062; }
         public double toLiter(double i) { return i * 1000; }
@@ -15,6 +16,7 @@ public enum VolumeUnit {
     },
     CUBICINCH {
         public double toCubicMeter(double i) { return i * 1.63871 * Math.pow(10, -5); }
+        public double toCubicInch(double i) { return i; }
         public double toCubicYard(double i) { return i * 2.14334705 * Math.pow(10, -5); }
         public double toLiter(double i) { return i * 0.0163871; }
         public double toGallon(double i) { return i * 0.004329; }
@@ -25,6 +27,7 @@ public enum VolumeUnit {
     CUBICYARD {
         public double toCubicInch(double i) { return i * 46656; }
         public double toCubicMeter(double i) { return i * 0.764554858; }
+        public double toCubicYard(double i) { return i; }
         public double toLiter(double i) { return i * 764.554858; }
         public double toGallon(double i) { return i * 201.974026; }
         public double toUsFluidOunce(double i) { return i * 25852.6753; }
@@ -35,6 +38,7 @@ public enum VolumeUnit {
         public double toCubicInch(double i) { return i * 61.0237; }
         public double toCubicYard(double i) { return i * 0.00130795062; }
         public double toCubicMeter(double i) { return i * 0.001; }
+        public double toLiter(double i) { return i; }
         public double toGallon(double i) { return i * 0.264172; }
         public double toUsFluidOunce(double i) { return i * 33.814; }
         public double toCubicFoot(double i) { return i * 0.0353147; }
@@ -44,6 +48,7 @@ public enum VolumeUnit {
         public double toCubicInch(double i) { return i * 231; }
         public double toCubicYard(double i) { return i * 0.00495113169; }
         public double toLiter(double i) { return i * 3.78541; }
+        public double toGallon(double i) { return i; }
         public double toCubicMeter(double i) { return i * 0.00378541; }
         public double toUsFluidOunce(double i) { return i * 128; }
         public double toCubicFoot(double i) { return i * 0.133681; }
@@ -54,6 +59,7 @@ public enum VolumeUnit {
         public double toCubicYard(double i) { return i * 3.86807163 * Math.pow(10, -5); }
         public double toLiter(double i) { return i * 0.0295735; }
         public double toGallon(double i) { return i * 0.0078125; }
+        public double toUsFluidOunce(double i) { return i; }
         public double toCubicMeter(double i) { return i * 2.95735 * Math.pow(10, -5); }
         public double toCubicFoot(double i) { return i * 0.00104438; }
         public double toUsPint(double i) { return i * 0.0625; }
@@ -64,6 +70,7 @@ public enum VolumeUnit {
         public double toLiter(double i) { return i * 28.3168; }
         public double toGallon(double i) { return i * 7.48052; }
         public double toUsFluidOunce(double i) { return i * 957.506; }
+        public double toCubicFoot(double i) { return i; }
         public double toCubicMeter(double i) { return i * 0.0283168; }
         public double toUsPint(double i) { return i * 59.8442; }
     },
@@ -75,6 +82,7 @@ public enum VolumeUnit {
         public double toUsFluidOunce(double i) { return i * 16; }
         public double toCubicFoot(double i) { return i * 0.0167101; }
         public double toCubicMeter(double i) { return i * 0.000473176; }
+        public double toUsPint(double i) { return i; }
     };
 
     public double toCubicMeter(double i) { throw new AbstractMethodError(); }

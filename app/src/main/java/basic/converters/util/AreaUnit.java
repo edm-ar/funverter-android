@@ -5,6 +5,7 @@ package basic.converters.util;
  */
 public enum AreaUnit {
     ACRE {
+        public double toAcre (double i) { return i; }
         public double toAre (double i) { return i * 40.468564224; }
         public double toBarn (double i) { return i * 4.0468564224 * Math.pow(10, 31); }
         public double toHectare (double i) { return i * 0.40468564224; }
@@ -18,6 +19,7 @@ public enum AreaUnit {
     },
     ARE {
         public double toAcre (double i) { return i * 0.02471053814672; }
+        public double toAre (double i) { return i; }
         public double toBarn (double i) { return i * Math.pow(10, 30); }
         public double toHectare (double i) { return i * 0.01; }
         public double toRood (double i) { return i * 0.09884215258687; }
@@ -31,6 +33,7 @@ public enum AreaUnit {
     BARN {
         public double toAcre (double i) { return i * 2.471053814672 * Math.pow(10, -32); }
         public double toAre (double i) { return i * Math.pow(10, -30); }
+        public double toBarn (double i) { return i; }
         public double toHectare (double i) { return i * Math.pow(10, -32); }
         public double toRood (double i) { return i * 9.884215258687 * Math.pow(10, -32); }
         public double toSquareFoot (double i) { return i * 1.076391041671 * Math.pow(10, -27); }
@@ -44,6 +47,7 @@ public enum AreaUnit {
         public double toAcre (double i) { return i * 2.471053814672; }
         public double toAre (double i) { return i * 100; }
         public double toBarn (double i) { return i * Math.pow(10, 32); }
+        public double toHectare (double i) { return i; }
         public double toRood (double i) { return i * 9.884215258687; }
         public double toSquareFoot (double i) { return i * 107639.1041671; }
         public double toSquareInch (double i) { return i * 15500031.00006; }
@@ -57,6 +61,7 @@ public enum AreaUnit {
         public double toAre (double i) { return i * 10.117141056; }
         public double toBarn (double i) { return i * 1.0117141056 * Math.pow(10, 31); }
         public double toHectare (double i) { return i * 0.10117141056; }
+        public double toRood (double i) { return i; }
         public double toSquareFoot (double i) { return i * 10890; }
         public double toSquareInch (double i) { return i * 1568160; }
         public double toSquareMeter (double i) { return i * 1011.7141056; }
@@ -70,6 +75,7 @@ public enum AreaUnit {
         public double toBarn (double i) { return i * 9.290304 * Math.pow(10, 26); }
         public double toHectare (double i) { return i * 0.000009290304; }
         public double toRood (double i) { return i * 0.00009182736455463; }
+        public double toSquareFoot (double i) { return i; }
         public double toSquareInch (double i) { return i * 144; }
         public double toSquareMeter (double i) { return i * 0.09290304; }
         public double toSquareMile (double i) { return i * 3.587006427915 * Math.pow(10, -8); }
@@ -83,6 +89,7 @@ public enum AreaUnit {
         public double toHectare (double i) { return i * 6.4516 * Math.pow(10, -8); }
         public double toRood (double i) { return i * 6.376900316294 * Math.pow(10, -7); }
         public double toSquareFoot (double i) { return i * 0.006944444444445; }
+        public double toSquareInch (double i) { return i; }
         public double toSquareMeter (double i) { return i * 0.00064516; }
         public double toSquareMile (double i) { return i * 2.490976686052 * Math.pow(10, -10); }
         public double toSquareRod (double i) { return i * 0.00002550760126518; }
@@ -96,6 +103,7 @@ public enum AreaUnit {
         public double toRood (double i) { return i * 0.0009884215258687; }
         public double toSquareFoot (double i) { return i * 10.76391041671; }
         public double toSquareInch (double i) { return i * 1550.003100006; }
+        public double toSquareMeter (double i) { return i; }
         public double toSquareMile (double i) { return i * 3.861021585425 * Math.pow(10, -7); }
         public double toSquareRod (double i) { return i * 0.03953686103475; }
         public double toSquareYard (double i) { return i * 1.195990046301; }
@@ -109,6 +117,7 @@ public enum AreaUnit {
         public double toSquareFoot (double i) { return i * 27878400; }
         public double toSquareInch (double i) { return i * 4014489600L; }
         public double toSquareMeter (double i) { return i * 2589988.110336; }
+        public double toSquareMile (double i) { return i; }
         public double toSquareRod (double i) { return i * 102400; }
         public double toSquareYard (double i) { return i * 3097600; }
     },
@@ -122,6 +131,7 @@ public enum AreaUnit {
         public double toSquareInch (double i) { return i * 39204; }
         public double toSquareMeter (double i) { return i * 25.29285264; }
         public double toSquareMile (double i) { return i * 0.000009765625; }
+        public double toSquareRod (double i) { return i; }
         public double toSquareYard (double i) { return i * 30.25; }
     },
     SQUAREYARD {
@@ -135,6 +145,7 @@ public enum AreaUnit {
         public double toSquareMeter (double i) { return i * 0.83612736; }
         public double toSquareMile (double i) { return i * 3.228305785124 * Math.pow(10, -7); }
         public double toSquareRod (double i) { return i * 0.03305785123967; }
+        public double toSquareYard (double i) { return i; }
     };
 
     public double toAcre (double i) { throw new AbstractMethodError(); }

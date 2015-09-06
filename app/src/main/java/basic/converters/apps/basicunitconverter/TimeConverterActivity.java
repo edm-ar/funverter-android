@@ -66,6 +66,8 @@ public class TimeConverterActivity extends Activity {
 
         textInput = (AutoCompleteTextView)findViewById(R.id.textInput);
         fromSpinner = (Spinner)findViewById(R.id.fromSpinner);
+        toSpinner = (Spinner)findViewById(R.id.toSpinner);
+        toSpinner.setSelection(1);
         calculateBtn = (ImageButton) findViewById(R.id.calculateBtn);
         textOutput = (TextView) findViewById(R.id.textOutput);
 
@@ -124,17 +126,6 @@ public class TimeConverterActivity extends Activity {
                 units.add(unit);
             }
         }
-
-        LinearLayout spinnersContainer = (LinearLayout)findViewById(R.id.spinnersContainer);
-        if(spinnersContainer.findViewById(R.id.toSpinner) != null) {
-            spinnersContainer.removeView(findViewById(R.id.toSpinner));
-        }
-
-        toSpinner = new Spinner(this);
-        toSpinner.setId(R.id.toSpinner);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, units);
-        toSpinner.setAdapter(spinnerArrayAdapter);
-        spinnersContainer.addView(toSpinner);
     }
 
     private void buttonClickHandler() {

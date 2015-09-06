@@ -9,8 +9,7 @@ public class LengthConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-                "length", R.array.length_units,
-                R.layout.activity_length_converter,
+                "length", R.layout.activity_length_converter,
                 this.getClass(), LengthUnit.class);
     }
 }

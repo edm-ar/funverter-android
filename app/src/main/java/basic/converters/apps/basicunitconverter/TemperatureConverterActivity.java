@@ -10,8 +10,7 @@ public class TemperatureConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-            "temperature", R.array.temperature_units,
-                R.layout.activity_temperature_converter,
+            "temperature", R.layout.activity_temperature_converter,
                 this.getClass(), TemperatureUnit.class);
     }
 }

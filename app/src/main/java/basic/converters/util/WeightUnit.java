@@ -5,6 +5,7 @@ package basic.converters.util;
  */
 public enum WeightUnit {
     CARAT {
+        public double toCarat(double i) { return i; }
         public double toGrain(double i) { return i * 3.086471670588; }
         public double toKilogram(double i) { return i * 0.0002; }
         public double toNewton(double i) { return i * 0.00196133; }
@@ -15,6 +16,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 2.204622621849 * Math.pow(10, -7); }
     },
     KILOGRAM {
+        public double toKilogram(double i) { return i; }
         public double toGrain(double i) { return i * 15432.35835294; }
         public double toCarat(double i) { return i * 5000; }
         public double toNewton(double i) { return i * 9.80665; }
@@ -25,6 +27,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.001102311310924; }
     },
     GRAIN {
+        public double toGrain(double i) { return i; }
         public double toKilogram(double i) { return i * 0.00006479891; }
         public double toCarat(double i) { return i * 0.32399455; }
         public double toNewton(double i) { return i * 0.0006354602307515; }
@@ -35,6 +38,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 7.142857142857 * Math.pow(10, -8); }
     },
     NEWTON {
+        public double toNewton(double i) { return i; }
         public double toKilogram(double i) { return i * 0.1019716212978; }
         public double toCarat(double i) { return i * 509.858106489; }
         public double toGrain(double i) { return i * 1573.662601698; }
@@ -45,6 +49,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.0001124044715499; }
     },
     OUNCE {
+        public double toOunce(double i) { return i; }
         public double toKilogram(double i) { return i * 0.028349523125; }
         public double toCarat(double i) { return i * 141.747615625; }
         public double toGrain(double i) { return i * 437.5; }
@@ -55,6 +60,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.00003125; }
     },
     PENNYWEIGHT {
+        public double toPennyWeight(double i) { return i; }
         public double toKilogram(double i) { return i * 0.00155517384; }
         public double toCarat(double i) { return i * 7.7758692; }
         public double toGrain(double i) { return i * 24; }
@@ -65,6 +71,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.000001714285714286; }
     },
     POUND {
+        public double toPound(double i) { return i; }
         public double toKilogram(double i) { return i * 0.45359237; }
         public double toCarat(double i) { return i * 2267.96185; }
         public double toGrain(double i) { return i * 7000; }
@@ -75,6 +82,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.0005; }
     },
     QUARTER {
+        public double toQuarter(double i) { return i; }
         public double toKilogram(double i) { return i * 12.70058636; }
         public double toCarat(double i) { return i * 63502.9318; }
         public double toGrain(double i) { return i * 196000; }
@@ -85,6 +93,7 @@ public enum WeightUnit {
         public double toTon(double i) { return i * 0.014; }
     },
     TON {
+        public double toTon(double i) { return i; }
         public double toKilogram(double i) { return i * 907.18474; }
         public double toCarat(double i) { return i * 4535923.7; }
         public double toGrain(double i) { return i * 14000000; }

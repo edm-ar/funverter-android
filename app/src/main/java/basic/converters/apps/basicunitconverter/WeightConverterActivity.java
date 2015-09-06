@@ -10,8 +10,7 @@ public class WeightConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-                "weight", R.array.weight_units,
-                R.layout.activity_weight_converter,
+                "weight", R.layout.activity_weight_converter,
                 this.getClass(), WeightUnit.class);
     }
 }

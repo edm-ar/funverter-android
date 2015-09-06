@@ -10,8 +10,7 @@ public class VolumeConverterActivity extends AbstractConverter {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, this,
-                "volume", R.array.volume_units,
-                R.layout.activity_volume_converter,
+                "volume", R.layout.activity_volume_converter,
                 this.getClass(), VolumeUnit.class);
     }
 }
