@@ -37,6 +37,7 @@ public class WeightConverterActivityTest
         mActivity = getActivity();
         units = mActivity.getResources().getStringArray(R.array.weight_units);
         fromSpinner = (Spinner)mActivity.findViewById(R.id.fromSpinner);
+        toSpinner = (Spinner) mActivity.findViewById(R.id.toSpinner);
         inputText = (AutoCompleteTextView)mActivity.findViewById(R.id.textInput);
         calculateBtn = (ImageButton)mActivity.findViewById(R.id.calculateBtn);
 
@@ -47,22 +48,6 @@ public class WeightConverterActivityTest
                     public void run() {
                         inputText.requestFocus();
                         inputText.setText("55");
-
-                        fromSpinner.requestFocus();
-                        fromSpinner.setSelection(1); // selects kilogram
-                    }
-                }
-        );
-        getInstrumentation().waitForIdleSync(); // wait for UI interactions to finish so that
-        // toSpinner created
-
-        getInstrumentation().runOnMainSync(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        toSpinner = (Spinner) mActivity.findViewById(R.id.toSpinner);
-                        toSpinner.requestFocus();
-                        toSpinner.setSelection(1); // selects carat from the generated list
                     }
                 }
         );
@@ -89,7 +74,7 @@ public class WeightConverterActivityTest
         );
 
         String unitSymbol = UnitSymbols.symbols
-                .get(toSpinner.getSelectedItem().toString().toLowerCase());
+                .get(toSpinner.getSelectedItem().toString().toLowerCase().replace(" ",""));
         outputText = (TextView) mActivity.findViewById(R.id.textOutput);
         assertNotNull(outputText);
         assertEquals("275,000".concat(" " + unitSymbol), outputText.getText().toString());

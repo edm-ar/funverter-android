@@ -20,14 +20,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.res.Resources;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.EnumUtils;
 
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
 import basic.converters.util.TimeUnitExtension;
+import basic.converters.util.UnitSymbols;
 
 //TODO update timeunit converter
 public class TimeConverterActivity extends Activity {
@@ -139,7 +144,14 @@ public class TimeConverterActivity extends Activity {
 
         Float input = Float.parseFloat(inputText);
         Float x;
-        String result = "";
+        StringBuilder result = new StringBuilder();
+        double out = 0;
+
+        DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator(',');
+        symbols.setDecimalSeparator('.');
+        df.setDecimalFormatSymbols(symbols);
 
         if(!String.valueOf(fromSpinner.getSelectedItem()).contains(res.getString(R.string.convert))
                 && !String.valueOf(toSpinner.getSelectedItem()).contains(res.getString(R.string.convert))) {
@@ -150,21 +162,26 @@ public class TimeConverterActivity extends Activity {
             try {
                 if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
                         && EnumUtils.isValidEnum(TimeUnit.class, toUnit)) { // handles conversions between days, hours, seconds and minutes
-                    result = String.valueOf(TimeUnit.valueOf(toUnit)
-                            .convert(Long.parseLong(inputText), TimeUnit.valueOf(fromUnit)));
+                    out = TimeUnit.valueOf(toUnit)
+                            .convert(Long.parseLong(inputText), TimeUnit.valueOf(fromUnit));
+                    result.append(String.valueOf(df.format(out)));
                 } else if (!EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
                         && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit)
-                            .convert(Long.parseLong(inputText), TimeUnitExtension.valueOf(fromUnit)));
+                    out = TimeUnitExtension.valueOf(toUnit)
+                            .convert(Long.parseLong(inputText), TimeUnitExtension.valueOf(fromUnit));
+                    result.append(String.valueOf(df.format(out)));
                 } else if (EnumUtils.isValidEnum(TimeUnit.class, fromUnit)
                         && !EnumUtils.isValidEnum(TimeUnit.class, toUnit)) {
-                    result = String.valueOf(TimeUnitExtension.valueOf(toUnit)
+                    out = TimeUnitExtension.valueOf(toUnit)
                             .convert((long) (Double.parseDouble(inputText)
-                                    * TimeUnit.valueOf(fromUnit).toMillis(1)))); // handles decimal inputs
+                                    * TimeUnit.valueOf(fromUnit).toMillis(1)));
+                    result.append(String.valueOf(df.format(out))); // handles decimal inputs
                 } else {
                     long d = (long) (Double.parseDouble(inputText)
                             * TimeUnitExtension.valueOf(fromUnit).getMillis());// handles decimal inputs
-                    result = String.valueOf(TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS)); // use milliseconds since anything can be converted from milliseconds
+                    // use milliseconds since anything can be converted from milliseconds
+                    out = TimeUnit.valueOf(toUnit).convert(d, TimeUnit.MILLISECONDS);
+                    result.append(String.valueOf(df.format(out)));
                 }
             } catch (NumberFormatException nfe) {
                 Log.e(TAG, nfe.getMessage(), nfe);
@@ -176,9 +193,11 @@ public class TimeConverterActivity extends Activity {
             return;
         }
 
-        if(!result.isEmpty()) {
+        if(!result.toString().isEmpty()) {
             dataSource.createConversionEntry(String.valueOf(input), TABLE_NAME);
-            textOutput.setText(result);
+            result.append(" ").append(UnitSymbols.symbols
+                    .get(toSpinner.getSelectedItem().toString().toLowerCase().replace(" ", "")));
+            textOutput.setText(result.toString());
         }
     }
 
