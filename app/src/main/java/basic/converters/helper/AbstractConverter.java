@@ -162,7 +162,8 @@ public abstract class AbstractConverter extends Activity implements Converter {
     }
 
     public void buttonClickHandler() {
-        imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0); // hide keyboard once calculation is executed
+        // hide keyboard once calculation is executed
+        imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0);
 
         String inputText = textInput.getText().toString();
         if(inputText.isEmpty()) {
