@@ -14,9 +14,9 @@ public class BasicUnitConverterActivity extends Activity {
     // tag to be used when logging
     private static final String TAG = BasicUnitConverterActivity.class.getSimpleName();
     //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
-    private static final String ACTIVITYSUFFIX = "ConverterActivity";
+    public static final String ACTIVITYSUFFIX = "ConverterActivity";
     //TODO find better way of getting package path to support refactoring
-    private static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter.";
+    public static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,13 @@ public class BasicUnitConverterActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up button, so double
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             try {
-                intent = new Intent(BasicUnitConverterActivity.this, Class.forName("basic.converters.preferences.SettingsActivity"));
+                intent = new Intent(BasicUnitConverterActivity.this,
+                        Class.forName("basic.converters.preferences.SettingsActivity"));
                 startActivity(intent);
             } catch(ClassNotFoundException e) {
                 Log.e(TAG,e.getMessage(),e);

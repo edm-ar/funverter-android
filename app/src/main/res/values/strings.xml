@@ -4,6 +4,16 @@
     <string name="app_name">Basic Unit Converter</string>
     <string name="action_settings">Settings</string>
 
+    <!-- unit converter array -->
+    <string-array name="unit_converters">
+        <item>Temperature</item>
+        <item>Weight</item>
+        <item>Length</item>
+        <item>Volume</item>
+        <item>Area</item>
+        <item>Time</item>
+    </string-array>
+
     <!-- Converter Text -->
     <string name="converter_temperature">Temperature</string>
     <string name="converter_weight">Weight</string>

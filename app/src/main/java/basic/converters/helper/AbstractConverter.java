@@ -3,17 +3,26 @@ package basic.converters.helper;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +37,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
+import basic.converters.apps.basicunitconverter.BasicUnitConverterActivity;
 import basic.converters.apps.basicunitconverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
@@ -49,6 +59,8 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private Resources res;
     private Context context;
     private Class unitClazz;
+    private ListView drawerView;
+    private MyAdapter myAdapter;
 
     private ConversionEntriesDataSource dataSource;
     private List<ConversionEntry> entries;
@@ -56,7 +68,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
     protected void onCreate(Bundle savedInstanceState, Context ctx,
                             String converterName, int layout,
-                            Class activityClass, Class unitClass) {
+                            final Class activityClass, Class unitClass) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
@@ -76,6 +88,41 @@ public abstract class AbstractConverter extends Activity implements Converter {
         tableName = converterName;
         unitClazz = unitClass;
         TAG = activityClass.getName();
+
+        drawerView = (ListView) findViewById(R.id.navlist);
+        // set drawerView adapter
+        myAdapter = new MyAdapter(this);
+        drawerView.setAdapter(myAdapter);
+
+        // add onItemClickListener to drawer items
+        drawerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showToast((String)parent.getAdapter().getItem(position));
+
+                // close drawer when an item is selected
+                DrawerLayout dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+                dLayout.closeDrawer(drawerView);
+
+                Intent intent;
+                String itemSelected = (String)parent.getAdapter().getItem(position);
+                String activityName =
+                        itemSelected.concat(BasicUnitConverterActivity.ACTIVITYSUFFIX);
+                String activityFullPath =
+                        BasicUnitConverterActivity.ACTIVITYPACKAGE.concat(activityName);
+                try {
+                    // dynamically load activity with full package path and class name
+                    intent = new Intent(context, Class.forName(activityFullPath));
+                    Log.i(TAG,"Starting " + activityFullPath + " activity.");
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                    showToast("Oops...there has been an error :(");
+                }
+            }
+        });
+        // to use drawable as item background
+        drawerView.setDrawSelectorOnTop(true);
 
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -250,5 +297,62 @@ public abstract class AbstractConverter extends Activity implements Converter {
         savedInstanceState.putBoolean("setAdapter", false);
 
         super.onSaveInstanceState(savedInstanceState);
+    }
+}
+
+// used to crunch the data from unit_converters string-array
+class MyAdapter extends BaseAdapter {
+    private Context context;
+    String[] unit_converters;
+    // used to ensure same order as unit_converters list
+    int[] images = {R.drawable.ic_temperature, R.drawable.ic_weight, R.drawable.ic_length,
+                    R.drawable.ic_volume, R.drawable.ic_area, R.drawable.ic_time};
+    private Resources.Theme theme;
+
+    public MyAdapter(Context context) {
+        unit_converters = context.getResources().getStringArray(R.array.unit_converters);
+        this.context = context;
+        theme = context.getTheme();
+    }
+
+    @Override
+    public int getCount() {
+        return unit_converters.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return unit_converters[position];
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    /* called each time a single row needs to be drawn */
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View item = null;
+        if(convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            // convert textview row to a java object
+            item = inflater.inflate(R.layout.drawer_item_layout, parent, false);
+        } else {
+            item = convertView;
+        }
+        // set appropriate image and text for each item
+        TextView unitTextView = (TextView) item.findViewById(R.id.unitText);
+        ImageView unitIconView = (ImageView) item.findViewById(R.id.unitIcon);
+
+        int color = Color.parseColor("#000000");
+
+        unitIconView.setColorFilter(color);
+        unitTextView.setText(unit_converters[position]);
+        unitTextView.setTextColor(color);
+        unitIconView.setImageResource(images[position]);
+
+        return item;
     }
 }
