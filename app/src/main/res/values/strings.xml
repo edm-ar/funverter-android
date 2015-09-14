@@ -106,4 +106,8 @@
     <item name="toSpinner" type="id"/>
 
     <string name="hello_world">Hello world!</string>
+
+    <!-- for drawer hamburger icon -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

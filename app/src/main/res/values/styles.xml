@@ -55,40 +55,54 @@
     <style name="HomeScreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/greenBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="TemperatureActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/blueBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="WeightActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/purpleBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="LengthActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/redBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="VolumeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/greenSeaBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="SpeedActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/pumpkinBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/pumpkinBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
     <style name="AreaActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/cyanBackground</item>
         <item name="android:elevation">4dp</item>
+        <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
+    </style>
+
+    <style name="AppTheme_ActionBar_Title" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>
