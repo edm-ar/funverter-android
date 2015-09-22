@@ -12,8 +12,8 @@ public enum TimeUnitExtension {
         public double toMinutes(double d) { return d/(C4/C3); }
         public double toHours(double d)   { return d/(C5/C3); }
         public double toDays(double d)    { return d/(C6/C3); }
-        public double toWeeks(double d) { return d * Math.pow(3.8, -7); }
-        public double toMonths(double d) { return d * Math.pow(1.6534, -6); }
+        public double toWeeks(double d) { return d * Math.pow(1.6534, -6); }
+        public double toMonths(double d) { return d * Math.pow(3.8, -7); }
         public double toYears(double d) { return d * Math.pow(3.1689, -8); }
     },
     MINUTES {

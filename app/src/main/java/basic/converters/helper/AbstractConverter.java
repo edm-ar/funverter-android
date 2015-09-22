@@ -4,15 +4,12 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -65,7 +62,6 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private ListView drawerView;
     private MyAdapter myAdapter;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle;
     private ActionBar actionBar;
 
     private ConversionEntriesDataSource dataSource;
@@ -287,10 +283,6 @@ public abstract class AbstractConverter extends Activity implements Converter {
         drawerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showToast((String)parent.getAdapter().getItem(position));
-
-                drawerLayout.closeDrawer(drawerView);
-
                 Intent intent;
                 String itemSelected = (String)parent.getAdapter().getItem(position);
                 String activityName =
@@ -300,9 +292,10 @@ public abstract class AbstractConverter extends Activity implements Converter {
                 try {
                     // dynamically load activity with full package path and class name
                     intent = new Intent(context, Class.forName(activityFullPath));
-                    Log.i(TAG,"Starting " + activityFullPath + " activity.");
+                    Log.i(TAG, "Starting " + activityFullPath + " activity.");
                     startActivity(intent);
                     overridePendingTransition(R.animator.enter, R.animator.exit);
+                    drawerLayout.closeDrawer(drawerView);
                 } catch (Exception e) {
                     Log.e(TAG, e.getMessage(), e);
                     showToast("Oops...there has been an error :(");
