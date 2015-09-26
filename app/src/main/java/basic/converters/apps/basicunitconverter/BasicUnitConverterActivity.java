@@ -3,6 +3,7 @@ package basic.converters.apps.basicunitconverter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 
-public class BasicUnitConverterActivity extends Activity {
+public class BasicUnitConverterActivity extends AppCompatActivity {
     // tag to be used when logging
     private static final String TAG = BasicUnitConverterActivity.class.getSimpleName();
     //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding

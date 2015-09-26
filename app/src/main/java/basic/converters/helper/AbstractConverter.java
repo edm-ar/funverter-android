@@ -1,7 +1,7 @@
 package basic.converters.helper;
 
-import android.app.ActionBar;
-import android.app.Activity;
+import android.content.res.Configuration;
+import android.support.v7.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -46,7 +48,7 @@ import basic.converters.util.UnitSymbols;
 /**
  * Created by Edmar on 6/29/2015.
  */
-public abstract class AbstractConverter extends Activity implements Converter {
+public abstract class AbstractConverter extends AppCompatActivity implements Converter {
 
     private String TAG;
     private String tableName;
@@ -62,6 +64,8 @@ public abstract class AbstractConverter extends Activity implements Converter {
     private ListView drawerView;
     private MyAdapter myAdapter;
     private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
+    private String activityTitle;
     private ActionBar actionBar;
 
     private ConversionEntriesDataSource dataSource;
@@ -76,9 +80,9 @@ public abstract class AbstractConverter extends Activity implements Converter {
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
 
-        actionBar = getActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_hamburger_gray);
+        actionBar.setHomeButtonEnabled(true);
 
         res = getResources();
         imm = (InputMethodManager)getSystemService(
@@ -245,12 +249,7 @@ public abstract class AbstractConverter extends Activity implements Converter {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            if(drawerLayout.isDrawerOpen(drawerView)) {
-                drawerLayout.closeDrawer(drawerView);
-            } else {
-                drawerLayout.openDrawer(drawerView);
-            }
+        if(drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -276,15 +275,37 @@ public abstract class AbstractConverter extends Activity implements Converter {
         drawerView = (ListView) findViewById(R.id.navlist);
         myAdapter = new MyAdapter(this);
         drawerView.setAdapter(myAdapter);
-        // set drawer
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        activityTitle = getTitle().toString();
+
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
+                R.string.drawer_open, R.string.drawer_close) {
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getSupportActionBar().setTitle(R.string.app_name);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getSupportActionBar().setTitle(activityTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+
+        drawerToggle.setDrawerIndicatorEnabled(true);
+        drawerLayout.setDrawerListener(drawerToggle);
 
         // add onItemClickListener to drawer items
         drawerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-                String itemSelected = (String)parent.getAdapter().getItem(position);
+                String itemSelected = (String) parent.getAdapter().getItem(position);
                 String activityName =
                         itemSelected.concat(BasicUnitConverterActivity.ACTIVITYSUFFIX);
                 String activityFullPath =
@@ -304,6 +325,18 @@ public abstract class AbstractConverter extends Activity implements Converter {
         });
         // to use drawable as item background
         drawerView.setDrawSelectorOnTop(true);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 }
 

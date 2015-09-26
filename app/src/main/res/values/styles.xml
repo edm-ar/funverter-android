@@ -1,50 +1,71 @@
 <resources>
 
         <!-- application themes -->
-        <style name="ConverterHomeTheme" parent="@android:style/Theme.Material">
+        <style name="ConverterHomeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
             <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
+            <!-- Support library compatibility -->
+            <item name="actionBarStyle">@style/HomeScreenActionBar</item>
+
             <item name="android:colorPrimary">@color/greenBackground</item>
             <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
             <item name="android:navigationBarColor">@color/darkGreenBackground</item>
         </style>
 
-        <style name="TemperatureTheme" parent="@android:style/Theme.Material">
+        <style name="TemperatureTheme" parent="Theme.AppCompat.Light.DarkActionBar">
             <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
+            <!-- Support library compatibility -->
+            <item name="actionBarStyle">@style/TemperatureActionBar</item>
+
             <item name="android:colorPrimary">@color/blueBackground</item>
             <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
             <item name="android:navigationBarColor">@color/darkBlueBackground</item>
         </style>
 
-        <style name="WeightTheme" parent="@android:style/Theme.Material">
+        <style name="WeightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
             <item name="android:actionBarStyle">@style/WeightActionBar</item>
+            <!-- Support library compatibility -->
+            <item name="actionBarStyle">@style/WeightActionBar</item>
+
             <item name="android:colorPrimary">@color/purpleBackground</item>
             <item name="android:colorPrimaryDark">@color/darkPurpleBackground</item>
             <item name="android:navigationBarColor">@color/darkPurpleBackground</item>
         </style>
 
-        <style name="LengthTheme" parent="@android:style/Theme.Material">
+        <style name="LengthTheme" parent="Theme.AppCompat.Light.DarkActionBar">
             <item name="android:actionBarStyle">@style/LengthActionBar</item>
+            <!-- Support library compatibility -->
+            <item name="actionBarStyle">@style/LengthActionBar</item>
+
             <item name="android:colorPrimary">@color/redBackground</item>
             <item name="android:colorPrimaryDark">@color/darkRedBackground</item>
             <item name="android:navigationBarColor">@color/darkRedBackground</item>
     </style>
 
-    <style name="VolumeTheme" parent="@android:style/Theme.Material">
+    <style name="VolumeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/VolumeActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/VolumeActionBar</item>
+
         <item name="android:colorPrimary">@color/greenSeaBackground</item>
         <item name="android:colorPrimaryDark">@color/darkGreenSeaBackground</item>
         <item name="android:navigationBarColor">@color/darkGreenSeaBackground</item>
     </style>
 
-    <style name="TimeTheme" parent="@android:style/Theme.Material">
+    <style name="TimeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/TimeActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/TimeActionBar</item>
+
         <item name="android:colorPrimary">@color/pumpkinBackground</item>
         <item name="android:colorPrimaryDark">@color/darkPumpkinBackground</item>
         <item name="android:navigationBarColor">@color/darkPumpkinBackground</item>
     </style>
 
-    <style name="AreaTheme" parent="@android:style/Theme.Material">
+    <style name="AreaTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/AreaActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/AreaActionBar</item>
+
         <item name="android:colorPrimary">@color/cyanBackground</item>
         <item name="android:colorPrimaryDark">@color/darkCyanBackground</item>
         <item name="android:navigationBarColor">@color/darkCyanBackground</item>
@@ -52,57 +73,80 @@
 
     <!-- styles -->
 
-    <style name="HomeScreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="HomeScreenActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/greenBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/greenBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="TemperatureActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="TemperatureActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/blueBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/blueBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="WeightActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="WeightActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/purpleBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/purpleBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="LengthActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="LengthActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/redBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/redBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="VolumeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="VolumeActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/greenSeaBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/greenSeaBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="SpeedActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="SpeedActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/pumpkinBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/pumpkinBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="TimeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="TimeActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/pumpkinBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/pumpkinBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="AreaActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="AreaActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/cyanBackground</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/cyanBackground</item>
+
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
 
-    <style name="AppTheme_ActionBar_Title" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="AppTheme_ActionBar_Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
     </style>
 </resources>
