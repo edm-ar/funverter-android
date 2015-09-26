@@ -45,7 +45,7 @@ public abstract class UnitSymbols {
         symbols.put("squaremile", "mi".concat(square));
         symbols.put("squarerod", "rd".concat(square));
         symbols.put("squareyard", "yds".concat(square));
-        symbols.put("kilogram", "km");
+        symbols.put("kilogram", "kg");
         symbols.put("carat", "cd");
         symbols.put("grain", "gr");
         symbols.put("newton", "n");
