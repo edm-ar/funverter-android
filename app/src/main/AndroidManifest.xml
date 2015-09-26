@@ -20,7 +20,8 @@
             android:name="basic.converters.preferences.SettingsActivity"
             android:label="@string/action_settings"
             android:launchMode="singleInstance"
-            android:parentActivityName=".BasicUnitConverterActivity" >
+            android:parentActivityName=".BasicUnitConverterActivity"
+            android:theme="@style/SettingsTheme">
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data

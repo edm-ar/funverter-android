@@ -71,6 +71,12 @@
         <item name="android:navigationBarColor">@color/darkCyanBackground</item>
     </style>
 
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/SettingsActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/SettingsActionBar</item>
+    </style>
+
     <!-- styles -->
 
     <style name="HomeScreenActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -146,6 +152,11 @@
     </style>
 
     <style name="AppTheme_ActionBar_Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="SettingsActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
     </style>
