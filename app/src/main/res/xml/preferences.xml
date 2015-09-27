@@ -22,15 +22,20 @@
             android:negativeButtonText="Cancel"
             android:positiveButtonText="Yes"></basic.converters.preferences.dialog.ConversionHistory>
     </PreferenceCategory>
-    <PreferenceScreen
-        android:title="Feedback"
-        android:summary="Share comments, suggestions and concerns">
-
-        <intent android:targetPackage="basic.converters.apps.basicunitconverter"
-                android:targetClass="basic.converters.preferences.FeedbackActivity"/>
-    </PreferenceScreen>
-    <Preference
+    <PreferenceCategory
         android:title="About"
-        android:summary="Some information on this application">
-    </Preference>
+        android:key="pref_key_about_settings">
+
+        <PreferenceScreen
+            android:title="Feedback"
+            android:summary="Share comments, suggestions and concerns">
+
+            <intent android:targetPackage="basic.converters.apps.basicunitconverter"
+                android:targetClass="basic.converters.preferences.FeedbackActivity"/>
+        </PreferenceScreen>
+        <Preference
+            android:title="About"
+            android:summary="Build Version: x.xx.x">
+        </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>

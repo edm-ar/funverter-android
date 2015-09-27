@@ -58,7 +58,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
     private Spinner fromSpinner;
     private ImageButton calculateBtn;
     private TextView textOutput;
-    private Resources res;
     private Context context;
     private Class unitClazz;
     private ListView drawerView;
@@ -84,7 +83,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        res = getResources();
         imm = (InputMethodManager)getSystemService(
                 Context.INPUT_METHOD_SERVICE);
 

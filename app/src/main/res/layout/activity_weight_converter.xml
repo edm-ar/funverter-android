@@ -67,7 +67,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/from_prompt"
-                                android:layout_gravity="center_vertical" />
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/textColorPrimary"/>
 
                             <Spinner
                                 android:layout_width="match_parent"
@@ -92,7 +93,8 @@
                                 android:layout_width="84dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/to_prompt"
-                                android:layout_gravity="center_vertical" />
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/textColorPrimary" />
 
                             <Spinner
                                 android:layout_width="match_parent"
