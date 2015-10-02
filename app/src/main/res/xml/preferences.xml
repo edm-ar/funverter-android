@@ -25,17 +25,15 @@
     <PreferenceCategory
         android:title="About"
         android:key="pref_key_about_settings">
-
-        <PreferenceScreen
+        <Preference
             android:title="Feedback"
-            android:summary="Share comments, suggestions and concerns">
-
-            <intent android:targetPackage="basic.converters.apps.basicunitconverter"
-                android:targetClass="basic.converters.preferences.FeedbackActivity"/>
-        </PreferenceScreen>
+            android:summary="Share comments, suggestions and concerns"
+            android:key="pref_key_send_feedback">
+        </Preference>
         <Preference
             android:title="About"
-            android:summary="Build Version: x.xx.x">
+            android:summary="Build Version: x.xx.x"
+            android:key="pref_key_about">
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
