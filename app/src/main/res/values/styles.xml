@@ -75,6 +75,7 @@
         <item name="android:actionBarStyle">@style/SettingsActionBar</item>
         <!-- Support library compatibility -->
         <item name="actionBarStyle">@style/SettingsActionBar</item>
+        <item name="android:navigationBarColor">@color/darkGreenBackground</item>
     </style>
 
     <!-- styles -->
@@ -156,8 +157,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="SettingsActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
+    <style name="SettingsActionBar" parent="@style/HomeScreenActionBar">
+
     </style>
 </resources>

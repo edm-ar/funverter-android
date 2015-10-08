@@ -22,6 +22,7 @@ public class BasicUnitConverterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_basic_unit_converter);
     }
 
@@ -70,5 +71,11 @@ public class BasicUnitConverterActivity extends AppCompatActivity {
             Log.e(TAG, e.getMessage(), e);
             showToast("Oops...there has been an error :(");
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
     }
 }

@@ -23,17 +23,31 @@
             android:positiveButtonText="Yes"></basic.converters.preferences.dialog.ConversionHistory>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="About"
-        android:key="pref_key_about_settings">
-        <Preference
             android:title="Feedback"
+        android:key="pref_key_feedback">
+        <Preference
+            android:title="Send Feedback"
             android:summary="Share comments, suggestions and concerns"
             android:key="pref_key_send_feedback">
         </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="About"
+        android:key="pref_key_about_settings">
         <Preference
-            android:title="About"
-            android:summary="Build Version: x.xx.x"
-            android:key="pref_key_about">
+            android:title="Version Name"
+            android:summary="See current application versions"
+            android:key="pref_key_version_name">
+        </Preference>
+        <Preference
+            android:title="Version Code"
+            android:summary="See current application versions"
+            android:key="pref_key_version_code">
+        </Preference>
+        <Preference
+            android:title="Build Version"
+            android:summary="See current application versions"
+            android:key="pref_key_build_version">
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
