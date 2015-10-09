@@ -72,9 +72,12 @@
     </style>
 
     <style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/SettingsActionBar</item>
+        <item name="android:actionBarStyle">@style/HomeScreenActionBar</item>
         <!-- Support library compatibility -->
-        <item name="actionBarStyle">@style/SettingsActionBar</item>
+        <item name="actionBarStyle">@style/HomeScreenActionBar</item>
+
+        <item name="android:colorPrimary">@color/greenBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
         <item name="android:navigationBarColor">@color/darkGreenBackground</item>
     </style>
 
