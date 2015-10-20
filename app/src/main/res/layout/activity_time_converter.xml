@@ -112,6 +112,7 @@
 
                 <include layout="@layout/calcbutton"/>
                 <include layout="@layout/outputtext"/>
+                <include layout="@layout/funfacts"/>
 
             </LinearLayout>
         </RelativeLayout>

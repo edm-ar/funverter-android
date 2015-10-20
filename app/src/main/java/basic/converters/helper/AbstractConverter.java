@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -36,8 +37,10 @@ import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import basic.converters.apps.basicunitconverter.BasicUnitConverterActivity;
 import basic.converters.apps.basicunitconverter.R;
@@ -66,6 +69,8 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
     private ActionBarDrawerToggle drawerToggle;
     private String activityTitle;
     private ActionBar actionBar;
+    private Map<String,String> funFacts;
+    private TextView factText;
 
     private ConversionEntriesDataSource dataSource;
     private List<ConversionEntry> entries;
@@ -78,6 +83,21 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
+
+        /* initialize fun facts map */
+        funFacts = new HashMap<>();
+        String factsArrayName = converterName.toLowerCase().concat("_facts");
+        int factsArrayId = getResources().getIdentifier(factsArrayName, "array", getPackageName());
+        String[] factsArray = getResources().getStringArray(factsArrayId);
+
+        for(String fact : factsArray) {
+            String[] keyValue = fact.split("\\|");
+            funFacts.put(keyValue[0],keyValue[1]);
+        }
+
+        /* initialize global variables*/
+        factText = (TextView) findViewById(R.id.factText);
+        factText.setMovementMethod(new ScrollingMovementMethod());
 
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -205,6 +225,26 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                 Log.e(TAG, e.getMessage(), e);
             }
             textOutput.setText(result.toString());
+
+            String topFactKey = fromUnit.toUpperCase();
+            String bottomFactKey = toUnit.toUpperCase();
+            StringBuilder funFactsSb = new StringBuilder();
+
+            // clear facts
+            factText.setText("");
+
+            if(funFacts.containsKey(topFactKey)) {
+                funFactsSb.append(funFacts.get(topFactKey));
+                funFactsSb.append(System.getProperty("line.separator"));
+                funFactsSb.append(System.getProperty("line.separator"));
+            }
+            if(funFacts.containsKey(bottomFactKey)) {
+                funFactsSb.append(funFacts.get(bottomFactKey));
+            }
+
+            if(StringUtils.isNotBlank(funFactsSb.toString())) {
+                factText.setText(funFactsSb.toString());
+            }
         } else {
             showToast("Oops...something went wrong :(");
         }
