@@ -8,17 +8,66 @@
             in 1714, used primarily in the United States and some Caribbean countries.
         </item>
         <item>
-            CELSIUS|Celsius represents the freezing point of watter at 0 degrees, and 100 degrees
+            CELSIUS|Celsius represents the freezing point of water at 0 degrees, and 100 degrees
             represents water’s boiling point at the standard atmosphere, which is the mean
             barometric pressure at the mean sea level. Developed by Swedish astronomer Andres Celsius
             in 1742.
         </item>
+        <item>
+            KELVIN|Kelvin represents the freezing point of water at 273.16 kelvins
+            and boiling point at 373.16 kelvins. Created by British scientist William Thomson in 1848,
+            Kelvin is mostly used in scientific applications because of the lack of negative numbers,
+            so it makes it easier to calculate very low temperatures of liquid helium and liquid nitrogen,
+            for example.
+        </item>
+        <item>
+            RANKINE|Rankine represents the freezing point of water at 491.67°Ra and boiling point at
+            671.67°Ra. Created by Scottish engineer and physicist William Rankine in 1859.
+        </item>
+        <item>REAUMUR|Reaumur represennts the freezing point of water at 0°Ré and boiling point at
+            80°Ré. It was invented by French physicist Rene Antoine de Reaumur around 1730.
+            This scale is mostly used today in the measuring of milk temperature in cheese production,
+            and when cooking sugar syrup for desserts and sweets.
+        </item>
     </string-array>
+    <string name="temperature_fun_fact">
+        Rumor has it that the hottest man-made temperature is 4 trillion degrees Celsius. That\'s
+        250,000 times hotter than the center of the sun. Say what?!
+    </string>
 
-    <string-array name="area_facts"></string-array>
-    <string-array name="length_facts"></string-array>
-    <string-array name="time_facts"></string-array>
-    <string-array name="volume_facts"></string-array>
-    <string-array name="weight_facts"></string-array>
+    <string-array name="area_facts">
+
+    </string-array>
+    <string name="area_fun_fact">
+        Among all the shapes with the same perimeter a circle has the largest area.
+    </string>
+
+    <string-array name="length_facts">
+
+    </string-array>
+    <string name="length_fun_fact">
+        The Great Wall of China is approximately 6,430 Km long (3,995 miles).
+    </string>
+
+    <string-array name="time_facts">
+
+    </string-array>
+    <string name="time_fun_fact">
+        The longest recorded flight of a chicken was 13 seconds.
+    </string>
+
+    <string-array name="volume_facts">
+
+    </string-array>
+    <string name="volume_fun_fact">
+        650 cubic centimetres is about as many grains of flour as people on the planet (7 billion).
+    </string>
+
+    <string-array name="weight_facts">
+
+    </string-array>
+    <string name="weight_fun_fact">
+        Due to gravitational effects your weight is slightly less when the moon is directly overhead.
+    </string>
 
 </resources>

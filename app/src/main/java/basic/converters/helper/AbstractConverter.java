@@ -71,6 +71,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
     private ActionBar actionBar;
     private Map<String,String> funFacts;
     private TextView factText;
+    private String converterFunFact;
 
     private ConversionEntriesDataSource dataSource;
     private List<ConversionEntry> entries;
@@ -87,6 +88,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         /* initialize fun facts map */
         funFacts = new HashMap<>();
         String factsArrayName = converterName.toLowerCase().concat("_facts");
+        converterFunFact = converterName.toLowerCase().concat("_fun_fact");
         int factsArrayId = getResources().getIdentifier(factsArrayName, "array", getPackageName());
         String[] factsArray = getResources().getStringArray(factsArrayId);
 
@@ -98,6 +100,8 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         /* initialize global variables*/
         factText = (TextView) findViewById(R.id.factText);
         factText.setMovementMethod(new ScrollingMovementMethod());
+        factText.setText(getResources().getString(getResources().
+                getIdentifier(converterFunFact, "string", getPackageName())));
 
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -232,7 +236,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
             // clear facts
             factText.setText("");
-
             if(funFacts.containsKey(topFactKey)) {
                 funFactsSb.append(funFacts.get(topFactKey));
                 funFactsSb.append(System.getProperty("line.separator"));
