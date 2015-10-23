@@ -36,7 +36,39 @@
     </string>
 
     <string-array name="area_facts">
+        <item>
+            ACRE|The word acre is derived from Old English aecer originally meaning \"open field\".
+            The acre was approximately the amount of land tillable by a yoke of oxen in one day.
+            Statutory values for the acre were enacted in England by acts of Edward I,
+            Edward III, Henry VIII, George IV and Queen Victoria.
+        </item>
+        <item>
+            ARE|An are is a derived metric SI (System International) measurement unit of area
+            used to measure land with sides equal to ten meters (10m). Its multiple, the hectare is
+            the principal unit of land measurement for most of the world.
+        </item>
+        <item>
+            BARN|Barn, unit of area used to measure the reaction cross section (generally different
+            from the geometric cross section) of atomic nuclei and subatomic particles in the study
+            of their interactions with other nuclei or particles. It is equal to 10−24 square cm.
+            The name, coined by U.S. scientists, is derived from the proverbial phrase
+            “side of a barn,” something easy to hit.
+        </item>
+        <item>
+            HECTARE|Hectare, unit of area in the metric system equal to 100 ares, or 10,000 square
+            metres, and the equivalent of 2.471 acres in the British Imperial System and the
+            United States Customary measure. The term is derived from the Latin area and from hect,
+            an irregular contraction of the Greek word for hundred. Although the are is the primary
+            metric unit of land measurement, in practice the hectare is more commonly used.
+        </item>
+        <item>
+            ROOD|The rood was an important measure in surveying on account of its easy conversion
+            to acres. When referring to areas, rod is often found in old documents and has exactly
+            the same meaning as rood.
+        </item>
+        <item>
 
+        </item>
     </string-array>
     <string name="area_fun_fact">
         Among all the shapes with the same perimeter a circle has the largest area.

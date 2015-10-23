@@ -94,7 +94,9 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
         for(String fact : factsArray) {
             String[] keyValue = fact.split("\\|");
-            funFacts.put(keyValue[0],keyValue[1]);
+            if(keyValue.length > 1) {
+                funFacts.put(keyValue[0],keyValue[1]);
+            }
         }
 
         /* initialize global variables*/
@@ -126,14 +128,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
         dataSource = new ConversionEntriesDataSource(ctx);
         dataSource.open();
-
-        // restore saved instance if such exists
-        if(savedInstanceState != null) {
-            textInput.setText(savedInstanceState.getString("inputText"));
-            fromSpinner.setSelection(savedInstanceState.getInt("convertFrom"));
-            toSpinner.setSelection(savedInstanceState.getInt("convertTo"));
-            textOutput.setText(savedInstanceState.getString("textOutput"));
-        }
 
         Log.i(TAG, "Adding " + tableName + " to autocomplete view");
 
@@ -294,21 +288,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        if(textInput != null)
-            savedInstanceState.putString("inputText", textInput.getText().toString());
-        if(fromSpinner != null)
-            savedInstanceState.putInt("convertFrom", fromSpinner.getSelectedItemPosition());
-        if(toSpinner != null)
-            savedInstanceState.putInt("convertTo", toSpinner.getSelectedItemPosition());
-        if(textOutput != null)
-            savedInstanceState.putString("textOutput", textOutput.getText().toString());
-        savedInstanceState.putBoolean("setAdapter", false);
-
-        super.onSaveInstanceState(savedInstanceState);
     }
 
     private void setUpDrawer() {
