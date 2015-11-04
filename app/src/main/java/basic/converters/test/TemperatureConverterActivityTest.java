@@ -2,13 +2,12 @@ package basic.converters.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import basic.converters.apps.basicunitconverter.R;
-import basic.converters.apps.basicunitconverter.TemperatureConverterActivity;
+import basic.converters.apps.funverter.R;
+import basic.converters.apps.funverter.TemperatureConverterActivity;
 import basic.converters.util.UnitSymbols;
 
 /**

@@ -1,6 +1,5 @@
-package basic.converters.apps.basicunitconverter;
+package basic.converters.apps.funverter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +10,9 @@ import android.view.View;
 import android.widget.Toast;
 
 
-public class BasicUnitConverterActivity extends AppCompatActivity {
+public class FunverterMainActivity extends AppCompatActivity {
     // tag to be used when logging
-    private static final String TAG = BasicUnitConverterActivity.class.getSimpleName();
+    private static final String TAG = FunverterMainActivity.class.getSimpleName();
     //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
     public static final String ACTIVITYSUFFIX = "ConverterActivity";
     //TODO find better way of getting package path to support refactoring
@@ -42,7 +41,7 @@ public class BasicUnitConverterActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             try {
-                intent = new Intent(BasicUnitConverterActivity.this,
+                intent = new Intent(FunverterMainActivity.this,
                         Class.forName("basic.converters.preferences.SettingsActivity"));
                 startActivity(intent);
             } catch(ClassNotFoundException e) {
@@ -64,7 +63,7 @@ public class BasicUnitConverterActivity extends AppCompatActivity {
         String activityFullPath = ACTIVITYPACKAGE.concat(activityName);
         try {
             // dynamically load activity with full package path and class name
-            intent = new Intent(BasicUnitConverterActivity.this, Class.forName(activityFullPath));
+            intent = new Intent(FunverterMainActivity.this, Class.forName(activityFullPath));
             Log.i(TAG,"Starting " + activityFullPath + " activity.");
             startActivity(intent);
         } catch (Exception e) {

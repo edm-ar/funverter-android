@@ -1,4 +1,4 @@
-package basic.converters.apps.basicunitconverter;
+package basic.converters.apps.funverter;
 
 import android.os.Bundle;
 

@@ -42,8 +42,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import basic.converters.apps.basicunitconverter.BasicUnitConverterActivity;
-import basic.converters.apps.basicunitconverter.R;
+import basic.converters.apps.funverter.FunverterMainActivity;
+import basic.converters.apps.funverter.R;
 import basic.converters.util.ConversionEntriesDataSource;
 import basic.converters.util.ConversionEntry;
 import basic.converters.util.UnitSymbols;
@@ -272,7 +272,8 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
     public void setAutocompleteAdapter() {
         entries = dataSource.getAllTableConversionEntries(tableName);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
+        ArrayAdapter adapter =
+                new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
         textInput.setAdapter(adapter);
     }
 
@@ -327,9 +328,9 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                 Intent intent;
                 String itemSelected = (String) parent.getAdapter().getItem(position);
                 String activityName =
-                        itemSelected.concat(BasicUnitConverterActivity.ACTIVITYSUFFIX);
+                        itemSelected.concat(FunverterMainActivity.ACTIVITYSUFFIX);
                 String activityFullPath =
-                        BasicUnitConverterActivity.ACTIVITYPACKAGE.concat(activityName);
+                        FunverterMainActivity.ACTIVITYPACKAGE.concat(activityName);
                 try {
                     // dynamically load activity with full package path and class name
                     intent = new Intent(context, Class.forName(activityFullPath));

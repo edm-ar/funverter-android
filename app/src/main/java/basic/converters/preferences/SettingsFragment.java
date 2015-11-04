@@ -13,7 +13,7 @@ import android.preference.PreferenceFragment;
 import android.util.Log;
 import android.widget.Toast;
 
-import basic.converters.apps.basicunitconverter.R;
+import basic.converters.apps.funverter.R;
 
 /**
  * Created by Edmar on 6/7/2015.

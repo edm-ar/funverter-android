@@ -6,8 +6,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import basic.converters.apps.basicunitconverter.AreaConverterActivity;
-import basic.converters.apps.basicunitconverter.R;
+import basic.converters.apps.funverter.AreaConverterActivity;
+import basic.converters.apps.funverter.R;
 import basic.converters.util.UnitSymbols;
 
 /**

@@ -6,8 +6,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import basic.converters.apps.basicunitconverter.R;
-import basic.converters.apps.basicunitconverter.TimeConverterActivity;
+import basic.converters.apps.funverter.R;
+import basic.converters.apps.funverter.TimeConverterActivity;
 import basic.converters.util.UnitSymbols;
 
 /**

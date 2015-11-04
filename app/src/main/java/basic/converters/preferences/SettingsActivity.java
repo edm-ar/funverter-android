@@ -3,7 +3,7 @@ package basic.converters.preferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import basic.converters.apps.basicunitconverter.R;
+import basic.converters.apps.funverter.R;
 
 /**
  * Created by Edmar on 6/7/2015.
