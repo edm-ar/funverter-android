@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="basic.converters.apps.funverter.VolumeConverterActivity">
+    tools:context="com.funverter.activity.VolumeConverterActivity">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -19,7 +19,7 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingBottom="@dimen/activity_vertical_margin"
-            tools:context="basic.converters.apps.funverter.TemperatureConverterActivity"
+            tools:context="com.funverter.activity.TemperatureConverterActivity"
             android:background="@color/blueBackground">
 
 

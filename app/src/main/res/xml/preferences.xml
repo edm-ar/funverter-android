@@ -14,13 +14,13 @@
             <!--android:summary="Clears all autocomplete conversion entries">-->
             <!-- -->
         <!--</Preference>-->
-        <basic.converters.preferences.dialog.ConversionHistory
+        <com.funverter.preferences.dialog.ConversionHistory
             android:title="Clear conversion history"
             android:dialogTitle="Clear conversion history?"
             android:key="conversion_history_key_dialog"
             android:summary="Clears all autocomplete conversion entries."
             android:negativeButtonText="Cancel"
-            android:positiveButtonText="Yes"></basic.converters.preferences.dialog.ConversionHistory>
+            android:positiveButtonText="Yes"></com.funverter.preferences.dialog.ConversionHistory>
     </PreferenceCategory>
     <PreferenceCategory
             android:title="Feedback"
