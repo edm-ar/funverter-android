@@ -16,7 +16,7 @@ public class FunverterMainActivity extends AppCompatActivity {
     //TODO "ConverterActivity" suffix needs to be set in a different way to avoid hard coding
     public static final String ACTIVITYSUFFIX = "ConverterActivity";
     //TODO find better way of getting package path to support refactoring
-    public static final String ACTIVITYPACKAGE = "basic.converters.apps.basicunitconverter.";
+    public static final String ACTIVITYPACKAGE = "basic.converters.apps.funverter.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
