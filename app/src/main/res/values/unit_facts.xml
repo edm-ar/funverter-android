@@ -67,7 +67,11 @@
             the same meaning as rood.
         </item>
         <item>
-
+            SQUARE ROD|Rod is an old English measure of distance equal to 16.5 feet,
+            with variations from 9 to 28 feet also being used. The word rod
+            derives from Old English rodd and is akin to Old Norse rudda (“club”).
+            Rod is also akin to the Dutch rood which referred to a land area of 40 square rods,
+            equal to one-quarter acre, or 10,890 square feet.
         </item>
     </string-array>
     <string name="area_fun_fact">
@@ -75,7 +79,55 @@
     </string>
 
     <string-array name="length_facts">
-
+        <item>
+            INCHES|An inch is a unit of length in the imperial and United States customary
+            systems of measurement. Sorry...that\'s all we got right now lol
+        </item>
+        <item>
+            CENTIMETERS|A fingernail is about one centimeter wide. A centimetre or centimeter is a
+            unit of length in the metric system, equal to one hundredth of a metre, centi being the
+            SI prefix for a factor of ⁄100.
+        </item>
+        <item>
+            MILLIMETERS|A millimeter is about the thickness of a plastic id card (or credit card).
+            The millimetre or millimeter is a unit of length in the metric system, equal to one
+            thousandth of a metre, which is the SI base unit of length.
+        </item>
+        <item>
+            FEET|Foot, plural feet, in measurement, any of numerous ancient, medieval, and modern
+            linear measures (commonly 25 to 34 cm) based on the length of the human foot and used
+            exclusively in English-speaking countries, where it generally consists of 12 inches or
+            one-third yard. In most countries and in all scientific applications, the foot
+            has been superseded by the metre. In the United States the definition of the foot as exactly 30.48
+            cm took effect in 1959.
+        </item>
+        <item>
+            YARD|Yard, Unit of length equal to 36 inches, or 3 feet (see foot), in the U.S. Customary
+            System or 0.9144 metre in the International System of Units. A cloth yard, used to measure
+            cloth, is 37 in. long; it was also the standard length for arrows. In casual speech, a
+            yard (e.g., of concrete, gravel, or topsoil) may refer to a cubic yard.
+        </item>
+        <item>
+            METERS|The metre was historically defined by the French Academy of Sciences in 1791 as
+            1/10,000,000 of the quadrant of the Earth\'s circumference running from the North Pole
+            through Paris to the equator. Due to advances in laser measurement techniques, values for
+            the speed of light in a vacuum were determined with unprecedented accuracy and it was then
+            decided in 1983 by the General Conference on Weights and Measures that the accepted value
+            for this constant would be exactly 299,792,458 metres per second. The metre is now thus
+            defined as the distance traveled by light in a vacuum in 1/299,792,458 of a second.
+        </item>
+        <item>
+            MILES|The mile originated from the Roman mille passus, or \"thousand paces\", which
+            measured 5,000 Roman feet. A nautical mile was originally defined as the length on the Earth\'s surface
+            of one minute of arc along a meridian (north-south line of longitude).
+            In 1929 the nautical mile was redefined to 1.852 km at an international conference held in Monaco,
+            since measurements differed due to a slight flattening of the Earth in the polar latitudes.
+            The United States didn\'t change to the new measurement until 1954.
+        </item>
+        <item>
+            KILOMETERS|Uhm...not much to say here. I guess whenever you want to measure really really really
+            long lengths or distances you should use kilometers instead meters :)
+        </item>
     </string-array>
     <string name="length_fun_fact">
         The Great Wall of China is approximately 6,430 Km long (3,995 miles).

@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -152,6 +153,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         }
     }
 
+    //TODO this method should be shortened
     public void buttonClickHandler() {
         // hide keyboard once calculation is executed
         imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0);
@@ -234,11 +236,18 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                 funFactsSb.append(funFacts.get(topFactKey));
                 funFactsSb.append(System.getProperty("line.separator"));
                 funFactsSb.append(System.getProperty("line.separator"));
+            } else {
+                funFactsSb.append("Hmm...no facts for the " + WordUtils.capitalize(topFactKey)
+                        + " unit. Must be a boring one :(");
+                funFactsSb.append(System.getProperty("line.separator"));
+                funFactsSb.append(System.getProperty("line.separator"));
             }
             if(funFacts.containsKey(bottomFactKey)) {
                 funFactsSb.append(funFacts.get(bottomFactKey));
+            } else {
+                funFactsSb.append("Hmm...no facts for the " + WordUtils.capitalize(bottomFactKey)
+                        + " unit. Must be a boring one :(");
             }
-
             if(StringUtils.isNotBlank(funFactsSb.toString())) {
                 factText.setText(funFactsSb.toString());
             }
