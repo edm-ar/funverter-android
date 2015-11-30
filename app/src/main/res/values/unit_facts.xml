@@ -175,6 +175,24 @@
             HOUR|Good question...why is an hour 60 minutes? Why 60? Why is a day 24 hours? Hmm.
             The Sumerians figured out 360 degree circles
         </item>
+        <item>
+            SECONDS|
+        </item>
+        <item>
+            MINUTES|
+        </item>
+        <item>
+            DAYS|
+        </item>
+        <item>
+            WEEKS|
+        </item>
+        <item>
+            MONTHS|
+        </item>
+        <item>
+            YEARS|
+        </item>
     </string-array>
     <string name="time_fun_fact">
         The longest recorded flight of a chicken was 13 seconds.
@@ -220,11 +238,18 @@
             French and gęllet (bowl) in Old English.
         </item>
         <item>
-            USFLUIDOUNCE|The fluid ounce was originally the volume occupied by one ounce of some
-            substance such as wine (in England) or water (in Scotland).
+            USFLUIDOUNCE|A fluid ounce is a unit of volume typically used for measuring liquids.
+            It was originally the volume occupied by one ounce of some substance such as wine (in
+            England) or water (in Scotland). In 1824, the British Parliament defined the imperial
+            gallon as the volume of ten pounds of water. The US fluid ounce is based on the US gallon,
+            which is based on the wine gallon of 231 cubic inches, used in England prior to 1824.
+            With the adoption of the international inch the US fluid ounce became 29.5735295625 ml exactly.
         </item>
         <item>
-            USPINT|
+            USPINT|The pint is a unit of volume or capacity in both the United States customary and
+            British imperial measurement systems. In both of those systems it is traditionally
+            one-eighth of a gallon. The British pint is about 20% larger than the American pint
+            since the two systems are not compatible.
         </item>
     </string-array>
     <string name="volume_fun_fact">
@@ -233,7 +258,68 @@
     </string>
 
     <string-array name="weight_facts">
-
+        <item>
+            KILOGRAM|The kilogram is the base unit of mass in the International System of Units (SI)
+            (the Metric system) and is defined as being equal to the mass of the International Prototype
+            of the Kilogram (IPK). The gram  1/1000th of a kilogram, was originally defined in 1795
+            as the mass of one cubic centimeter of water at the melting point of water. The kilogram
+            is the only SI base unit with an SI prefix as part of its name.
+        </item>
+        <item>
+            CARAT|The carat is a unit of mass equal to 200 mg (0.2 g; 0.007055 oz) and is used
+            for measuring gemstones and pearls. The current definition, sometimes known as the metric
+            carat, was adopted in 1907 at the Fourth General Conference on Weights and Measures, and
+            soon afterwards in many countries around the world. The word carat came from Italian carato,
+            which came from Greek kerátion, meaning carob seed and potentially Arabic qīrāṭ.
+        </item>
+        <item>
+            GRAIN|A grain is a unit of measurement of mass equal to 64.79891 milligrams. It is
+            nominally based upon the mass of a single seed of a cereal. From the Bronze Age into
+            the Renaissance the average masses of wheat and barley grains were part of the legal
+            definition of units of mass. The grain is commonly used to measure the mass of bullets
+            and propellants. In North America, the hardness of water is often measured in grains
+            per US gallon (gpg) of calcium carbonate equivalents.
+        </item>
+        <item>
+            NEWTON|The newton is the International System of Units (SI) derived unit of force. It is
+            named after Sir Isaac Newton in recognition of his work on classical mechanics, specifically
+            Newton\'s second law of motion, or F = ma where F is the force applied, m is the mass of the
+            object receiving the force and a is the acceleration of the object. In 1946 Conférence
+            Générale des Poids et Mesures (CGPM) resolution 2 standardized the unit of force in the
+            MKS system of units to be the amount needed to accelerate 1 kilogram of mass at the rate
+            of 1 metre per second squared. In 1948 the 9th CGPM resolution 7 adopted the name "newton"
+            for this force.
+        </item>
+        <item>
+            OUNCE|Is a unit of mass used in some systems of measurement. Ounce derives from Latin
+            uncia, a unit that was one twelfth of the Roman pound (libra). Historically, in different
+            parts of the world, at different points in time, and for different applications, the
+            ounce (or its translation) has referred to broadly similar but different standards of mass.
+            The avoirdupois ounce (defined as exactly 28.349523125 g) is widely used as part of the
+            United States customary and British imperial systems whereas he troy ounce (equal to 480
+            grains) is now only commonly used for the mass of precious metals such as gold.
+        </item>
+        <item>
+            PENNYWEIGHT|is a unit of mass that is equal to 24 grains, 1⁄20 of a troy ounce, 1⁄240 of a
+            troy pound, approximately 0.054857 avoirdupois ounce and exactly 1.55517384 grams. The
+            pennyweight is the common weight used in the valuation and measurement of precious metals.
+            Jewelers use the pennyweight in calculating the amount and cost of precious metals used in
+            fabricating or casting jewellery.  Similarly, dentists and dental labs still use the
+            pennyweight as the measure of precious metals in dental crowns and inlays.
+        </item>
+        <item>
+            POUND|Wow..where do we start with this one? Well,
+        </item>
+        <item>
+            QUARTER|The querter is used as the name of several distinct English units based on ¼
+            sizes of some base unit. In measures of weight and mass at the time of the Magna Carta,
+            the quarter was ¼ ton or (originally) 500 pounds. By the time of the Norman French copies
+            of the c. 1300 Assize of Weights and Measures, this had changed to 512 lbs. Today 1 quarter
+            is 28 lbs.
+        </item>
+        <item>
+            TON|
+        </item>
     </string-array>
     <string name="weight_fun_fact">
         Due to gravitational effects your weight is slightly less when the moon is directly overhead.

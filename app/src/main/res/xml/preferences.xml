@@ -35,19 +35,20 @@
         android:title="About"
         android:key="pref_key_about_settings">
         <Preference
-            android:title="Version Name"
+            android:title="App Version"
             android:summary="See current application versions"
             android:key="pref_key_version_name">
-        </Preference>
-        <Preference
-            android:title="Version Code"
-            android:summary="See current application versions"
-            android:key="pref_key_version_code">
         </Preference>
         <Preference
             android:title="Build Version"
             android:summary="See current application versions"
             android:key="pref_key_build_version">
+        </Preference>
+        <Preference
+            android:title="Credits"
+            android:summary="Facts sources: wikipedia.com,
+                            encyclopedia.com, britannica.com, lifesciences.com"
+            android:key="pref_key_credits">
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
