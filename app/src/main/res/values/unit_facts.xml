@@ -84,7 +84,14 @@
         </item>
         <item>
             SQUAREINCH|An inch is a unit of length in the imperial and United States customary
-            systems of measurement. Sorry...that\'s all we got right now lol
+            systems of measurement. The earliest known reference to the inch in England is from the
+            Laws of Æthelberht dating to the early 7th century, surviving in a single manuscript
+            from 1120. The English word inch comes from Latin uncia meaning "one-twelfth part", in this
+            case one twelfth of a foot. In many other European languages, the word for "inch" is
+            the same as or derived from the word for "thumb", as a man\'s thumb is about an inch wide.
+            Although the inch was used in a number of other systems of units, today the international
+            inch has been exactly defined as 25.4 millimetres. There are 12 inches in a foot and 36
+            inches in a yard.
         </item>
         <item>
             SQUAREMETER|The metre was historically defined by the French Academy of Sciences in 1791 as
@@ -117,7 +124,14 @@
     <string-array name="length_facts">
         <item>
             INCHES|An inch is a unit of length in the imperial and United States customary
-            systems of measurement. Sorry...that\'s all we got right now lol
+            systems of measurement. The earliest known reference to the inch in England is from the
+            Laws of Æthelberht dating to the early 7th century, surviving in a single manuscript
+            from 1120. The English word inch comes from Latin uncia meaning "one-twelfth part", in this
+            case one twelfth of a foot. In many other European languages, the word for "inch" is
+            the same as or derived from the word for "thumb", as a man\'s thumb is about an inch wide.
+            Although the inch was used in a number of other systems of units, today the international
+            inch has been exactly defined as 25.4 millimetres. There are 12 inches in a foot and 36
+            inches in a yard.
         </item>
         <item>
             CENTIMETERS|A fingernail is about one centimeter wide. A centimetre or centimeter is a
@@ -210,7 +224,14 @@
         </item>
         <item>
             CUBICINCH|An inch is a unit of length in the imperial and United States customary
-            systems of measurement. Sorry...that\'s all we got right now lol
+            systems of measurement. The earliest known reference to the inch in England is from the
+            Laws of Æthelberht dating to the early 7th century, surviving in a single manuscript
+            from 1120. The English word inch comes from Latin uncia meaning "one-twelfth part", in this
+            case one twelfth of a foot. In many other European languages, the word for "inch" is
+            the same as or derived from the word for "thumb", as a man\'s thumb is about an inch wide.
+            Although the inch was used in a number of other systems of units, today the international
+            inch has been exactly defined as 25.4 millimetres. There are 12 inches in a foot and 36
+            inches in a yard.
         </item>
         <item>
             CUBICYARD|Yard, Unit of length equal to 36 inches, or 3 feet (see foot), in the U.S. Customary
@@ -308,7 +329,12 @@
             pennyweight as the measure of precious metals in dental crowns and inlays.
         </item>
         <item>
-            POUND|Wow..where do we start with this one? Well,
+            POUND|The pound is a unit of mass used in the imperial, United States customary and other
+            systems of measurement. It is descended from the Roman libra (hence the abbreviation \"lb\");
+            the name pound is a Germanic adaptation of the Latin phrase libra pondo, "a pound by weight".
+            Since 1 July 1959, the international avoirdupois pound has been defined as exactly 0.45359237 kg.
+            Though we\'re mostly aware of the pound\'s usage in Britain and the United States, the unit has
+            a vast history that can date as far back as to the time of the Byzantinian Empire.
         </item>
         <item>
             QUARTER|The querter is used as the name of several distinct English units based on ¼
@@ -318,7 +344,11 @@
             is 28 lbs.
         </item>
         <item>
-            TON|
+            TON|The ton is a unit measure derived from the tun, the term applied to a barrel of the
+            largest size. This could contain a volume between 175 and 213 imperial gallons (210 and
+            256 US gal), which could weigh around 2,000 pounds (907 kg) and occupy some 60 cubic
+            feet (1.7 m3) of space. In the UK the ton is defined as 2,240 pounds (1,016 kg).
+            In the United States and formerly Canada a ton is defined to be 2,000 pounds.
         </item>
     </string-array>
     <string name="weight_fun_fact">
