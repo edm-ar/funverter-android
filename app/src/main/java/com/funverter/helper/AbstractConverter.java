@@ -147,7 +147,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         }
     }
 
-    //TODO this method should be shortened
     public void buttonClickHandler() {
         // hide keyboard once calculation is executed
         imm.hideSoftInputFromWindow(textInput.getWindowToken(), 0);
@@ -210,6 +209,10 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             Log.e(TAG, e.getMessage());
         }
 
+        setResult(result, fromUnit, toUnit, input);
+    }
+
+    private void setResult(StringBuilder result, String fromUnit, String toUnit, Float input) {
         if(StringUtils.isNotBlank(result)) {
             try {
                 dataSource.createConversionEntry(String.valueOf(input), tableName);
