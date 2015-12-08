@@ -186,8 +186,8 @@
 
     <string-array name="time_facts">
         <item>
-            HOUR|Good question...why is an hour 60 minutes? Why 60? Why is a day 24 hours? Hmm.
-            The Sumerians figured out 360 degree circles
+            HOUR|The hour is a unit measurement of time where, in modern age, an hour comprises 60
+            minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day.
         </item>
         <item>
             SECONDS|
