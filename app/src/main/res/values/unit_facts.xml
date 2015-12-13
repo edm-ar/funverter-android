@@ -186,26 +186,68 @@
 
     <string-array name="time_facts">
         <item>
-            HOUR|The hour is a unit measurement of time where, in modern age, an hour comprises 60
-            minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day.
+            HOURS|The hour is a unit measurement of time where, in modern age, an hour comprises 60
+            minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day. An hour in the
+            UTC time standard can include a negative or positive leap second, and may therefore have
+            a duration of 3,599 or 3,601 seconds for adjustment purposes. The division of time is traced
+            back to the ancient Sumerians in the 4th millenium B.C. The Sumerians used the Sexagesimal notation,
+            which is a mathematical system based on groups of 60. The Egyptians later took advantage
+            of this system to divide night and day into 12 equal hours.
         </item>
         <item>
-            SECONDS|
+            SECONDS|The second is defined as the second division of the hour by sixty, the first division
+            by sixty being the minute. The second emerged from the necessity of devising an
+            early geographic system that started with the latitude by the Greek astronomer Erathosthenes. A century later,
+            Hipparchus devised a system of longitude that encompassed to run from north to south (pole to pole).
+            Continuing his work, Ptolemy subdivided each of the 360 degrees of latitude and longitude
+            into smaller segments. With first division being called minute, the second became known as
+            second. Seconds weren\'t used until many centuries after Ptolemy\'s treatise of Almagest (circa A.D. 150).
         </item>
         <item>
-            MINUTES|
+            MINUTES|The minute is defined as the first division by sixty of the hour. Before the second,
+            the minute was resultant from Ptolemy\'s explanation of Hipparchus\' geographic system of longitude.
+            In his treatise of Almagest (circa A.D. 150) Ptolemy sought to explain and expand on the work of Hipparchus by
+            In his treatise of Almagest (circa A.D. 150) Ptolemy sought to explain and expand on the work of Hipparchus by
+            further subdividing each of the 360 degrees of latitude (introduced by GReek astronomer Erathosthenes) and longitude
+            into smaller parts. Each degree was divided into 60 parts, each of which was again subdivided by 60. The
+            first division was called \"partes minutae primae\" or first minute. The minute was not used in the clock
+            system until many centuries later.
         </item>
         <item>
-            DAYS|
+            DAYS|A day is an interval equal to 24 hours. It can also mean the consecutive period of time
+            during which the Sun is above the horizon. It is the period of time during which the Earth completes
+            one rotation around its axis, with respect to the Sun. Based on the definition of second, a day is 86 400 seconds.
+            The term comes from Old English dæg, with its cognates such as dagur in Icelandic, Tag in German,
+            and dag in Norwegian, Danish, Swedish and Dutch. The Earth\'s day has increased in length over time.
+            This phenomenon is due to tides raised by the Moon which slow Earth\'s rotation. Because of
+            the way the second is defined, the mean length of a day is now about 86 400.002 seconds,
+            and is increasing by about 1.7 milliseconds per century (an average over the last 2 700 years).
         </item>
         <item>
-            WEEKS|
+            WEEKS|A week is a time unit equal to 7 days. It is the standard time period used for cycles
+            of work days and rest days in most parts of the world, mostly alongside the Gregorian calendar.
+            The 7 day period was derived from the Babylonian lunar months where the seven days were 1/4 of
+            a month long. The naming of the days come from different languages and were associated with
+            classical planets, deities, etc... Sunday - Sun\'s day, Monday - Moon\'s day, Tuesday - Tiu\'s day (Germanic god of war),
+            Wednesday - Woden\'s day (chief Anglo-Saxon/Teutonic god), Thursday - Thor\'s day (Norse god of thunder),
+            Friday - Freya\'s day (Teutonic goddess of love) and Saturday - Saturn\'s day (Roman god of agriculture).
         </item>
         <item>
-            MONTHS|
+            MONTHS|The concept of month arose with the cycle of moon phases. A phase of the moon is the shape of
+            the illuminated portion of the Moon as seen by an observer on Earth. Julius Caesar\'s astronomers
+            used this to explain the need for 12 months in a year and the addition of a leap year to synchronize with
+            the seasons. At the time there were only 10 months in the calendar, and so the months of January
+            and February were added to the calendar, where the original 5th and 6th months were changed to
+            July and August to honour Julius and Augustus, his successor.
         </item>
         <item>
-            YEARS|
+            YEARS|A year is the time it takes for the Earth to orbit around the Sun. Because of the Earth\'s
+            axial tilt, a year is made up of passing seasons with changes in weather. A common year has 365
+            days, whereas a leap year is 366 days long. Leap years occur every 4 years with the purpose of
+            synchronizing the calendar year with the solar year, or the actual length of time it takes the earth to
+            complete its orbit around the sun (~ 365 1/4 days). So by adding an extra day every 4 years,
+            we ensure that the Earth is in the same point of its orbit at the same time of the calendar year,
+            each year.
         </item>
     </string-array>
     <string name="time_fun_fact">
