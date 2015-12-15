@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -302,6 +303,10 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         drawerView = (ListView) findViewById(R.id.navlist);
         myAdapter = new UnitConvertersAdapter(this);
         drawerView.setAdapter(myAdapter);
+        ViewGroup settingsLayout = (ViewGroup) getLayoutInflater().
+                inflate(R.layout.drawer_settings_layout, drawerView, false);
+
+        drawerView.addFooterView(settingsLayout);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         activityTitle = getTitle().toString();
@@ -332,22 +337,32 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-                String itemSelected = (String) parent.getAdapter().getItem(position);
-                String activityName =
-                        itemSelected.concat(FunverterMainActivity.ACTIVITYSUFFIX);
-                String activityFullPath =
-                        FunverterMainActivity.ACTIVITYPACKAGE.concat(activityName);
+
                 try {
-                    // dynamically load activity with full package path and class name
-                    intent = new Intent(context, Class.forName(activityFullPath));
-                    Log.i(TAG, "Starting " + activityFullPath + " activity.");
-                    startActivity(intent);
-                    overridePendingTransition(R.animator.enter, R.animator.exit);
-                    drawerLayout.closeDrawer(drawerView);
+                    if (view.getContentDescription() != null &&
+                            view.getContentDescription().equals("settings")) {
+                        String settingsPkg = "com.funverter.preferences.SettingsActivity";
+                        // dynamically load activity with full package path and class name
+                        intent = new Intent(context, Class.forName(settingsPkg));
+                        Log.i(TAG, "Starting " + settingsPkg + " activity.");
+                        startActivity(intent);
+                    } else {
+                        String itemSelected = (String) parent.getAdapter().getItem(position);
+                        String activityName =
+                                itemSelected.concat(FunverterMainActivity.ACTIVITYSUFFIX);
+                        String activityFullPath =
+                                FunverterMainActivity.ACTIVITYPACKAGE.concat(activityName);
+                        // dynamically load activity with full package path and class name
+                        intent = new Intent(context, Class.forName(activityFullPath));
+                        Log.i(TAG, "Starting " + activityFullPath + " activity.");
+                        startActivity(intent);
+                    }
                 } catch (Exception e) {
                     Log.e(TAG, e.getMessage(), e);
                     showToast("Oops...there has been an error :(");
                 }
+                overridePendingTransition(R.animator.enter, R.animator.exit);
+                drawerLayout.closeDrawer(drawerView);
             }
         });
         // to use drawable as item background
