@@ -175,13 +175,13 @@
             The United States didn\'t change to the new measurement until 1954.
         </item>
         <item>
-            KILOMETERS|Uhm...not much to say here. I guess whenever you want to measure really really really
+            KILOMETERS|Kilometers? Uhm...not much to say here. I guess whenever you want to measure really really really
             long lengths or distances you should use kilometers instead meters :)
         </item>
     </string-array>
     <string name="length_fun_fact">
-        The Great Wall of China is approximately 6,430 Km long (3,995 miles).
-        A wall that long could cover the United States from east to west coast almost twice.
+        The Great Wall of China is approximately 21,195.008 Kilometers long (13,170 Miles).
+        A wall that long could cover the United States from east to west coast over 4 times.
     </string>
 
     <string-array name="time_facts">
