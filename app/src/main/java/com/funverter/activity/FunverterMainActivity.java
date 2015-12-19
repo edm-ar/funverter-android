@@ -24,7 +24,7 @@ public class FunverterMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
-        setContentView(R.layout.activity_basic_unit_converter);
+        setContentView(R.layout.activity_funverter_main);
     }
 
     @Override

@@ -12,6 +12,5 @@
         android:textColor="#FFFFFF"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_marginTop="20dp"
-        android:maxLines="100"
-        android:scrollbars="vertical"/>
+        android:maxLines="100"/>
 </LinearLayout>

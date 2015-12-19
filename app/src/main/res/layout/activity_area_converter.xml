@@ -20,102 +20,106 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:background="@color/cyanBackground">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textInput"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:inputType="number|numberDecimal"
-                    android:hint="input area"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
-                    android:textIsSelectable="true"
-                    android:textSize="30dp"
-                    android:clickable="false"
-                    android:editable="false" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/spinnersContainer"
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true">
 
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textInput"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:inputType="number|numberDecimal"
+                        android:hint="input area"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#FFFFFF"
+                        android:textIsSelectable="true"
+                        android:textSize="30dp"
+                        android:clickable="false"
+                        android:editable="false" />
+
                     <LinearLayout
-                        android:orientation="horizontal"
+                        android:id="@+id/spinnersContainer"
+                        android:orientation="vertical"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="10dp">
+                        android:layout_alignParentStart="true">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/from_prompt"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="@color/textColorPrimary" />
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="10dp">
 
-                        <Spinner
-                            android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/from_prompt"
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/textColorPrimary" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fromSpinner"
+                                android:layout_gravity="center_horizontal"
+                                android:spinnerMode="dialog"
+                                android:entries="@array/area_units"
+                                android:prompt="@string/from_prompt"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/fromSpinner"
-                            android:layout_gravity="center_horizontal"
-                            android:spinnerMode="dialog"
-                            android:entries="@array/area_units"
-                            android:prompt="@string/from_prompt"
-                             />
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="84dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/to_prompt"
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@color/textColorPrimary" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/toSpinner"
+                                android:layout_gravity="center_horizontal"
+                                android:spinnerMode="dialog"
+                                android:entries="@array/area_units"
+                                android:prompt="@string/to_prompt"
+                                />
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="10dp">
+                    <include layout="@layout/calcbutton"/>
+                    <include layout="@layout/outputtext"/>
+                    <include layout="@layout/funfacts"/>
 
-                        <TextView
-                            android:layout_width="84dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/to_prompt"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="@color/textColorPrimary" />
-
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/toSpinner"
-                            android:layout_gravity="center_horizontal"
-                            android:spinnerMode="dialog"
-                            android:entries="@array/area_units"
-                            android:prompt="@string/to_prompt"
-                             />
-                    </LinearLayout>
                 </LinearLayout>
-
-                <include layout="@layout/calcbutton"/>
-                <include layout="@layout/outputtext"/>
-                <include layout="@layout/funfacts"/>
-
-            </LinearLayout>
+            </ScrollView>
         </RelativeLayout>
     </FrameLayout>
 
