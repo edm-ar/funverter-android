@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/factText"
-        android:textSize="15dp"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_marginTop="20dp"
-        android:maxLines="100"/>
-</LinearLayout>
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/factText"
+    android:textSize="15dp"
+    android:gravity="center"
+    android:layout_marginTop="20dp"
+    android:text="Sample"
+    android:textIsSelectable="true"
+    android:maxLines="100"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

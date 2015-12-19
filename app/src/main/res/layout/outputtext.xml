@@ -5,6 +5,7 @@
     android:id="@+id/textOutput"
     android:textSize="30dp"
     android:gravity="center"
-    android:textColor="#FFFFFF"
+    android:textColor="@color/colorAccent"
     android:textStyle="bold"
+    android:textIsSelectable="true"
     xmlns:android="http://schemas.android.com/apk/res/android" />

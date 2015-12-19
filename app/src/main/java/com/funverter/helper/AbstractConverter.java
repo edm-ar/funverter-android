@@ -97,7 +97,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
         /* initialize global variables*/
         factText = (TextView) findViewById(R.id.factText);
-        factText.setMovementMethod(new ScrollingMovementMethod());
         factText.setText(getResources().getString(getResources().
                 getIdentifier(converterFunFact, "string", getPackageName())));
 
