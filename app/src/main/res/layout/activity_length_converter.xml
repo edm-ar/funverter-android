@@ -18,7 +18,6 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
@@ -79,8 +78,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:spinnerMode="dialog"
                                 android:entries="@array/length_units"
-                                android:prompt="@string/from_prompt"
-                                />
+                                android:prompt="@string/from_prompt" />
                         </LinearLayout>
 
                         <LinearLayout
