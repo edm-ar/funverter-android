@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -39,6 +38,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.funverter.activity.FunverterMainActivity;
+import com.funverter.adapter.AutoCompleteAdapter;
+import com.funverter.adapter.UnitConvertersAdapter;
 import com.funverter.converter.apps.converters.R;
 import com.funverter.util.ConversionEntriesDataSource;
 import com.funverter.util.ConversionEntry;
@@ -135,6 +136,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             public boolean onTouch(View v, MotionEvent event) {
                 imm.showSoftInput(v, 0); // show keyboard when input field is tapped
                 // set adapter for autocomplete
+                textInput.requestFocus();
                 setAutocompleteAdapter();
                 return true;
             }
@@ -278,9 +280,10 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
 
     public void setAutocompleteAdapter() {
         entries = dataSource.getAllTableConversionEntries(tableName);
-        ArrayAdapter adapter =
-                new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, entries);
-        textInput.setAdapter(adapter);
+        AutoCompleteAdapter myAdapter = new AutoCompleteAdapter(dataSource, entries,
+                                    tableName, this, android.R.layout.simple_dropdown_item_1line);
+        ArrayAdapter arrAdapter = myAdapter.createAutoCompleteAdapter();
+        textInput.setAdapter(arrAdapter);
     }
 
     @Override

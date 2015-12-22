@@ -1,4 +1,4 @@
-package com.funverter.helper;
+package com.funverter.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -18,7 +18,7 @@ import com.funverter.converter.apps.converters.R;
  * Used to crunch the data from unit_converters string-array
  */
 
-class UnitConvertersAdapter extends BaseAdapter {
+public class UnitConvertersAdapter extends BaseAdapter {
     private Context context;
     String[] unit_converters;
     // used to ensure same order as unit_converters list
