@@ -30,10 +30,9 @@
     <string name="title_activity_area_converter">Area Converter</string>
     <string name="title_activity_time_converter">Time Converter</string>
 
-    <!-- Time Converter Units List -->
-    <string name="convert">Convert</string>
-    <string name="from_prompt">convert from:</string>
-    <string name="to_prompt">convert to:</string>
+    <!-- spinner prompts -->
+    <string name="from_prompt">Convert From:</string>
+    <string name="to_prompt">Convert To:</string>
 
     <!-- time unit list -->
     <string-array name="time_units">
@@ -104,8 +103,6 @@
 
     <!-- Ids -->
     <item name="toSpinner" type="id"/>
-
-    <string name="hello_world">Hello world!</string>
 
     <!-- for drawer hamburger icon -->
     <string name="drawer_open">Open navigation drawer</string>

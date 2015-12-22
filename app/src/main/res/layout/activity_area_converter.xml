@@ -41,10 +41,8 @@
                         android:hint="input area"
                         android:textColor="@color/cyanBackground"
                         android:textColorHint="@color/cyanBackground"
-                        android:textIsSelectable="true"
-                        android:textSize="30dp"
-                        android:clickable="false"
-                        android:editable="false" />
+                        android:singleLine="true"
+                        android:textSize="30dp" />
 
                     <LinearLayout
                         android:id="@+id/spinnersContainer"
