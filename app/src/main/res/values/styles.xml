@@ -7,8 +7,8 @@
             <item name="actionBarStyle">@style/HomeScreenActionBar</item>
 
             <item name="android:colorPrimary">@color/greenBackground</item>
-            <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
-            <item name="android:navigationBarColor">@color/darkGreenBackground</item>
+            <item name="android:colorPrimaryDark">@color/asbestos</item>
+            <item name="android:navigationBarColor">@color/asbestos</item>
         </style>
 
         <style name="TemperatureTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -36,9 +36,9 @@
             <!-- Support library compatibility -->
             <item name="actionBarStyle">@style/LengthActionBar</item>
 
-            <item name="android:colorPrimary">@color/redBackground</item>
-            <item name="android:colorPrimaryDark">@color/darkRedBackground</item>
-            <item name="android:navigationBarColor">@color/darkRedBackground</item>
+            <item name="android:colorPrimary">@color/orange</item>
+            <item name="android:colorPrimaryDark">@color/carrot</item>
+            <item name="android:navigationBarColor">@color/carrot</item>
     </style>
 
     <style name="VolumeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -57,8 +57,8 @@
         <item name="actionBarStyle">@style/TimeActionBar</item>
 
         <item name="android:colorPrimary">@color/pumpkinBackground</item>
-        <item name="android:colorPrimaryDark">@color/darkPumpkinBackground</item>
-        <item name="android:navigationBarColor">@color/darkPumpkinBackground</item>
+        <item name="android:colorPrimaryDark">@color/pomegranate</item>
+        <item name="android:navigationBarColor">@color/pomegranate</item>
     </style>
 
     <style name="AreaTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -77,16 +77,16 @@
         <item name="actionBarStyle">@style/HomeScreenActionBar</item>
 
         <item name="android:colorPrimary">@color/greenBackground</item>
-        <item name="android:colorPrimaryDark">@color/darkGreenBackground</item>
-        <item name="android:navigationBarColor">@color/darkGreenBackground</item>
+        <item name="android:colorPrimaryDark">@color/asbestos</item>
+        <item name="android:navigationBarColor">@color/asbestos</item>
     </style>
 
     <!-- styles -->
 
     <style name="HomeScreenActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/greenBackground</item>
+        <item name="android:background">@color/concrete</item>
         <!-- Support library compatibility -->
-        <item name="background">@color/greenBackground</item>
+        <item name="background">@color/concrete</item>
 
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
@@ -111,9 +111,9 @@
     </style>
 
     <style name="LengthActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/redBackground</item>
+        <item name="android:background">@color/orange</item>
         <!-- Support library compatibility -->
-        <item name="background">@color/redBackground</item>
+        <item name="background">@color/orange</item>
 
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
@@ -138,9 +138,9 @@
     </style>
 
     <style name="TimeActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/pumpkinBackground</item>
+        <item name="android:background">@color/alizarin</item>
         <!-- Support library compatibility -->
-        <item name="background">@color/pumpkinBackground</item>
+        <item name="background">@color/alizarin</item>
 
         <item name="android:elevation">4dp</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>

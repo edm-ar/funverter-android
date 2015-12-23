@@ -15,10 +15,19 @@
     <color name="greenSeaBackground">#16a085</color>
     <color name="darkGreenSeaBackground">#118770</color>
     <color name="cyanBackground">#00BCD4</color>
+    <color name="darkCyan">#00a5b7</color>
     <color name="darkCyanBackground">#0098ab</color>
     <color name="btnColor">#00dd5c</color>
     <color name="btnClickColor">#55E6E6E6</color>
+    <color name="concrete">#95a5a6</color>
+    <color name="asbestos">#7f8c8d</color>
     <color name="colorAccent">#EF6C00</color>
     <color name="darkColorAccent">#d86200</color>
     <color name="textColorPrimary">#FFFFFF</color>
+    <color name="pomegranate">#c0392b</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="wisteria">#8e44ad</color>
+    <color name="amethyst">#9b59b6</color>
+    <color name="orange">#f39c12</color>
+    <color name="carrot">#e67e22</color>
 </resources>

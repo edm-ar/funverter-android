@@ -39,8 +39,8 @@
                         android:layout_alignParentEnd="true"
                         android:inputType="number|numberDecimal"
                         android:hint="input length"
-                        android:textColor="@color/redBackground"
-                        android:textColorHint="@color/redBackground"
+                        android:textColor="@color/orange"
+                        android:textColorHint="@color/orange"
                         android:singleLine="true"
                         android:textSize="30dp" />
 
@@ -67,7 +67,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/from_prompt"
                                 android:layout_gravity="center_vertical"
-                                android:textColor="@color/redBackground"/>
+                                android:textColor="@color/orange"/>
 
                             <Spinner
                                 android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/to_prompt"
                                 android:layout_gravity="center_vertical"
-                                android:textColor="@color/redBackground"/>
+                                android:textColor="@color/orange"/>
 
                             <Spinner
                                 android:layout_width="match_parent"

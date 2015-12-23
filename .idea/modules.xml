@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/basicunitconverterandroidapp.iml" filepath="$PROJECT_DIR$/basicunitconverterandroidapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons-lang3-3.3.2/commons-lang3-3.3.2.iml" filepath="$PROJECT_DIR$/commons-lang3-3.3.2/commons-lang3-3.3.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/funverterandroidapp.iml" filepath="$PROJECT_DIR$/funverterandroidapp.iml" />
     </modules>
   </component>
 </project>
