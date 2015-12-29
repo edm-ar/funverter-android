@@ -20,7 +20,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION = 1;
 
     // TODO read table names from strings.xml
-    public static final String[] tableNames = {"distance","time","temperature","area",
+    public static final String[] tableNames = {"length","time","temperature","area",
             "volume","weight"};
 
     private String DATABASE_CREATE = "CREATE TABLE IF NOT EXISTS `%s` (\n" +

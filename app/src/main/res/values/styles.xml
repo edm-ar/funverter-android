@@ -1,44 +1,44 @@
 <resources>
 
-        <!-- application themes -->
-        <style name="ConverterHomeTheme" parent="Theme.AppCompat.Light">
-            <item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>
+    <!-- application themes -->
+    <style name="ConverterHomeTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>
 
-            <item name="actionBarStyle">@style/HomeScreenActionBar</item>
+        <item name="actionBarStyle">@style/HomeScreenActionBar</item>
 
-            <item name="android:colorPrimary">@color/asbestos</item>
-            <item name="android:colorPrimaryDark">@color/asbestos</item>
-            <item name="android:navigationBarColor">@color/concrete</item>
-        </style>
+        <item name="android:colorPrimary">@color/asbestos</item>
+        <item name="android:colorPrimaryDark">@color/concrete</item>
+        <item name="android:navigationBarColor">@color/concrete</item>
+    </style>
 
-        <style name="TemperatureTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-            <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
-            <!-- Support library compatibility -->
-            <item name="actionBarStyle">@style/TemperatureActionBar</item>
+    <style name="TemperatureTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/TemperatureActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/TemperatureActionBar</item>
 
-            <item name="android:colorPrimary">@color/blueBackground</item>
-            <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
-            <item name="android:navigationBarColor">@color/darkBlueBackground</item>
-        </style>
+        <item name="android:colorPrimary">@color/blueBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkBlueBackground</item>
+        <item name="android:navigationBarColor">@color/darkBlueBackground</item>
+    </style>
 
-        <style name="WeightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-            <item name="android:actionBarStyle">@style/WeightActionBar</item>
-            <!-- Support library compatibility -->
-            <item name="actionBarStyle">@style/WeightActionBar</item>
+    <style name="WeightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/WeightActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/WeightActionBar</item>
 
-            <item name="android:colorPrimary">@color/purpleBackground</item>
-            <item name="android:colorPrimaryDark">@color/darkPurpleBackground</item>
-            <item name="android:navigationBarColor">@color/darkPurpleBackground</item>
-        </style>
+        <item name="android:colorPrimary">@color/purpleBackground</item>
+        <item name="android:colorPrimaryDark">@color/darkPurpleBackground</item>
+        <item name="android:navigationBarColor">@color/darkPurpleBackground</item>
+    </style>
 
-        <style name="LengthTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-            <item name="android:actionBarStyle">@style/LengthActionBar</item>
-            <!-- Support library compatibility -->
-            <item name="actionBarStyle">@style/LengthActionBar</item>
+    <style name="LengthTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/LengthActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/LengthActionBar</item>
 
-            <item name="android:colorPrimary">@color/orange</item>
-            <item name="android:colorPrimaryDark">@color/carrot</item>
-            <item name="android:navigationBarColor">@color/carrot</item>
+        <item name="android:colorPrimary">@color/orange</item>
+        <item name="android:colorPrimaryDark">@color/carrot</item>
+        <item name="android:navigationBarColor">@color/carrot</item>
     </style>
 
     <style name="VolumeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
