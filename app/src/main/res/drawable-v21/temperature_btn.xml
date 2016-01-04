@@ -2,9 +2,8 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/ripple_material_dark" android:drawable="@android:color/white">
     <item>
-        <shape android:shape="oval">
+        <shape android:shape="oval">z
             <solid android:color="@color/blueBackground" />
-            <stroke android:width="2dp" android:color="@color/darkBlueBackground"/>
         </shape>
     </item>
 </ripple>
