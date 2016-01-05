@@ -59,7 +59,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         return true;
     }
 
-    @Override
+    /*@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Toast toast = null;
 
@@ -86,13 +86,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
 
         super.onActivityResult(requestCode, resultCode, data);
-    }
+    }*/
 
     public void sendFeedbackEmail() {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:")); // only email apps should handle this
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"ejsgon@gmail.com"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "funverter [Feedback]");
 
         try {
             startActivityForResult(Intent.createChooser(emailIntent,
