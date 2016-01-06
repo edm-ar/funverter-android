@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.funverter.converter.apps.converters.R;
+import com.tjeannin.apprate.AppRate;
 
 
 public class FunverterMainActivity extends AppCompatActivity {
@@ -25,6 +26,12 @@ public class FunverterMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_funverter_main);
+
+        new AppRate(this)
+                .setMinDaysUntilPrompt(7)
+                .setMinLaunchesUntilPrompt(10)
+                .setShowIfAppHasCrashed(false)
+                .init();
     }
 
     @Override

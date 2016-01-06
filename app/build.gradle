@@ -4,7 +4,7 @@ android {
     compileSdkVersion 22
     buildToolsVersion '22.0.0'
     defaultConfig {
-        applicationId "com.funverter.converters.apps.basicunitconverter"
+        applicationId 'com.funverter.converters'
         minSdkVersion 21
         targetSdkVersion 22
         versionCode 1
@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.2.+'
     compile 'com.android.support:percent:22.2.0'
+    compile files('libs/AppRate_1.1.jar')
 }
