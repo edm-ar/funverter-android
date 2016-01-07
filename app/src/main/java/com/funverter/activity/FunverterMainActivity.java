@@ -23,6 +23,12 @@ public class FunverterMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        setTheme(R.style.ConverterHomeTheme);
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_funverter_main);

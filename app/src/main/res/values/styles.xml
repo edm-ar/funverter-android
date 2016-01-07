@@ -1,5 +1,4 @@
 <resources>
-
     <!-- application themes -->
     <style name="ConverterHomeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionOverflowButtonStyle">@style/MyOverflow</item>
@@ -9,6 +8,10 @@
         <item name="android:colorPrimary">@color/purpleBackground</item>
         <item name="android:colorPrimaryDark">@color/darkPurpleBackground</item>
         <item name="android:navigationBarColor">@color/purpleBackground</item>
+    </style>
+
+    <style name="ConverterHomeTheme.BrandedLaunch" parent="ConverterHomeTheme">
+        <item name="android:windowBackground">@drawable/branded_logo</item>
     </style>
 
     <style name="TemperatureTheme" parent="Theme.AppCompat.Light.DarkActionBar">

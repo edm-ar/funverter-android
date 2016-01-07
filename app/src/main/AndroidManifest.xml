@@ -4,30 +4,15 @@
 
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22"/>
 
-    <compatible-screens>
-        <screen android:screenDensity="xhdpi" android:screenSize="small" />
-        <screen android:screenDensity="mdpi" android:screenSize="small" />
-
-        <screen android:screenDensity="xhdpi" android:screenSize="normal" />
-        <screen android:screenDensity="mdpi" android:screenSize="normal" />
-    </compatible-screens>
-
-    <supports-screens
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:smallScreens="false"
-        android:xlargeScreens="false"
-        android:requiresSmallestWidthDp="320"/>
-
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" >
         <activity
             android:name="com.funverter.activity.FunverterMainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/ConverterHomeTheme" >
+            android:theme="@style/ConverterHomeTheme.BrandedLaunch" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
