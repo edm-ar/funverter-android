@@ -10,7 +10,7 @@
         <item name="android:navigationBarColor">@color/purpleBackground</item>
     </style>
 
-    <style name="ConverterHomeTheme.BrandedLaunch" parent="ConverterHomeTheme">
+    <style name="ConverterHomeTheme.BrandedLaunch" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <item name="android:windowBackground">@drawable/branded_logo</item>
     </style>
 

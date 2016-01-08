@@ -6,7 +6,7 @@
     </item>
     <item>
         <bitmap
-            android:src="@mipmap/funverter_launch_image"
+            android:src="@drawable/funverter_launch_image"
             android:tileMode="disabled"
             android:gravity="center"/>
     </item>

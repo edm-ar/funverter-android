@@ -8,7 +8,7 @@
     android:layout_centerVertical="true"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:src="@drawable/ic_calculator"
+    android:src="@mipmap/ic_calculator"
     android:layout_gravity="center_horizontal"
     android:background="@drawable/circularbutton"
     android:scaleType="fitStart"
