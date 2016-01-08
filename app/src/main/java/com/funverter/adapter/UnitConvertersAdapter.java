@@ -22,8 +22,8 @@ public class UnitConvertersAdapter extends BaseAdapter {
     private Context context;
     String[] unit_converters;
     // used to ensure same order as unit_converters list
-    int[] images = {R.mipmap.ic_temperature, R.mipmap.ic_weight, R.mipmap.ic_length,
-            R.mipmap.ic_volume, R.mipmap.ic_area, R.mipmap.ic_time};
+    int[] images = {R.mipmap.ic_temperature, R.mipmap.ic_area, R.mipmap.ic_length,
+            R.mipmap.ic_time, R.mipmap.ic_volume, R.mipmap.ic_weight};
     private Resources.Theme theme;
 
     public UnitConvertersAdapter(Context context) {

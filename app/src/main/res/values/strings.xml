@@ -7,11 +7,11 @@
     <!-- unit converter array -->
     <string-array name="unit_converters">
         <item>Temperature</item>
-        <item>Weight</item>
-        <item>Length</item>
-        <item>Volume</item>
         <item>Area</item>
+        <item>Length</item>
         <item>Time</item>
+        <item>Volume</item>
+        <item>Weight</item>
     </string-array>
 
     <!-- Converter Text -->
