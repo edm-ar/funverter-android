@@ -52,6 +52,6 @@ public abstract class UnitSymbols {
         symbols.put("ounce", "oz");
         symbols.put("pennyweight", "dwt");
         symbols.put("pound", "lbs");
-        symbols.put("quarter", "lbs");
+        symbols.put("quarter", "qrt");
     }
 }
