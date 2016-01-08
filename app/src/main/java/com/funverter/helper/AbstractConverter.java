@@ -241,12 +241,15 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                 funFactsSb.append(System.getProperty("line.separator"));
                 funFactsSb.append(System.getProperty("line.separator"));
             }
-            if(funFacts.containsKey(bottomFactKey)) {
-                funFactsSb.append(funFacts.get(bottomFactKey));
-            } else {
-                funFactsSb.append("Hmm...no facts for the " + WordUtils.capitalize(bottomFactKey)
-                        + " unit. Must be a boring one :(");
+            if(!topFactKey.equals(bottomFactKey)) {
+                if(funFacts.containsKey(bottomFactKey)) {
+                    funFactsSb.append(funFacts.get(bottomFactKey));
+                } else {
+                    funFactsSb.append("Hmm...no facts for the " + WordUtils.capitalize(bottomFactKey)
+                            + " unit. Must be a boring one :(");
+                }
             }
+
             if(StringUtils.isNotBlank(funFactsSb.toString())) {
                 factText.setText(funFactsSb.toString());
             }
