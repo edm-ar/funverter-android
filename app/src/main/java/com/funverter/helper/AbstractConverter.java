@@ -162,7 +162,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
         StringBuilder result = new StringBuilder();
 
         // convert all to upper case so that the unit class can find them in enum
-        String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ","");
+        String fromUnit = fromSpinner.getSelectedItem().toString().toUpperCase().replace(" ", "");
         // split on space so that enum type methods are matched accurately
         String[] temp = toSpinner.getSelectedItem().toString().split(" ");
         StringBuilder toUnitSb = new StringBuilder();
@@ -170,8 +170,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             toUnitSb.append(StringUtils.capitalize(u.toLowerCase()));
         }
         String toUnit = toUnitSb.toString();
-        BigDecimal input = null;
-        DecimalFormat df = null;
 
         try {
             Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
@@ -192,17 +190,13 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
             double out = ((Number)returnValue).doubleValue();
 
-            DecimalFormat df2 = new DecimalFormat("#");
-            df2.setMaximumFractionDigits(100);
-            BigDecimal dec = new BigDecimal((df2.format(out)));
-
-            df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+            DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
             DecimalFormatSymbols symbols = new DecimalFormatSymbols();
             symbols.setGroupingSeparator(',');
             symbols.setDecimalSeparator('.');
             df.setDecimalFormatSymbols(symbols);
             df.setParseBigDecimal(true);
-            result.append(df.format(dec));
+            result.append(df.format(out));
 
             if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
                 result.append(" ").append(UnitSymbols.symbols.get(toUnit.toLowerCase()));
@@ -217,7 +211,8 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             Log.e(TAG, e.getMessage());
         }
 
-        input = new BigDecimal(inputText);
+        // this will be used to create conversion entries for autocomplete
+        BigDecimal input = new BigDecimal(inputText);
         setResult(result, fromUnit, toUnit, input);
     }
 
