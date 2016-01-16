@@ -4,7 +4,7 @@ android {
     compileSdkVersion 22
     buildToolsVersion '22.0.0'
     defaultConfig {
-        applicationId 'com.funverter.converters'
+        applicationId 'com.android.funverter'
         minSdkVersion 21
         targetSdkVersion 22
         versionCode 1
