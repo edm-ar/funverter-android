@@ -9,7 +9,7 @@ package com.funverter.util;
 public class ConversionEntry {
 
     private long id;
-    private double value;
+    private String value;
 
     public void setId(long id) {
         this.id = id;
@@ -19,16 +19,16 @@ public class ConversionEntry {
         return this.id;
     }
 
-    public void setValue(double value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
-    public double getValue() {
+    public String getValue() {
         return this.value;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        return value;
     }
 }

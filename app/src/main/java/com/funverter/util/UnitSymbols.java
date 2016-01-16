@@ -26,7 +26,7 @@ public abstract class UnitSymbols {
         symbols.put("celsius", "°c");
         symbols.put("kelvin", "°k");
         symbols.put("rankine", "°r");
-        symbols.put("reaumur", "°ré");
+        symbols.put("reaumur", "°Ré");
         symbols.put("cubicmeter", "m³");
         symbols.put("cubicinch", "in³");
         symbols.put("cubicyard", "yds³");

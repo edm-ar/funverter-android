@@ -30,7 +30,7 @@ public class FunverterMainActivity extends AppCompatActivity {
         }
         setTheme(R.style.ConverterHomeTheme);
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.animator.enter, R.animator.exit);
+//        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_funverter_main);
 
         new AppRate(this)
@@ -90,6 +90,6 @@ public class FunverterMainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
+//        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
     }
 }

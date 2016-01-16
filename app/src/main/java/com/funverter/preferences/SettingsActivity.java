@@ -3,8 +3,6 @@ package com.funverter.preferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.funverter.converter.apps.converters.R;
-
 /**
  * Created by Edmar on 6/7/2015.
  */
@@ -15,7 +13,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.animator.enter, R.animator.exit);
         // Display the fragment as the main content
         SettingsFragment fragment = new SettingsFragment();
         getFragmentManager().beginTransaction()
@@ -27,13 +24,11 @@ public class SettingsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         finish();
-
         return true;
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
     }
 }

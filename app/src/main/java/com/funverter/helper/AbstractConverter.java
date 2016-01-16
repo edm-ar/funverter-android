@@ -29,6 +29,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
@@ -79,7 +80,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                             final Class activityClass, Class unitClass) {
 
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(layout);
 
         /* initialize fun facts map */
@@ -159,7 +159,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             return;
         }
 
-        Float input = Float.parseFloat(inputText);
         StringBuilder result = new StringBuilder();
 
         // convert all to upper case so that the unit class can find them in enum
@@ -171,6 +170,8 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             toUnitSb.append(StringUtils.capitalize(u.toLowerCase()));
         }
         String toUnit = toUnitSb.toString();
+        BigDecimal input = null;
+        DecimalFormat df = null;
 
         try {
             Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
@@ -191,12 +192,17 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             Object returnValue = mth.invoke(constant, (Object) (Double.parseDouble(inputText)));
             double out = ((Number)returnValue).doubleValue();
 
-            DecimalFormat df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+            DecimalFormat df2 = new DecimalFormat("#");
+            df2.setMaximumFractionDigits(100);
+            BigDecimal dec = new BigDecimal((df2.format(out)));
+
+            df = (DecimalFormat) NumberFormat.getInstance(Locale.US);
             DecimalFormatSymbols symbols = new DecimalFormatSymbols();
             symbols.setGroupingSeparator(',');
             symbols.setDecimalSeparator('.');
             df.setDecimalFormatSymbols(symbols);
-            result.append(df.format(out));
+            df.setParseBigDecimal(true);
+            result.append(df.format(dec));
 
             if(UnitSymbols.symbols.get(toUnit.toLowerCase()) != null) {
                 result.append(" ").append(UnitSymbols.symbols.get(toUnit.toLowerCase()));
@@ -211,13 +217,14 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
             Log.e(TAG, e.getMessage());
         }
 
+        input = new BigDecimal(inputText);
         setResult(result, fromUnit, toUnit, input);
     }
 
-    private void setResult(StringBuilder result, String fromUnit, String toUnit, Float input) {
+    private void setResult(StringBuilder result, String fromUnit, String toUnit, BigDecimal input) {
         if(StringUtils.isNotBlank(result)) {
             try {
-                dataSource.createConversionEntry(String.valueOf(input), tableName);
+                dataSource.createConversionEntry(input.toPlainString(), tableName);
                 // get updated list of entries
                 setAutocompleteAdapter();
             } catch(SQLiteConstraintException e) {
@@ -292,7 +299,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.animator.left_to_right, R.animator.right_to_left);
     }
 
     @Override
@@ -366,7 +372,6 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                     Log.e(TAG, e.getMessage(), e);
                     showToast("Oops...there has been an error :(");
                 }
-                overridePendingTransition(R.animator.enter, R.animator.exit);
                 drawerLayout.closeDrawer(drawerView);
             }
         });

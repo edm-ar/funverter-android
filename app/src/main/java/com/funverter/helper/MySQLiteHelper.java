@@ -25,7 +25,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 
     private String DATABASE_CREATE = "CREATE TABLE IF NOT EXISTS `%s` (\n" +
             "\t`%s`\tINTEGER,\n" +
-            "\t`%s`\tREAL NOT NULL unique,\n" +
+            "\t`%s`\tTEXT NOT NULL unique,\n" +
             "\tPRIMARY KEY(%s)\n" +
             ");";
 

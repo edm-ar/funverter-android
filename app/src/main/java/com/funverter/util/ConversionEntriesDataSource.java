@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.funverter.helper.MySQLiteHelper;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -81,10 +82,8 @@ public class ConversionEntriesDataSource {
     }
 
     public List<ConversionEntry> getAllTableConversionEntries(String tableName) {
-        List<ConversionEntry> conversionEntries = new ArrayList<ConversionEntry>();
-
+        List<ConversionEntry> conversionEntries = new ArrayList<>();
         Cursor cursor = getCursor(tableName);
-
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             ConversionEntry comment = cursorToConversionEntry(cursor);
@@ -97,7 +96,7 @@ public class ConversionEntriesDataSource {
     }
 
     public List<ConversionEntry> getAllConversionEntries() {
-        List<ConversionEntry> conversionEntries = new ArrayList<ConversionEntry>();
+        List<ConversionEntry> conversionEntries = new ArrayList<>();
 
         Cursor cursor = database.query(null,
                 new String[]{MySQLiteHelper.COLUMN_VALUES}, null, null, null, null, null);
@@ -116,7 +115,7 @@ public class ConversionEntriesDataSource {
     private ConversionEntry cursorToConversionEntry(Cursor cursor) {
         ConversionEntry conversionEntry = new ConversionEntry();
         conversionEntry.setId(cursor.getLong(0));
-        conversionEntry.setValue(Double.parseDouble(cursor.getString(1)));
+        conversionEntry.setValue(cursor.getString(1));
         return conversionEntry;
     }
 
