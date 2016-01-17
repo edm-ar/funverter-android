@@ -275,6 +275,9 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
     @Override
     public void onStop() {
         super.onStop();
+        if(drawerLayout.isDrawerVisible(drawerView)) {
+            drawerLayout.closeDrawer(drawerView);
+        }
         dataSource.close();
     }
 
@@ -367,7 +370,7 @@ public abstract class AbstractConverter extends AppCompatActivity implements Con
                     Log.e(TAG, e.getMessage(), e);
                     showToast("Oops...there has been an error :(");
                 }
-                drawerLayout.closeDrawer(drawerView);
+//                drawerLayout.closeDrawer(drawerView);
             }
         });
         // to use drawable as item background
