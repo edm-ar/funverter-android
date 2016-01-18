@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">funverter</string>
+    <string name="app_name">Funverter</string>
     <string name="action_settings">Settings</string>
 
     <!-- unit converter array -->
@@ -23,12 +23,12 @@
     <string name="converter_time">Time</string>
 
     <!-- Activity Titles -->
-    <string name="title_activity_temperature_converter">temperature converter</string>
-    <string name="title_activity_weight_converter">weight converter</string>
-    <string name="title_activity_length_converter">length converter</string>
-    <string name="title_activity_volume_converter">volume converter</string>
-    <string name="title_activity_area_converter">area converter</string>
-    <string name="title_activity_time_converter">time converter</string>
+    <string name="title_activity_temperature_converter">Temperature Converter</string>
+    <string name="title_activity_weight_converter">Weight Converter</string>
+    <string name="title_activity_length_converter">Length Converter</string>
+    <string name="title_activity_volume_converter">Volume Converter</string>
+    <string name="title_activity_area_converter">Area Converter</string>
+    <string name="title_activity_time_converter">Time Converter</string>
 
     <!-- spinner prompts -->
     <string name="from_prompt">Convert From:</string>
@@ -78,7 +78,8 @@
     <string-array name="area_units">
         <item>Acre</item>
         <item>Are</item>
-        <item>Barn</item>
+        <!-- disabling barn until units are changed to BigDecimal type -->
+        <!--<item>Barn</item>-->
         <item>Hectare</item>
         <item>Rood</item>
         <item>Square Foot</item>

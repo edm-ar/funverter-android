@@ -21,10 +21,10 @@ public abstract class UnitSymbols {
         symbols.put("yards", "yds");
         symbols.put("meters", "m");
         symbols.put("miles", "m");
-        symbols.put("kilometers", "km");
-        symbols.put("fahrenheit", "°f");
-        symbols.put("celsius", "°c");
-        symbols.put("kelvin", "°k");
+        symbols.put("kilometers", "Km");
+        symbols.put("fahrenheit", "°F");
+        symbols.put("celsius", "°C");
+        symbols.put("kelvin", "°K");
         symbols.put("rankine", "°r");
         symbols.put("reaumur", "°Ré");
         symbols.put("cubicmeter", "m³");
@@ -48,10 +48,11 @@ public abstract class UnitSymbols {
         symbols.put("kilogram", "kg");
         symbols.put("carat", "cd");
         symbols.put("grain", "gr");
-        symbols.put("newton", "n");
+        symbols.put("newton", "N");
         symbols.put("ounce", "oz");
         symbols.put("pennyweight", "dwt");
         symbols.put("pound", "lbs");
         symbols.put("quarter", "qrt");
+        symbols.put("rood", "ro");
     }
 }
