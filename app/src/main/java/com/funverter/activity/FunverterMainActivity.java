@@ -1,12 +1,14 @@
 package com.funverter.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.funverter.converter.apps.converters.R;
@@ -32,6 +34,19 @@ public class FunverterMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        overridePendingTransition(R.animator.enter, R.animator.exit);
         setContentView(R.layout.activity_funverter_main);
+
+        // adjust layout for specific devices
+        LinearLayout funLayout = (LinearLayout)findViewById(R.id.funverver_menu);
+        LinearLayout.LayoutParams funParams = (LinearLayout.LayoutParams)funLayout.getLayoutParams();
+        String model = Build.MODEL;
+
+        if(model.contains("Nexus 4")) {
+            funParams.weight = 1.5f;
+            funLayout.setLayoutParams(funParams);
+        } else if (model.contains("Nexus 7")) {
+            funParams.weight = 1f;
+            funLayout.setLayoutParams(funParams);
+        }
 
         new AppRate(this)
                 .setMinDaysUntilPrompt(7)

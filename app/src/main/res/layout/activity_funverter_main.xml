@@ -1,146 +1,177 @@
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-
-    tools:context="com.funverter.activity.FunverterMainActivity">
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <!-- Used for setting up center layout -->
         <LinearLayout
-            app:layout_heightPercent="80%"
-            app:layout_widthPercent="80%"
-            android:id="@+id/funverver_menu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+        </LinearLayout>
+
+        <!-- Main layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
             android:gravity="center"
             android:orientation="vertical">
+            <!-- Used for setting up center layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".33"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:padding="35dp"
-                    android:layout_margin="2dp"
-                    android:layout_weight="0.50"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:id="@+id/temperatureBtn"
-                    android:background="@drawable/temperature_btn"
-                    android:src="@mipmap/ic_temperature"
-                    android:soundEffectsEnabled="true"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:onClick="onClick"
-                    android:contentDescription="@string/converter_temperature" />
-
-                <ImageButton
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_margin="2dp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:padding="35dp"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_weight="0.50"
-                    android:id="@+id/imageButton2"
-                    android:src="@mipmap/ic_area"
-                    android:background="@drawable/area_btn"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:onClick="onClick"
-                    android:contentDescription="@string/converter_area"/>
+                android:layout_weight="0.1">
             </LinearLayout>
+
+            <!-- Main layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".33"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_margin="2dp"
-                    android:layout_width="0dp"
-                    android:padding="25dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_weight="0.50"
-                    android:id="@+id/imageButton3"
-                    android:src="@mipmap/ic_length"
-                    android:background="@drawable/length_btn"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:onClick="onClick"
-                    android:contentDescription="@string/converter_length"/>
-
-                <ImageButton
-                    android:layout_row="1"
-                    android:layout_column="1"
-                    android:layout_margin="2dp"
-                    android:layout_width="0dp"
-                    android:padding="35dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_weight="0.50"
-                    android:id="@+id/imageButton4"
-                    android:src="@mipmap/ic_time"
-                    android:background="@drawable/time_btn"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:onClick="onClick"
-                    android:contentDescription="@string/converter_time" />
+                android:layout_weight="0.8"
+                android:id="@+id/funverver_menu"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".33"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:padding="35dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.50"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:id="@+id/temperatureBtn"
+                        android:background="@drawable/temperature_btn"
+                        android:src="@mipmap/ic_temperature"
+                        android:soundEffectsEnabled="true"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:onClick="onClick"
+                        android:contentDescription="@string/converter_temperature" />
+                    <ImageButton
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_margin="2dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:padding="35dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="0.50"
+                        android:id="@+id/imageButton2"
+                        android:src="@mipmap/ic_area"
+                        android:background="@drawable/area_btn"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:onClick="onClick"
+                        android:contentDescription="@string/converter_area"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".33"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_margin="2dp"
+                        android:layout_width="0dp"
+                        android:padding="25dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="0.50"
+                        android:id="@+id/imageButton3"
+                        android:src="@mipmap/ic_length"
+                        android:background="@drawable/length_btn"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:onClick="onClick"
+                        android:contentDescription="@string/converter_length"/>
+                    <ImageButton
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:layout_margin="2dp"
+                        android:layout_width="0dp"
+                        android:padding="35dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="0.50"
+                        android:id="@+id/imageButton4"
+                        android:src="@mipmap/ic_time"
+                        android:background="@drawable/time_btn"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:onClick="onClick"
+                        android:contentDescription="@string/converter_time" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".33"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_margin="2dp"
+                        android:padding="30dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="0.50"
+                        android:id="@+id/imageButton5"
+                        android:src="@mipmap/ic_volume"
+                        android:background="@drawable/volume_btn"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:onClick="onClick"
+                        android:contentDescription="@string/converter_volume"
+                        android:tint="#ffffff"
+                        android:tintMode="multiply" />
+                    <ImageButton
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:layout_margin="2dp"
+                        android:layout_width="0dp"
+                        android:padding="35dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_weight="0.50"
+                        android:id="@+id/imageButton6"
+                        android:src="@mipmap/ic_weight"
+                        android:background="@drawable/weight_btn"
+                        android:clickable="true"
+                        android:elevation="3dp"
+                        android:contentDescription="@string/converter_weight"
+                        android:onClick="onClick"/>
+                </LinearLayout>
             </LinearLayout>
+
+            <!-- Used for setting up center layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".33"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:layout_row="2"
-                    android:layout_column="0"
-                    android:layout_margin="2dp"
-                    android:padding="30dp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_weight="0.50"
-                    android:id="@+id/imageButton5"
-                    android:src="@mipmap/ic_volume"
-                    android:background="@drawable/volume_btn"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:onClick="onClick"
-                    android:contentDescription="@string/converter_volume"
-                    android:tint="#ffffff"
-                    android:tintMode="multiply" />
-
-                <ImageButton
-                    android:layout_row="2"
-                    android:layout_column="1"
-                    android:layout_margin="2dp"
-                    android:layout_width="0dp"
-                    android:padding="35dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_weight="0.50"
-                    android:id="@+id/imageButton6"
-                    android:src="@mipmap/ic_weight"
-                    android:background="@drawable/weight_btn"
-                    android:clickable="true"
-                    android:elevation="3dp"
-                    android:contentDescription="@string/converter_weight"
-                    android:onClick="onClick"/>
+                android:layout_weight="0.1">
             </LinearLayout>
         </LinearLayout>
-</android.support.percent.PercentRelativeLayout>
+
+        <!-- Used for setting up center layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
