@@ -92,7 +92,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:")); // only email apps should handle this
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"ejsgon@gmail.com"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "funverter [Feedback]");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Funverter [Feedback] ["
+                + versionNamePref + " - " + buildVersionPref + "]");
 
         try {
             startActivityForResult(Intent.createChooser(emailIntent,
