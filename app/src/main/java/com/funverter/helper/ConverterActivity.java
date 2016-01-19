@@ -126,7 +126,7 @@ public abstract class ConverterActivity extends AppCompatActivity implements Con
         dataSource = new ConversionEntriesDataSource(ctx);
         dataSource.open();
 
-        Log.i(TAG, "Adding " + tableName + " to autocomplete view");
+//        Log.i(TAG, "Adding " + tableName + " to autocomplete view");
 
         // create button listener
         View.OnClickListener listener = new ButtonListener();
@@ -173,7 +173,7 @@ public abstract class ConverterActivity extends AppCompatActivity implements Con
         String toUnit = toUnitSb.toString();
 
         try {
-            Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
+//            Log.d(TAG, "Converting from " + fromUnit + " to " + toUnit);
             Object[] constants = unitClazz.getEnumConstants();
             Object constant = null;
 
@@ -354,7 +354,7 @@ public abstract class ConverterActivity extends AppCompatActivity implements Con
                         String settingsPkg = "com.funverter.preferences.SettingsActivity";
                         // dynamically load activity with full package path and class name
                         intent = new Intent(context, Class.forName(settingsPkg));
-                        Log.i(TAG, "Starting " + settingsPkg + " activity.");
+//                        Log.i(TAG, "Starting " + settingsPkg + " activity.");
                         startActivity(intent);
                     } else {
                         String itemSelected = (String) parent.getAdapter().getItem(position);
@@ -364,7 +364,7 @@ public abstract class ConverterActivity extends AppCompatActivity implements Con
                                 FunverterMainActivity.ACTIVITYPACKAGE.concat(activityName);
                         // dynamically load activity with full package path and class name
                         intent = new Intent(context, Class.forName(activityFullPath));
-                        Log.i(TAG, "Starting " + activityFullPath + " activity.");
+//                        Log.i(TAG, "Starting " + activityFullPath + " activity.");
                         startActivity(intent);
                     }
                 } catch (Exception e) {

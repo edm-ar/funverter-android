@@ -54,7 +54,7 @@ public class ConversionEntriesDataSource {
             entry = cursorToConversionEntry(cursor);
             cursor.close();
         } catch(SQLiteConstraintException e) {
-            Log.w(this.getClass().getName(), "Error inserting " + values + " into " +
+            Log.e(this.getClass().getName(), "Error inserting " + values + " into " +
                     tableName + ". Probably because the value is not unique.", e);
         }
 
