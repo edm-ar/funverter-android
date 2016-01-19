@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'FunverterKey'
+            keyPassword 'funformeandforyou'
+            storeFile file('C:/Users/Edmar/AndroidStudioProjects/keys/Funverter/funverter.jks')
+            storePassword 'funformeandforyou'
+        }
+    }
     compileSdkVersion 22
     buildToolsVersion '22.0.0'
     defaultConfig {
@@ -14,6 +22,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     productFlavors {
