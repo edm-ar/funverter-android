@@ -26,6 +26,7 @@ public class FunverterMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
+            // short sleep for presentation screen
             Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();
