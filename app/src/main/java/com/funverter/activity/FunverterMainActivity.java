@@ -44,7 +44,10 @@ public class FunverterMainActivity extends AppCompatActivity {
         if(model.contains("Nexus 4")) {
             funParams.weight = 1.5f;
             funLayout.setLayoutParams(funParams);
-        } else if (model.contains("Nexus 7")) {
+        } else if(model.contains("Nexus 7")) {
+            funParams.weight = 1f;
+            funLayout.setLayoutParams(funParams);
+        } else if(model.contains("Nexus 5")) {
             funParams.weight = 1f;
             funLayout.setLayoutParams(funParams);
         }
