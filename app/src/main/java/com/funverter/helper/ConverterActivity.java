@@ -1,6 +1,7 @@
 package com.funverter.helper;
 
 import android.content.res.Configuration;
+import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
@@ -49,7 +50,7 @@ import com.funverter.util.UnitSymbols;
 /**
  * Created by Edmar on 6/29/2015.
  */
-public abstract class AbstractConverter extends AppCompatActivity implements Converter {
+public abstract class ConverterActivity extends AppCompatActivity implements Converter {
 
     private String TAG;
     private String tableName;

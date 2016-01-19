@@ -4,11 +4,11 @@ package com.funverter.activity;
 import android.os.Bundle;
 
 import com.funverter.converter.apps.converters.R;
-import com.funverter.helper.AbstractConverter;
+import com.funverter.helper.ConverterActivity;
 import com.funverter.converter.TimeUnitExtension;
 
 //TODO update timeunit converter
-public class TimeConverterActivity extends AbstractConverter {
+public class TimeConverterActivity extends ConverterActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
