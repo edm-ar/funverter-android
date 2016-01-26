@@ -40,7 +40,6 @@ public class FunverterMainActivity extends AppCompatActivity {
         // adjust layout for specific devices
         LinearLayout funLayout = (LinearLayout)findViewById(R.id.funverver_menu);
         LinearLayout.LayoutParams funParams = (LinearLayout.LayoutParams)funLayout.getLayoutParams();
-        String model = Build.MODEL;
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         if(metrics.densityDpi > metrics.DENSITY_HIGH
