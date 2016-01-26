@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,13 +42,13 @@ public class FunverterMainActivity extends AppCompatActivity {
         LinearLayout.LayoutParams funParams = (LinearLayout.LayoutParams)funLayout.getLayoutParams();
         String model = Build.MODEL;
 
-        if(model.contains("Nexus 4")) {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        if(metrics.densityDpi > metrics.DENSITY_HIGH
+                && metrics.densityDpi <= metrics.DENSITY_XHIGH) {
             funParams.weight = 1.5f;
             funLayout.setLayoutParams(funParams);
-        } else if(model.contains("Nexus 7")) {
-            funParams.weight = 1f;
-            funLayout.setLayoutParams(funParams);
-        } else if(model.contains("Nexus 5")) {
+        } else if(metrics.densityDpi > metrics.DENSITY_XHIGH
+                && metrics.densityDpi <= metrics.DENSITY_XXHIGH) {
             funParams.weight = 1f;
             funLayout.setLayoutParams(funParams);
         }
