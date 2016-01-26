@@ -47,7 +47,7 @@ public class FunverterMainActivity extends AppCompatActivity {
             funParams.weight = 1.5f;
             funLayout.setLayoutParams(funParams);
         } else if(metrics.densityDpi > metrics.DENSITY_XHIGH
-                && metrics.densityDpi <= metrics.DENSITY_XXHIGH) {
+                && metrics.densityDpi <= 410) {
             funParams.weight = 1f;
             funLayout.setLayoutParams(funParams);
         }
